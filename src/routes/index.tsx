@@ -214,7 +214,7 @@ function Hero() {
   const [paused, setPaused] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-hero">
+    <section className="relative overflow-hidden bg-gradient-hero-light">
       <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
         <div className="mx-auto max-w-3xl text-center">
@@ -444,7 +444,7 @@ const PROBLEMS = [
 
 function Problems() {
   return (
-    <section className="border-t border-border/60 bg-white py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16">
           <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
@@ -532,7 +532,7 @@ const STEPS = [
 function WorkflowSection() {
   const [active, setActive] = useState(0);
   return (
-    <section className="bg-surface-alt py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Pill>
@@ -938,7 +938,7 @@ const USE_CASES = [
 
 function UseCases() {
   return (
-    <section className="bg-surface-alt py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <div className="flex flex-col justify-center">
@@ -1121,7 +1121,7 @@ const METRICS = [
 
 function DataTrust() {
   return (
-    <section className="bg-surface-alt py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
           <div>
@@ -1383,7 +1383,7 @@ function Testimonials() {
 
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-gradient-cta-light py-20 sm:py-28">
       <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
