@@ -1260,9 +1260,12 @@ function Testimonials() {
             </div>
             <div className="relative mt-10 flex items-end justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white/10 font-semibold">
-                  {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                </div>
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className={`h-12 w-12 shrink-0 ${t.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
+                  style={{ objectFit: t.avatarFit }}
+                />
                 <div>
                   <div className="font-semibold">{t.name}</div>
                   <div className="text-xs text-white/60">
