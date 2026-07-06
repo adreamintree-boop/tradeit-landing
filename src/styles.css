@@ -145,6 +145,12 @@
 @utility bg-gradient-hero {
   background: var(--gradient-hero);
 }
+@utility bg-gradient-hero-light {
+  background: linear-gradient(180deg, #f2f8fc 0%, #f7fbfd 45%, #ffffff 100%);
+}
+@utility bg-gradient-cta-light {
+  background: linear-gradient(180deg, #ffffff 0%, #f2f8fc 35%, #eef8ff 100%);
+}
 @utility bg-gradient-brand {
   background: var(--gradient-brand);
 }
