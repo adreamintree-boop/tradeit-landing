@@ -500,34 +500,70 @@ function Problems() {
 
 const STEPS = [
   {
-    title: "Trade Data",
+    tab: "Trade Data",
+    label: "STEP 1 — TRADE DATA",
+    headline: "Find real buyers through shipment data",
     body: "Search products, HS codes, or company names to discover real importers and exporters through global shipment data.",
-    icon: Ship,
+    bullets: [
+      "Search by product, HS code, or company name",
+      "Discover active importers and exporters",
+      "Review shipment history and trade activity",
+    ],
+    cta: "Try this step",
   },
   {
-    title: "Enrich",
-    body: "Turn company names into actionable buyer profiles with websites, business details, and decision-maker contacts.",
-    icon: Building2,
+    tab: "Enrich",
+    label: "STEP 2 — ENRICH",
+    headline: "Turn company names into buyer profiles",
+    body: "Enrich buyer records with company websites, business details, and available decision-maker contact information.",
+    bullets: [
+      "Add company website and basic business details",
+      "Find available contact information",
+      "Build more complete buyer profiles",
+    ],
+    cta: "Explore enrichment",
   },
   {
-    title: "AI Analysis",
-    body: "Review trade activity, shipment history, and buyer relevance to understand which companies are worth targeting.",
-    icon: Brain,
+    tab: "AI Analysis",
+    label: "STEP 3 — AI ANALYSIS",
+    headline: "Understand which buyers are worth your time",
+    body: "Use AI to analyze buyer relevance, market potential, shipment history, and fit before starting outreach.",
+    bullets: [
+      "Analyze buyer fit and sales potential",
+      "Review trade activity and sourcing patterns",
+      "Prioritize buyers with stronger signals",
+    ],
+    cta: "Analyze buyers",
   },
   {
-    title: "Manage",
-    body: "Track buyers, notes, stages, follow-ups, and opportunities in one CRM workspace.",
-    icon: ClipboardList,
+    tab: "CRM",
+    label: "STEP 4 — CRM",
+    headline: "Manage buyers in one sales workspace",
+    body: "Save buyers, organize lists, track stages, write notes, and manage follow-up activities inside Sales Note CRM.",
+    bullets: [
+      "Save qualified buyers into Sales Note CRM",
+      "Track sales stages and follow-up tasks",
+      "Keep buyer notes and communication history organized",
+    ],
+    cta: "Open CRM workflow",
   },
   {
-    title: "Outreach",
-    body: "Create personalized outreach using buyer context and reach the right people through connected email workflows.",
-    icon: Send,
+    tab: "Outreach",
+    label: "STEP 5 — OUTREACH",
+    headline: "Reach the right buyers with better context",
+    body: "Create personalized outreach using buyer context and manage email communication from one connected workflow.",
+    bullets: [
+      "Create personalized outreach messages",
+      "Use buyer context from trade data and enrichment",
+      "Track email activity and follow-ups",
+    ],
+    cta: "Start outreach",
   },
 ];
 
 function WorkflowSection() {
   const [active, setActive] = useState(0);
+  const step = STEPS[active];
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -544,55 +580,55 @@ function WorkflowSection() {
           </p>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-3xl border border-border bg-white shadow-card">
-          {/* Step tabs */}
-          <div className="grid grid-cols-2 gap-px border-b border-border bg-border sm:grid-cols-5">
+        {/* Pill tabs above container */}
+        <div className="mt-10 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <div className="mx-auto flex w-max items-center gap-2 sm:justify-center">
             {STEPS.map((s, i) => {
-              const Icon = s.icon;
               const isActive = i === active;
               return (
                 <button
-                  key={s.title}
+                  key={s.tab}
                   onClick={() => setActive(i)}
-                  className={`flex items-center gap-3 bg-white p-4 text-left transition-colors ${
-                    isActive ? "bg-brand-tint" : "hover:bg-surface-alt"
+                  className={`whitespace-nowrap rounded-full border px-5 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "border-brand bg-brand-tint text-brand"
+                      : "border-border bg-white text-ink-soft hover:text-ink"
                   }`}
                 >
-                  <div
-                    className={`grid h-9 w-9 place-items-center rounded-xl transition-colors ${
-                      isActive ? "bg-brand text-white" : "bg-surface-alt text-ink-soft"
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-medium uppercase tracking-wider text-ink-soft">
-                      Step {i + 1}
-                    </div>
-                    <div className={`text-sm font-semibold ${isActive ? "text-brand" : "text-ink"}`}>
-                      {s.title}
-                    </div>
-                  </div>
+                  {s.tab}
                 </button>
               );
             })}
           </div>
+        </div>
 
-          <div className="grid gap-8 p-8 md:grid-cols-2 md:p-12">
+        <div
+          className="mt-8 rounded-3xl p-6 sm:p-10 lg:p-14"
+          style={{ backgroundColor: "#f5f8fb" }}
+        >
+          <div key={active} className="grid animate-fade-in-up gap-10 md:grid-cols-2 md:items-center">
             <div className="flex flex-col justify-center">
-              <div className="text-xs font-medium uppercase tracking-wider text-brand">
-                Step {active + 1} — {STEPS[active].title}
+              <div className="text-xs font-semibold uppercase tracking-wider text-brand">
+                {step.label}
               </div>
-              <h3 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">
-                {STEPS[active].title}
+              <h3 className="mt-3 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+                {step.headline}
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-ink-soft">{STEPS[active].body}</p>
-              <div className="mt-6 flex items-center gap-4">
-                <PrimaryCTA>Try this step</PrimaryCTA>
+              <p className="mt-4 text-base leading-relaxed text-ink-soft">{step.body}</p>
+              <ul className="mt-6 space-y-3">
+                {step.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-3 text-sm text-ink">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex items-center gap-4">
+                <PrimaryCTA>{step.cta}</PrimaryCTA>
                 <SecondaryLink>See a demo</SecondaryLink>
               </div>
             </div>
-            <div className="rounded-2xl border border-border bg-gradient-hero p-6">
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-soft">
               <WorkflowPreview step={active} />
             </div>
           </div>
