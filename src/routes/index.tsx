@@ -1293,10 +1293,16 @@ function Testimonials() {
                 <div>
                   <div className="font-semibold">{t.name}</div>
                   <div className="text-xs text-white/60">
-                    {t.title} · {t.company} · {t.country}
+                    {t.title} · {t.company}
                   </div>
-                  <div className="mt-1 inline-block rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70">
-                    {t.tag}
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-[10px] text-white/90">
+                      <span className="text-xs leading-none">{t.countryFlag}</span>
+                      <span>{t.country}</span>
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70">
+                      {t.tag}
+                    </span>
                   </div>
                 </div>
               </div>
