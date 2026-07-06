@@ -12,6 +12,7 @@ import {
   Send,
   TrendingUp,
   Globe2,
+  Users,
   Workflow,
   ChevronLeft,
   ChevronRight,
