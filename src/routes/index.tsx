@@ -35,6 +35,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import nimeshAvatar from "@/assets/nimesh.png.asset.json";
+import philemonAvatar from "@/assets/philemon.png.asset.json";
+import marianAvatar from "@/assets/marian.png.asset.json";
+import abdulAvatar from "@/assets/abdul.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -1171,6 +1175,9 @@ const TESTIMONIALS = [
     quote:
       "Having access to real shipment records instead of generic company databases helps exporters identify active importers and make better data-driven decisions.",
     tag: "Trade Data / Sourcing",
+    avatar: nimeshAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Philemon Oy",
@@ -1180,6 +1187,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt helps us track active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
     tag: "Supply Chain / Automotive",
+    avatar: philemonAvatar.url,
+    avatarShape: "square" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Marian Mourice",
@@ -1189,6 +1199,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt is based on real trade data, helping users identify active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
     tag: "Export Sales / Food Supplies",
+    avatar: marianAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Abdulhafeez Yahya Mogauri",
@@ -1198,6 +1211,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt is a valuable way to understand international trade and connect verified suppliers with genuine buyers.",
     tag: "Automotive / Importers",
+    avatar: abdulAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
 ];
 
@@ -1244,9 +1260,12 @@ function Testimonials() {
             </div>
             <div className="relative mt-10 flex items-end justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white/10 font-semibold">
-                  {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                </div>
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className={`h-12 w-12 shrink-0 ${t.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
+                  style={{ objectFit: t.avatarFit }}
+                />
                 <div>
                   <div className="font-semibold">{t.name}</div>
                   <div className="text-xs text-white/60">
@@ -1298,14 +1317,14 @@ function Testimonials() {
             </div>
             <div className="rounded-3xl border border-border bg-surface-alt p-8">
               <div className="flex -space-x-2">
-                {["AK", "MO", "LN", "PH", "NS"].map((n, k) => (
-                  <div
-                    key={n}
-                    className="grid h-10 w-10 place-items-center rounded-full border-2 border-white bg-gradient-card-blue text-xs font-semibold text-ink"
+                {[nimeshAvatar.url, philemonAvatar.url, marianAvatar.url, abdulAvatar.url].map((src, k) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    className="h-10 w-10 rounded-full border-2 border-white object-cover object-center"
                     style={{ zIndex: 10 - k }}
-                  >
-                    {n}
-                  </div>
+                  />
                 ))}
               </div>
               <div className="mt-4 text-lg font-semibold text-ink">
