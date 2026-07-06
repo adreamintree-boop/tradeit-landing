@@ -31,6 +31,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-metric-divider: var(--metric-divider);
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
   --color-brand-tint: var(--brand-tint);
@@ -73,6 +74,7 @@
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.92 0.01 240);
+  --metric-divider: #e5e7eb;
   --input: oklch(0.93 0.01 240);
   --ring: var(--brand);
 
