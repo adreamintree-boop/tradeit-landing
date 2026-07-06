@@ -1175,6 +1175,9 @@ const TESTIMONIALS = [
     quote:
       "Having access to real shipment records instead of generic company databases helps exporters identify active importers and make better data-driven decisions.",
     tag: "Trade Data / Sourcing",
+    avatar: nimeshAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Philemon Oy",
@@ -1184,6 +1187,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt helps us track active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
     tag: "Supply Chain / Automotive",
+    avatar: philemonAvatar.url,
+    avatarShape: "square" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Marian Mourice",
@@ -1193,6 +1199,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt is based on real trade data, helping users identify active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
     tag: "Export Sales / Food Supplies",
+    avatar: marianAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
   {
     name: "Abdulhafeez Yahya Mogauri",
@@ -1202,6 +1211,9 @@ const TESTIMONIALS = [
     quote:
       "TradeIt is a valuable way to understand international trade and connect verified suppliers with genuine buyers.",
     tag: "Automotive / Importers",
+    avatar: abdulAvatar.url,
+    avatarShape: "circle" as const,
+    avatarFit: "cover" as const,
   },
 ];
 
