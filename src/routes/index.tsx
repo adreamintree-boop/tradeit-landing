@@ -136,12 +136,84 @@ function Nav() {
 /*  Hero                                                            */
 /* ---------------------------------------------------------------- */
 
+const KEYWORDS_ROW_1 = [
+  "smartphone", "computer", "led tv", "air conditioner", "electronic circuit",
+  "usb cable", "sound processor", "printed circuit board", "resistor",
+  "cnc machine", "molding machine", "excavator", "industrial robot",
+  "packaging machine", "electric vehicle", "door latch", "padlock", "switch fuse",
+  "sulfuric acid", "ethylene oxide", "solvent", "plastic resin",
+  "polypropylene resin", "acrylic polymer", "Polyethylene resin", "Butyl rubber",
+  "Nitrile rubber", "Steel Coil", "Galvanized steel", "Stainless pipe",
+  "Steel Pipe", "Cold rolled steel", "iron ore", "ferrous steel",
+  "copper cathode", "aluminum ingot", "nickel ore", "cotton yarn",
+  "polyester yarn", "cotton fabric", "denim fabric", "knit fabric",
+  "t-shirt", "denim jeans", "sportswear", "dress shirt", "sweater",
+  "running shoes", "canvas sneakers", "leather shoes", "casual shoes",
+];
+
+const KEYWORDS_ROW_2 = [
+  "refrigerator", "washing machine", "microwave oven", "vaccum cleaner",
+  "office chair", "dining table", "sofa set", "bed frame", "kitchen cabinet",
+  "kitchenware", "household cleaning tools", "toilet paper", "garbage bags",
+  "tableware set", "soybean", "corn grain", "wheat", "coffee beans",
+  "frozen shrimp", "soybean meal", "gluten feed", "feed premix",
+  "frozen chicken", "pork belly", "corrugated cardboard box",
+  "plastic packaging film", "PET preform", "FIBC", "adhesive label",
+  "wooden pallet", "plastic pallet", "steel drum", "aluminum can",
+  "metal container", "Pharmaceutical tablets", "injectable solution",
+  "antibiotics", "vitamin", "medical devices", "syringe", "surgical mask",
+  "diagnostic test", "patient monitor", "ultrasound system", "solar panel",
+  "power transformer", "diesel generator", "wind turbine",
+  "energy storage system", "hydraulic excavator", "wheel loader",
+  "tower crane", "concrete pump truck", "industrial truck forklift",
+  "skincare", "facial cleanser", "body lotion", "shampoo", "sunscreen",
+  "sheet mask", "lipstick", "eye shadow palette",
+];
+
+function KeywordMarquee({
+  items,
+  direction,
+  onPick,
+  paused,
+}: {
+  items: string[];
+  direction: "left" | "right";
+  onPick: (kw: string) => void;
+  paused: boolean;
+}) {
+  const doubled = [...items, ...items];
+  return (
+    <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+      <div
+        className={`flex w-max gap-2 ${
+          direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
+        }`}
+        style={{ animationPlayState: paused ? "paused" : "running" }}
+      >
+        {doubled.map((kw, i) => (
+          <button
+            key={`${kw}-${i}`}
+            type="button"
+            onClick={() => onPick(kw)}
+            className="shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-ink-soft shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-card"
+          >
+            {kw}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
+  const [query, setQuery] = useState("");
+  const [paused, setPaused] = useState(false);
+
   return (
     <section className="relative overflow-hidden bg-gradient-hero">
       <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <Pill>
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
@@ -151,42 +223,66 @@ function Hero() {
             <br />
             <span className="italic text-ink-soft">global trade data.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             Search billions of shipment records to discover companies already importing products like yours.
           </p>
+        </div>
 
-          {/* Search bar */}
-          <div className="mt-8 max-w-2xl">
-            <div className="group flex items-center gap-2 rounded-2xl border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint text-brand">
-                <Search className="h-4 w-4" />
-              </div>
+        {/* Search module */}
+        <div className="mx-auto mt-10 max-w-4xl">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
+          >
+            <button
+              type="button"
+              className="flex items-center justify-between gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-ink hover:bg-muted sm:justify-start sm:border-r sm:border-border sm:rounded-none sm:rounded-l-full"
+            >
+              <span>Product &amp; Item</span>
+              <ChevronDown className="h-4 w-4 text-ink-soft" />
+            </button>
+            <div className="flex flex-1 items-center gap-2 px-2">
+              <Search className="h-4 w-4 shrink-0 text-ink-soft" />
               <input
                 type="text"
-                placeholder="Search product, HS code, or company name"
-                className="flex-1 bg-transparent px-1 text-sm text-ink outline-none placeholder:text-ink-soft/60"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Enter a product name to find real buyers."
+                className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink outline-none placeholder:text-ink-soft/60 sm:text-base"
               />
-              <button className="hidden rounded-xl bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand sm:block">
-                Search
-              </button>
             </div>
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-ink-soft">
-              <span>Try:</span>
-              {["lithium battery", "8471.30", "acme electronics", "coffee beans"].map((t) => (
-                <button
-                  key={t}
-                  className="rounded-full border border-border bg-white px-2.5 py-1 transition-colors hover:border-brand hover:text-brand"
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div>
+            <button
+              type="submit"
+              className="shrink-0 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 sm:px-8"
+            >
+              Search
+            </button>
+          </form>
 
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <PrimaryCTA>Get Started</PrimaryCTA>
-            <SecondaryLink>Explore Trade Data</SecondaryLink>
+          {/* Keyword marquees */}
+          <div
+            className="mt-6 space-y-3"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            <KeywordMarquee
+              items={KEYWORDS_ROW_1}
+              direction="left"
+              onPick={setQuery}
+              paused={paused}
+            />
+            <KeywordMarquee
+              items={KEYWORDS_ROW_2}
+              direction="right"
+              onPick={setQuery}
+              paused={paused}
+            />
           </div>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+          <PrimaryCTA>Get Started</PrimaryCTA>
+          <SecondaryLink>Explore Trade Data</SecondaryLink>
         </div>
 
         {/* Floating UI cards */}
@@ -199,6 +295,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function MiniShipmentCard() {
   return (
