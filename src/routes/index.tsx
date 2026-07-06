@@ -1334,16 +1334,22 @@ function Testimonials() {
             </div>
           </div>
 
-          {/* Proof card */}
+          {/* Proof cards */}
           <div className="grid gap-5">
             <div className="rounded-3xl bg-gradient-card-blue p-8">
-              <div className="text-6xl font-semibold text-ink" style={{ fontFamily: "var(--font-display)" }}>
-                8B+
+              <div
+                key={t.proof.large}
+                className="animate-fade-in-up"
+              >
+                <div
+                  className="text-6xl font-semibold text-ink"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {t.proof.large}
+                </div>
+                <div className="mt-2 text-sm font-semibold text-ink">{t.proof.label}</div>
+                <p className="mt-2 text-sm text-ink-soft">{t.proof.description}</p>
               </div>
-              <div className="mt-2 text-sm font-semibold text-ink">Trade records</div>
-              <p className="mt-2 text-sm text-ink-soft">
-                Powering buyer discovery for teams across 200+ countries and regions.
-              </p>
             </div>
             <div className="rounded-3xl border border-border bg-surface-alt p-8">
               <div className="flex -space-x-2">
