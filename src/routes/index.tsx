@@ -11,7 +11,6 @@ import {
   ClipboardList,
   Send,
   TrendingUp,
-  Globe2,
   Users,
   Workflow,
   ChevronLeft,
@@ -21,10 +20,8 @@ import {
   Target,
   MapPin,
   Package,
-  BarChart3,
   Mail,
   Star,
-  Zap,
   Factory,
   Handshake,
   Briefcase,
@@ -1113,49 +1110,53 @@ function Pricing() {
 /* ---------------------------------------------------------------- */
 
 const METRICS = [
-  { value: "8B+", label: "Trade Records", desc: "Understand real import and export activity through global shipment records.", icon: BarChart3 },
-  { value: "200+", label: "Countries & Regions", desc: "Explore trade data across countries and regions worldwide.", icon: Globe2 },
-  { value: "230M+", label: "Companies & Contacts", desc: "Access company and contact data to reach the right business decision-makers.", icon: Users },
-  { value: "1 Tool", label: "Sales Workflow", desc: "Turn scattered buyer research, CRM, and outreach into one integrated sales workflow.", icon: Zap },
+  { value: "8B+", label: "TRADE RECORDS", desc: "Understand real import and export activity through global shipment records." },
+  { value: "200+", label: "COUNTRIES & REGIONS", desc: "Explore trade data across countries and regions worldwide." },
+  { value: "230M+", label: "COMPANIES & CONTACTS", desc: "Access company and contact data to reach the right business decision-makers." },
+  { value: "1 Tool", label: "SALES WORKFLOW", desc: "Turn scattered buyer research, CRM, and outreach into one integrated sales workflow." },
 ];
 
 function DataTrust() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
-          <div>
-            <Pill>Data you can trust</Pill>
-            <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Built on global trade data <span className="italic text-ink-soft">you can trust</span>
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
-              TradeIt helps sales teams discover real buyers using billions of shipment records,
-              global market coverage, and verified business contact data.
-            </p>
-          </div>
-          <div className="flex md:justify-end">
-            <PrimaryCTA>Get Started</PrimaryCTA>
-          </div>
+        <div className="max-w-3xl">
+          <Pill>Data you can trust</Pill>
+          <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+            Built on global trade data <span className="italic text-ink-soft">you can trust</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+            TradeIt helps sales teams discover real buyers using billions of shipment records,
+            global market coverage, and verified business contact data.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {METRICS.map((m) => {
-            const Icon = m.icon;
-            return (
+        <div className="mt-16 border-t border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {METRICS.map((m, i) => (
               <div
                 key={m.label}
-                className="rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-card"
+                className={`py-8 sm:py-10 lg:py-12 ${
+                  i < 3 ? "border-b sm:border-b lg:border-b-0" : ""
+                } ${i % 2 === 0 ? "sm:border-r" : ""} ${
+                  i < 2 ? "sm:border-b lg:border-b-0" : ""
+                } ${i < 3 ? "lg:border-r" : ""}`}
               >
-                <Icon className="h-5 w-5 text-brand" />
-                <div className="mt-6 text-5xl font-semibold text-ink" style={{ fontFamily: "var(--font-display)" }}>
+                <div className="text-xs font-semibold uppercase tracking-wider text-brand">
+                  {m.label}
+                </div>
+                <div
+                  className="mt-3 text-4xl font-semibold text-ink sm:text-5xl"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
                   {m.value}
                 </div>
-                <div className="mt-2 text-sm font-semibold text-ink">{m.label}</div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.desc}</p>
+                <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
+                  {m.desc}
+                </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
