@@ -21,6 +21,8 @@ import {
   Target,
   MapPin,
   Package,
+  BarChart3,
+  Mail,
   Star,
   Zap,
   Factory,
