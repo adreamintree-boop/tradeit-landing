@@ -399,31 +399,42 @@ function MiniAIScoreCard() {
 /*  Problems (horizontal cards)                                     */
 /* ---------------------------------------------------------------- */
 
+import problemImg1 from "@/assets/problem-3.png.asset.json";
+import problemImg2 from "@/assets/problem-4.png.asset.json";
+import problemImg3 from "@/assets/problem-5.png.asset.json";
+import problemImg4 from "@/assets/problem-6.png.asset.json";
+import problemImg5 from "@/assets/problem-7.png.asset.json";
+
 const PROBLEMS = [
   {
     title: "Buyer search takes too long",
     body: "Export teams spend too much time searching across Google, directories, and exhibition lists.",
     icon: Search,
+    image: problemImg1.url,
   },
   {
     title: "Buyer quality is unclear",
     body: "A company may look relevant, but you don't know if they actually buy products like yours.",
     icon: Target,
+    image: problemImg2.url,
   },
   {
     title: "Static lists go outdated fast",
     body: "Traditional buyer lists quickly become outdated and often miss recent trade activity.",
     icon: ClipboardList,
+    image: problemImg3.url,
   },
   {
     title: "Purchase signals are hard to see",
     body: "Without shipment data, it's difficult to know who is actively importing and from where.",
     icon: TrendingUp,
+    image: problemImg4.url,
   },
   {
     title: "Sales teams start from guesswork",
     body: "Without real trade records, outreach often begins with assumptions instead of evidence.",
     icon: Brain,
+    image: problemImg5.url,
   },
 ];
 
@@ -449,16 +460,28 @@ function Problems() {
               return (
                 <article
                   key={p.title}
-                  className="group flex min-w-[280px] max-w-[320px] flex-1 snap-start flex-col rounded-3xl border border-border bg-surface-alt p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card sm:min-w-[300px]"
+                  className="group flex min-w-[300px] max-w-[340px] flex-1 snap-start flex-col overflow-hidden rounded-3xl border border-border/60 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card sm:min-w-[320px]"
+                  style={{ backgroundColor: "#f2f8fc" }}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-brand shadow-soft">
-                      <Icon className="h-5 w-5" />
+                  <div className="flex flex-col p-6 pb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-brand shadow-soft">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-xs font-medium text-ink-soft/70">0{i + 1}</span>
                     </div>
-                    <span className="text-xs font-medium text-ink-soft/70">0{i + 1}</span>
+                    <h3 className="mt-6 text-lg font-semibold text-ink">{p.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.body}</p>
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold text-ink">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.body}</p>
+                  <div className="mt-auto aspect-[4/3] w-full overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-cover object-center mix-blend-multiply"
+                      loading="lazy"
+                    />
+                  </div>
                 </article>
               );
             })}
@@ -468,6 +491,7 @@ function Problems() {
     </section>
   );
 }
+
 
 /* ---------------------------------------------------------------- */
 /*  Workflow                                                        */
