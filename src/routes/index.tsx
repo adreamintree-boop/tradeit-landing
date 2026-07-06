@@ -35,6 +35,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import nimeshAvatar from "@/assets/nimesh.png.asset.json";
+import philemonAvatar from "@/assets/philemon.png.asset.json";
+import marianAvatar from "@/assets/marian.png.asset.json";
+import abdulAvatar from "@/assets/abdul.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
