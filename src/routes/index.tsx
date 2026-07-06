@@ -1131,27 +1131,29 @@ function DataTrust() {
           </p>
         </div>
 
-        <div className="mt-16 border-t border-border">
+        <div className="mt-16 border-l border-r border-t border-metric-divider rounded-t-lg">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {METRICS.map((m, i) => (
               <div
                 key={m.label}
-                className={`py-8 sm:py-10 lg:py-12 ${
-                  i < 3 ? "border-b sm:border-b lg:border-b-0" : ""
+                className={`border-metric-divider px-6 py-10 sm:px-9 sm:pt-10 sm:pb-12 ${
+                  i < 3 ? "border-b" : ""
+                } ${i >= 2 ? "sm:border-b-0" : ""} ${
+                  i < 3 ? "lg:border-b-0" : ""
                 } ${i % 2 === 0 ? "sm:border-r" : ""} ${
-                  i < 2 ? "sm:border-b lg:border-b-0" : ""
-                } ${i < 3 ? "lg:border-r" : ""}`}
+                  i < 3 ? "lg:border-r" : ""
+                }`}
               >
                 <div className="text-xs font-semibold uppercase tracking-wider text-brand">
                   {m.label}
                 </div>
                 <div
-                  className="mt-3 text-4xl font-semibold text-ink sm:text-5xl"
+                  className="mt-5 text-4xl font-semibold text-ink sm:text-5xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {m.value}
                 </div>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
                   {m.desc}
                 </p>
               </div>
