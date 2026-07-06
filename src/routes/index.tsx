@@ -1317,14 +1317,14 @@ function Testimonials() {
             </div>
             <div className="rounded-3xl border border-border bg-surface-alt p-8">
               <div className="flex -space-x-2">
-                {["AK", "MO", "LN", "PH", "NS"].map((n, k) => (
-                  <div
-                    key={n}
-                    className="grid h-10 w-10 place-items-center rounded-full border-2 border-white bg-gradient-card-blue text-xs font-semibold text-ink"
+                {[nimeshAvatar.url, philemonAvatar.url, marianAvatar.url, abdulAvatar.url].map((src, k) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    className="h-10 w-10 rounded-full border-2 border-white object-cover object-center"
                     style={{ zIndex: 10 - k }}
-                  >
-                    {n}
-                  </div>
+                  />
                 ))}
               </div>
               <div className="mt-4 text-lg font-semibold text-ink">
