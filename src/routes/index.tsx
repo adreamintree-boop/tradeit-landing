@@ -988,39 +988,43 @@ function UseCases() {
 
 const PLANS = [
   {
-    name: "Free",
+    name: "Free Plan",
     price: "$0",
-    period: "forever",
-    tagline: "For teams starting buyer discovery.",
-    features: ["50 buyer searches / mo", "Basic trade data preview", "1 seat", "Community support"],
+    priceCaption: "",
+    credits: "1,000 Credits (one-time)",
+    description: "Trade Intelligence, risk-free",
+    features: ["Buyer Search", "AI CORE (Market Analysis)", "Buyer Enrich", "Buyer Fit", "CRM"],
     cta: "Start for free",
     highlight: false,
   },
   {
-    name: "Starter",
-    price: "$29",
-    period: "per user / mo",
-    tagline: "For small teams exploring trade data.",
-    features: ["1,000 credits / mo", "Full B/L shipment records", "Buyer enrichment", "3 seats"],
-    cta: "Get started",
+    name: "Plus Plan",
+    price: "$20",
+    priceCaption: "per month (excl. tax)",
+    credits: "3,000 Credits / month",
+    description: "For individual export managers",
+    features: ["All Free features", "1 Email account sync", "Buyer email log", "Credit rollover"],
+    cta: "Continue with Plus",
     highlight: false,
   },
   {
-    name: "Pro",
-    price: "$79",
-    period: "per user / mo",
-    tagline: "For teams that need AI buyer analysis and enrichment.",
-    features: ["5,000 credits / mo", "AI Fill · AI CORE · Buyer Fit", "Sales Note CRM", "10 seats"],
-    cta: "Upgrade to Pro",
+    name: "Pro Plan",
+    price: "$50",
+    priceCaption: "per month (excl. tax)",
+    credits: "9,000 Credits / month",
+    description: "For teams scaling exports",
+    features: ["All Plus features", "2 Emails account sync", "shared buyer email log"],
+    cta: "Continue with Pro",
     highlight: true,
   },
   {
-    name: "Premium",
-    price: "Custom",
-    period: "annual",
-    tagline: "For growing teams managing buyer outreach at scale.",
-    features: ["Unlimited credits", "Email outreach automation", "Priority support & SLA", "Unlimited seats"],
-    cta: "Contact sales",
+    name: "Premium Plan",
+    price: "$100",
+    priceCaption: "per month (excl. tax)",
+    credits: "30,000 Credits / month",
+    description: "For full scale export teams",
+    features: ["All Pro features", "3 Emails account sync", "priority support"],
+    cta: "Continue with Premium",
     highlight: false,
   },
 ];
@@ -1043,42 +1047,55 @@ function Pricing() {
           {PLANS.map((p) => (
             <div
               key={p.name}
-              className={`relative flex flex-col rounded-3xl border p-6 transition-all hover:-translate-y-1 ${
+              className={`flex flex-col rounded-[20px] border bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-card ${
                 p.highlight
-                  ? "border-brand bg-gradient-card-blue shadow-brand"
-                  : "border-border bg-surface-alt hover:shadow-card"
+                  ? "border-brand bg-brand-tint"
+                  : "border-border"
               }`}
             >
-              {p.highlight && (
-                <span className="absolute -top-3 left-6 rounded-full bg-brand px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
-                  Recommended
-                </span>
-              )}
-              <div className="text-sm font-semibold text-ink">{p.name} Plan</div>
-              <div className="mt-3 flex items-baseline gap-1">
-                <span className="text-4xl font-semibold text-ink" style={{ fontFamily: "var(--font-display)" }}>
-                  {p.price}
-                </span>
-                <span className="text-xs text-ink-soft">/ {p.period}</span>
+              {/* Top area */}
+              <div className="pb-6">
+                <div className="text-sm font-semibold text-ink">{p.name}</div>
+                <div className="mt-3 flex items-baseline gap-1.5">
+                  <span
+                    className="text-4xl font-bold text-ink"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {p.price}
+                  </span>
+                  {p.priceCaption && (
+                    <span className="text-sm text-ink-soft">{p.priceCaption}</span>
+                  )}
+                </div>
+                <div className="mt-2 text-sm font-medium text-ink-soft">{p.credits}</div>
+                <p className="mt-2 text-sm font-medium text-ink">{p.description}</p>
               </div>
-              <p className="mt-2 text-sm text-ink-soft">{p.tagline}</p>
-              <ul className="mt-6 space-y-2.5">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-ink">
-                    <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.highlight ? "text-brand" : "text-emerald-600"}`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className={`mt-8 w-full rounded-xl py-3 text-sm font-medium transition-colors ${
-                  p.highlight
-                    ? "bg-brand text-white hover:bg-ink"
-                    : "border border-border bg-white text-ink hover:border-ink"
-                }`}
-              >
-                {p.cta}
-              </button>
+
+              {/* Divider */}
+              <div className="h-px bg-border" />
+
+              {/* Bottom area */}
+              <div className="flex flex-1 flex-col pt-6">
+                <ul className="space-y-3">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-ink">
+                      <span className="mt-0.5 grid h-5 w-5 place-items-center rounded-full bg-muted">
+                        <Check className="h-3 w-3 text-ink-soft" />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  className={`mt-auto w-full rounded-full py-3.5 text-sm font-semibold transition-colors ${
+                    p.highlight
+                      ? "bg-brand text-white hover:bg-ink"
+                      : "border border-border bg-white text-ink hover:border-ink hover:bg-muted"
+                  }`}
+                >
+                  {p.cta}
+                </button>
+              </div>
             </div>
           ))}
         </div>
