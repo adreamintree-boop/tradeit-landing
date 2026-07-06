@@ -127,11 +127,9 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-  }
-  body {
-    line-height: 1.6;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
@@ -139,6 +137,9 @@
     letter-spacing: -0.025em;
     line-height: 1.15;
   }
+}
+
+
 
 
 @utility bg-gradient-hero {
