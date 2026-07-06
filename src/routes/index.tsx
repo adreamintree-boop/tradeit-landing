@@ -1170,6 +1170,7 @@ const TESTIMONIALS = [
   {
     name: "Nimesh Solanki",
     country: "India",
+    countryFlag: "🇮🇳",
     title: "Founder & Trade Agent",
     company: "Anki's Global Trade",
     quote:
@@ -1178,10 +1179,16 @@ const TESTIMONIALS = [
     avatar: nimeshAvatar.url,
     avatarShape: "circle" as const,
     avatarFit: "cover" as const,
+    proof: {
+      large: "8B+",
+      label: "Trade records",
+      description: "Real shipment data for better buyer discovery.",
+    },
   },
   {
     name: "Philemon Oy",
     country: "Uganda / Congo",
+    countryFlag: "🇺🇬",
     title: "Founder & Managing Director",
     company: "Phil Pro Motors",
     quote:
@@ -1190,10 +1197,16 @@ const TESTIMONIALS = [
     avatar: philemonAvatar.url,
     avatarShape: "square" as const,
     avatarFit: "cover" as const,
+    proof: {
+      large: "Supply Chain",
+      label: "Automotive trade",
+      description: "Track active importers and connect suppliers with qualified buyers.",
+    },
   },
   {
     name: "Marian Mourice",
     country: "Egypt",
+    countryFlag: "🇪🇬",
     title: "Export Sales Executive",
     company: "Jesco Import and Export",
     quote:
@@ -1202,10 +1215,16 @@ const TESTIMONIALS = [
     avatar: marianAvatar.url,
     avatarShape: "circle" as const,
     avatarFit: "cover" as const,
+    proof: {
+      large: "Food Export",
+      label: "Buyer verification",
+      description: "Understand sourcing patterns and verify real opportunities.",
+    },
   },
   {
     name: "Abdulhafeez Yahya Mogauri",
     country: "Nigeria",
+    countryFlag: "🇳🇬",
     title: "Founder & CEO",
     company: "AYM CARS ZARIA LTD",
     quote:
@@ -1214,6 +1233,11 @@ const TESTIMONIALS = [
     avatar: abdulAvatar.url,
     avatarShape: "circle" as const,
     avatarFit: "cover" as const,
+    proof: {
+      large: "Verified Buyers",
+      label: "Global trade network",
+      description: "Connect genuine buyers and suppliers across markets.",
+    },
   },
 ];
 
