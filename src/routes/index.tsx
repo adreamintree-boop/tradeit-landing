@@ -621,11 +621,11 @@ function WorkflowSection() {
               <div className="text-xs font-semibold uppercase tracking-wider text-brand">
                 {step.label}
               </div>
-              <h3 className="mt-3 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+              <h3 className="mt-4 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
                 {step.headline}
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft">{step.body}</p>
-              <ul className="mt-6 space-y-3">
+              <p className="mt-5 text-base leading-relaxed text-ink-soft">{step.body}</p>
+              <ul className="mt-7 space-y-3.5">
                 {step.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-ink">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
@@ -633,13 +633,16 @@ function WorkflowSection() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex items-center gap-4">
-                <PrimaryCTA>{step.cta}</PrimaryCTA>
-                <SecondaryLink>See a demo</SecondaryLink>
-              </div>
             </div>
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-soft">
-              <WorkflowPreview step={active} />
+            <div className="flex items-center justify-center">
+              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-soft sm:p-3">
+                <img
+                  src={step.image}
+                  alt={step.imageAlt}
+                  className="h-auto w-full rounded-xl object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
