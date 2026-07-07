@@ -514,7 +514,8 @@ const STEPS = [
       "Discover active importers and exporters",
       "Review shipment history and trade activity",
     ],
-    cta: "Try this step",
+    image: workflowTradeData.url,
+    imageAlt: "TradeIt B/L Trade Data Search interface showing shipment records",
   },
   {
     tab: "Enrich",
@@ -526,7 +527,8 @@ const STEPS = [
       "Find available contact information",
       "Build more complete buyer profiles",
     ],
-    cta: "Explore enrichment",
+    image: workflowEnrich.url,
+    imageAlt: "TradeIt Buyer Enrichment interface showing company overview and contacts",
   },
   {
     tab: "AI Analysis",
@@ -538,7 +540,8 @@ const STEPS = [
       "Review trade activity and sourcing patterns",
       "Prioritize buyers with stronger signals",
     ],
-    cta: "Analyze buyers",
+    image: workflowAIAnalysis.url,
+    imageAlt: "TradeIt AI Buyer Analysis interface showing buyer insights",
   },
   {
     tab: "CRM",
@@ -550,7 +553,8 @@ const STEPS = [
       "Track sales stages and follow-up tasks",
       "Keep buyer notes and communication history organized",
     ],
-    cta: "Open CRM workflow",
+    image: workflowCRM.url,
+    imageAlt: "TradeIt CRM interface showing sales pipeline with buyers on a world map",
   },
   {
     tab: "Outreach",
@@ -562,7 +566,8 @@ const STEPS = [
       "Use buyer context from trade data and enrichment",
       "Track email activity and follow-ups",
     ],
-    cta: "Start outreach",
+    image: workflowOutreach.url,
+    imageAlt: "TradeIt Compose Email interface showing buyer and contact selection",
   },
 ];
 
