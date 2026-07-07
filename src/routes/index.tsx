@@ -131,7 +131,7 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           <button className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
             Login / Sign Up
             <ArrowRight className="h-3.5 w-3.5" />
