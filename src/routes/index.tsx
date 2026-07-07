@@ -618,29 +618,29 @@ function WorkflowSection() {
         >
           <div
             key={active}
-            className="grid animate-fade-in-up gap-8 lg:grid-cols-[2fr_3fr] lg:items-stretch"
+            className="grid animate-fade-in-up gap-6 lg:grid-cols-[1fr_2.25fr] lg:items-stretch lg:gap-8"
           >
             <div className="flex flex-col justify-center">
-              <div className="text-xs font-semibold uppercase tracking-wider text-brand">
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-brand">
                 {step.label}
               </div>
-              <h3 className="mt-3 text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+              <h3 className="mt-2 text-xl font-semibold leading-tight text-ink sm:text-2xl">
                 {step.headline}
               </h3>
-              <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+              <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">
                 {step.body}
               </p>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-4 space-y-2">
                 {step.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-sm text-ink">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  <li key={b} className="flex items-start gap-2.5 text-[13px] text-ink">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
                     <span>{b}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="flex items-center justify-center lg:justify-end">
-              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-1 shadow-soft">
+              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-0.5 shadow-soft">
                 <img
                   src={step.image}
                   alt={step.imageAlt}
