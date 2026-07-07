@@ -431,11 +431,11 @@ function MiniAIScoreCard() {
 /*  Problems (horizontal cards)                                     */
 /* ---------------------------------------------------------------- */
 
-import problemImg1 from "@/assets/problem-3.png.asset.json";
-import problemImg2 from "@/assets/problem-4.png.asset.json";
-import problemImg3 from "@/assets/problem-5.png.asset.json";
-import problemImg4 from "@/assets/problem-6.png.asset.json";
-import problemImg5 from "@/assets/problem-7.png.asset.json";
+import problemImg1 from "@/assets/problem-search.jpg.asset.json";
+import problemImg2 from "@/assets/problem-quality.jpg.asset.json";
+import problemImg3 from "@/assets/problem-static.jpg.asset.json";
+import problemImg4 from "@/assets/problem-signals.jpg.asset.json";
+import problemImg5 from "@/assets/problem-guesswork.jpg.asset.json";
 
 const PROBLEMS = [
   {
