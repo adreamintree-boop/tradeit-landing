@@ -613,19 +613,24 @@ function WorkflowSection() {
         </div>
 
         <div
-          className="mt-8 rounded-3xl p-6 sm:p-10 lg:p-14"
+          className="mt-8 rounded-3xl p-6 sm:p-10 lg:p-12"
           style={{ backgroundColor: "#f5f8fb" }}
         >
-          <div key={active} className="grid animate-fade-in-up gap-10 md:grid-cols-2 md:items-center">
+          <div
+            key={active}
+            className="grid animate-fade-in-up gap-8 lg:grid-cols-[2fr_3fr] lg:items-stretch"
+          >
             <div className="flex flex-col justify-center">
               <div className="text-xs font-semibold uppercase tracking-wider text-brand">
                 {step.label}
               </div>
-              <h3 className="mt-4 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+              <h3 className="mt-3 text-2xl font-semibold leading-tight text-ink sm:text-3xl">
                 {step.headline}
               </h3>
-              <p className="mt-5 text-base leading-relaxed text-ink-soft">{step.body}</p>
-              <ul className="mt-7 space-y-3.5">
+              <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+                {step.body}
+              </p>
+              <ul className="mt-5 space-y-2.5">
                 {step.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-ink">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
@@ -634,8 +639,8 @@ function WorkflowSection() {
                 ))}
               </ul>
             </div>
-            <div className="flex items-center justify-center">
-              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-soft sm:p-3">
+            <div className="flex items-center justify-center lg:justify-end">
+              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-1 shadow-soft">
                 <img
                   src={step.image}
                   alt={step.imageAlt}
