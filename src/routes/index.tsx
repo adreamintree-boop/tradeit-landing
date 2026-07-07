@@ -487,7 +487,7 @@ function Problems() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[34%_1fr] lg:gap-14">
+        <div className="mt-14 grid gap-10 lg:grid-cols-[32%_1fr] lg:gap-14">
           {/* Left: problem list */}
           <ul className="flex flex-col divide-y divide-border/70">
             {PROBLEMS.map((p, i) => {
@@ -511,7 +511,7 @@ function Problems() {
                       <div className="min-w-0">
                         <h3
                           className={cn(
-                            "text-base font-semibold transition-colors sm:text-lg",
+                            "text-sm font-semibold transition-colors sm:text-base",
                             isActive ? "text-ink" : "text-ink-soft group-hover:text-ink",
                           )}
                         >
@@ -519,7 +519,7 @@ function Problems() {
                         </h3>
                         <p
                           className={cn(
-                            "mt-1.5 text-sm leading-relaxed transition-opacity",
+                            "mt-1.5 text-xs leading-relaxed transition-opacity sm:text-sm",
                             isActive ? "text-ink-soft opacity-100" : "text-ink-soft/80 opacity-90",
                           )}
                         >
@@ -534,7 +534,7 @@ function Problems() {
           </ul>
 
           {/* Right: visual panel */}
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-[#f5f8fb] lg:aspect-auto lg:min-h-[520px]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[580px]">
             {PROBLEMS.map((p, i) => (
               <img
                 key={p.title}
@@ -542,7 +542,7 @@ function Problems() {
                 alt={p.title}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-contain p-4 transition-opacity duration-500 sm:p-8",
+                  "absolute inset-0 h-full w-full object-contain p-1 transition-opacity duration-500 sm:p-2",
                   i === active ? "opacity-100" : "opacity-0",
                 )}
                 aria-hidden={i === active ? undefined : true}
