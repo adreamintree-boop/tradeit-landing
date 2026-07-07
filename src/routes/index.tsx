@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 import {
   Search,
   ArrowRight,
@@ -109,36 +110,57 @@ function SecondaryLink({ children }: { children: React.ReactNode }) {
 /* ---------------------------------------------------------------- */
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const links = ["Product", "Solutions", "Pricing", "Data", "Customers"];
+
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-white/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center">
-          <img
-            src={tradeItLogo.url}
-            alt="TradeIt"
-            className="h-6 w-auto object-contain sm:h-7"
-          />
-        </a>
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
-              className="text-sm text-ink-soft transition-colors hover:text-ink"
-            >
-              {l}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center">
-          <button className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
-            Login / Sign Up
-            <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+    <div className="fixed left-0 right-0 top-0 z-50">
+      {/* Header bar */}
+      <div
+        className={cn(
+          "border-b border-border/60 bg-white/70 backdrop-blur-xl transition-all duration-300 ease-out",
+          scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        )}
+      >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="#" className="flex items-center">
+            <img
+              src={tradeItLogo.url}
+              alt="TradeIt"
+              className="h-[17px] w-auto object-contain sm:h-[20px]"
+            />
+          </a>
+          <nav className="hidden items-center gap-8 md:flex">
+            {links.map((l) => (
+              <a
+                key={l}
+                href={`#${l.toLowerCase()}`}
+                className="text-sm text-ink-soft transition-colors hover:text-ink"
+              >
+                {l}
+              </a>
+            ))}
+          </nav>
+          <div className="hidden w-28 md:block" />
         </div>
       </div>
-    </header>
+
+      {/* Always-visible floating Login / Sign Up button */}
+      <div className="pointer-events-none absolute right-0 top-0 p-4 sm:px-6 lg:px-8">
+        <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
+          Login / Sign Up
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
   );
 }
 
