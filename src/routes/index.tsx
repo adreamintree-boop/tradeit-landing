@@ -471,6 +471,8 @@ const PROBLEMS = [
 ];
 
 function Problems() {
+  const [active, setActive] = useState(0);
+  const current = PROBLEMS[active];
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -485,38 +487,67 @@ function Problems() {
           </p>
         </div>
 
-        <div className="relative mt-14">
-          <div className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:mx-0 sm:px-0 [scrollbar-width:thin]">
+        <div className="mt-14 grid gap-10 lg:grid-cols-[34%_1fr] lg:gap-14">
+          {/* Left: problem list */}
+          <ul className="flex flex-col divide-y divide-border/70">
             {PROBLEMS.map((p, i) => {
-              const Icon = p.icon;
+              const isActive = i === active;
               return (
-                <article
-                  key={p.title}
-                  className="group flex min-w-[300px] max-w-[340px] flex-1 snap-start flex-col overflow-hidden rounded-3xl border border-border/60 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card sm:min-w-[320px]"
-                  style={{ backgroundColor: "#f2f8fc" }}
-                >
-                  <div className="flex flex-col p-6 pb-4">
-                    <div className="flex items-center justify-between">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-brand shadow-soft">
-                        <Icon className="h-5 w-5" />
+                <li key={p.title}>
+                  <button
+                    type="button"
+                    onClick={() => setActive(i)}
+                    className="group block w-full py-5 text-left"
+                    aria-pressed={isActive}
+                  >
+                    <div className="flex items-start gap-3">
+                      <span
+                        className={cn(
+                          "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors",
+                          isActive ? "bg-brand" : "bg-transparent",
+                        )}
+                        aria-hidden="true"
+                      />
+                      <div className="min-w-0">
+                        <h3
+                          className={cn(
+                            "text-base font-semibold transition-colors sm:text-lg",
+                            isActive ? "text-ink" : "text-ink-soft group-hover:text-ink",
+                          )}
+                        >
+                          {p.title}
+                        </h3>
+                        <p
+                          className={cn(
+                            "mt-1.5 text-sm leading-relaxed transition-opacity",
+                            isActive ? "text-ink-soft opacity-100" : "text-ink-soft/80 opacity-90",
+                          )}
+                        >
+                          {p.body}
+                        </p>
                       </div>
-                      <span className="text-xs font-medium text-ink-soft/70">0{i + 1}</span>
                     </div>
-                    <h3 className="mt-6 text-lg font-semibold text-ink">{p.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.body}</p>
-                  </div>
-                  <div className="mt-auto aspect-[4/3] w-full overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-full w-full object-cover object-center mix-blend-multiply"
-                      loading="lazy"
-                    />
-                  </div>
-                </article>
+                  </button>
+                </li>
               );
             })}
+          </ul>
+
+          {/* Right: visual panel */}
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-[#f5f8fb] lg:aspect-auto lg:min-h-[520px]">
+            {PROBLEMS.map((p, i) => (
+              <img
+                key={p.title}
+                src={p.image}
+                alt={p.title}
+                loading="lazy"
+                className={cn(
+                  "absolute inset-0 h-full w-full object-contain p-4 transition-opacity duration-500 sm:p-8",
+                  i === active ? "opacity-100" : "opacity-0",
+                )}
+                aria-hidden={i === active ? undefined : true}
+              />
+            ))}
           </div>
         </div>
       </div>
