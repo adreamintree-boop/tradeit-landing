@@ -26,6 +26,11 @@ import {
   Handshake,
   Briefcase,
 } from "lucide-react";
+import workflowTradeData from "@/assets/trade-data.png.asset.json";
+import workflowEnrich from "@/assets/enrich.png.asset.json";
+import workflowAIAnalysis from "@/assets/ai-analysis.png.asset.json";
+import workflowCRM from "@/assets/crm.png.asset.json";
+import workflowOutreach from "@/assets/outreach.png.asset.json";
 import {
   Accordion,
   AccordionContent,
