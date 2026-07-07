@@ -31,6 +31,7 @@ import workflowEnrich from "@/assets/enrich.png.asset.json";
 import workflowAIAnalysis from "@/assets/ai-analysis.png.asset.json";
 import workflowCRM from "@/assets/crm.png.asset.json";
 import workflowOutreach from "@/assets/outreach.png.asset.json";
+import tradeItLogo from "@/assets/tradeit-logo.png.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -112,7 +113,13 @@ function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-white/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <BrandMark />
+        <a href="#" className="flex items-center">
+          <img
+            src={tradeItLogo.url}
+            alt="TradeIt"
+            className="h-6 w-auto object-contain sm:h-7"
+          />
+        </a>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <a
@@ -124,12 +131,9 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <a href="#login" className="hidden text-sm text-ink-soft hover:text-ink sm:inline-block">
-            Sign in
-          </a>
+        <div className="flex items-center">
           <button className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
-            Get Started
+            Login / Sign Up
             <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </div>
