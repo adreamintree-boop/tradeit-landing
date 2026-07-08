@@ -1434,8 +1434,9 @@ function DataCurrentOverlay() {
         </filter>
         <path
           id="data-main-path"
-          d="M0,75 L0,2 Q0,0 2,0 L98,0 Q100,0 100,2 L100,75"
+          d="M0,30 L0,2 Q0,0 2,0 L98,0 Q100,0 100,2 L100,30"
         />
+
         <path id="data-branch-1" d="M25,0 L25,100" />
         <path id="data-branch-2" d="M50,0 L50,100" />
         <path id="data-branch-3" d="M75,0 L75,100" />
