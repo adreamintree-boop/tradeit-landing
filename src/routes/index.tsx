@@ -1271,6 +1271,8 @@ const PLANS = [
     features: ["Buyer Search", "AI CORE (Market Analysis)", "Buyer Enrich", "Buyer Fit", "CRM"],
     cta: "Start for free",
     highlight: false,
+    icon: planFreeIcon.url,
+    iconScale: 0.78,
   },
   {
     name: "Plus Plan",
@@ -1281,6 +1283,8 @@ const PLANS = [
     features: ["All Free features", "1 Email account sync", "Buyer email log", "Credit rollover"],
     cta: "Continue with Plus",
     highlight: false,
+    icon: planPlusIcon.url,
+    iconScale: 0.85,
   },
   {
     name: "Pro Plan",
@@ -1291,6 +1295,8 @@ const PLANS = [
     features: ["All Plus features", "2 Emails account sync", "shared buyer email log"],
     cta: "Continue with Pro",
     highlight: true,
+    icon: planProIcon.url,
+    iconScale: 0.95,
   },
   {
     name: "Premium Plan",
@@ -1301,6 +1307,8 @@ const PLANS = [
     features: ["All Pro features", "3 Emails account sync", "priority support"],
     cta: "Continue with Premium",
     highlight: false,
+    icon: planPremiumIcon.url,
+    iconScale: 1,
   },
 ];
 
