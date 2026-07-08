@@ -1883,7 +1883,7 @@ function PillPhysics({
   return (
     <div
       ref={sceneRef}
-      className="relative mx-auto mt-16 h-[420px] w-full max-w-3xl overflow-hidden touch-none select-none"
+      className="relative mx-auto mt-16 h-[280px] w-full max-w-3xl overflow-hidden touch-none select-none"
       style={{ cursor: "grab" }}
     >
       {pills.map((p, i) => (
