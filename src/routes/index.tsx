@@ -1409,6 +1409,166 @@ const METRICS = [
   { value: "1 Tool", label: "SALES WORKFLOW", desc: "Turn scattered buyer research, CRM, and outreach into one integrated sales workflow." },
 ];
 
+function DataCurrentOverlay() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="data-current-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#0088ff" />
+          <stop offset="55%" stopColor="#27b7ff" />
+          <stop offset="100%" stopColor="#0088ff" />
+        </linearGradient>
+        <filter id="data-current-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feFlood floodColor="#0088ff" floodOpacity="0.35" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feMerge>
+            <feMergeNode in="glow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <path
+          id="data-main-path"
+          d="M0,30 L0,2 Q0,0 2,0 L98,0 Q100,0 100,2 L100,30"
+        />
+
+        <path id="data-branch-1" d="M25,0 L25,100" />
+        <path id="data-branch-2" d="M50,0 L50,100" />
+        <path id="data-branch-3" d="M75,0 L75,100" />
+      </defs>
+
+      {/* Ambient glow layer */}
+      <use
+        href="#data-main-path"
+        className="data-current-path"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="3.5"
+        fill="none"
+        filter="url(#data-current-glow)"
+        opacity="0.18"
+      />
+      <use
+        href="#data-branch-1"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="2.5"
+        fill="none"
+        filter="url(#data-current-glow)"
+        opacity="0.14"
+      />
+      <use
+        href="#data-branch-2"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="2.5"
+        fill="none"
+        filter="url(#data-current-glow)"
+        opacity="0.14"
+      />
+      <use
+        href="#data-branch-3"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="2.5"
+        fill="none"
+        filter="url(#data-current-glow)"
+        opacity="0.14"
+      />
+
+      {/* Sharp current line */}
+      <use
+        href="#data-main-path"
+        className="data-current-path"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="1"
+        fill="none"
+        opacity="0.75"
+      />
+      <use
+        href="#data-branch-1"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="0.8"
+        fill="none"
+        opacity="0.7"
+      />
+      <use
+        href="#data-branch-2"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="0.8"
+        fill="none"
+        opacity="0.7"
+      />
+      <use
+        href="#data-branch-3"
+        className="data-current-branch hidden sm:block"
+        stroke="url(#data-current-gradient)"
+        strokeWidth="0.8"
+        fill="none"
+        opacity="0.7"
+      />
+
+      {/* Pulse dots */}
+
+      <g className="hidden sm:block">
+        <circle r="1.4" fill="#27b7ff" filter="url(#data-current-glow)">
+          <animateMotion
+            dur="8s"
+            repeatCount="indefinite"
+            keyPoints="0;1"
+            keyTimes="0;1"
+            calcMode="linear"
+          >
+            <mpath href="#data-main-path" />
+          </animateMotion>
+        </circle>
+        <circle r="1.1" fill="#27b7ff" filter="url(#data-current-glow)">
+          <animateMotion
+            dur="8s"
+            begin="2s"
+            repeatCount="indefinite"
+            keyPoints="0;1"
+            keyTimes="0;1"
+            calcMode="linear"
+          >
+            <mpath href="#data-branch-1" />
+          </animateMotion>
+        </circle>
+        <circle r="1.1" fill="#27b7ff" filter="url(#data-current-glow)">
+          <animateMotion
+            dur="8s"
+            begin="3.5s"
+            repeatCount="indefinite"
+            keyPoints="0;1"
+            keyTimes="0;1"
+            calcMode="linear"
+          >
+            <mpath href="#data-branch-2" />
+          </animateMotion>
+        </circle>
+        <circle r="1.1" fill="#27b7ff" filter="url(#data-current-glow)">
+          <animateMotion
+            dur="8s"
+            begin="5s"
+            repeatCount="indefinite"
+            keyPoints="0;1"
+            keyTimes="0;1"
+            calcMode="linear"
+          >
+            <mpath href="#data-branch-3" />
+          </animateMotion>
+        </circle>
+      </g>
+    </svg>
+  );
+}
+
 function DataTrust() {
   return (
     <section className="bg-white py-20 sm:py-28">
@@ -1424,7 +1584,8 @@ function DataTrust() {
           </p>
         </div>
 
-        <div className="mt-16 border-l border-r border-t border-metric-divider rounded-t-lg">
+        <div className="relative mt-16 border-l border-r border-t border-metric-divider rounded-t-lg">
+          <DataCurrentOverlay />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {METRICS.map((m, i) => (
               <div
@@ -1457,6 +1618,7 @@ function DataTrust() {
     </section>
   );
 }
+
 
 /* ---------------------------------------------------------------- */
 /*  Testimonials                                                    */
