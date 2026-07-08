@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+const ThreeGlobe = lazy(() => import("@/components/OrbitalGlobe"));
 import { cn } from "@/lib/utils";
 import {
   Search,
