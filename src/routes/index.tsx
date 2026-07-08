@@ -269,7 +269,11 @@ function Hero() {
       {/* Three.js orbital globe */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="relative h-[120%] w-[120%] max-w-[1400px]">
-          {mounted && <ThreeGlobe />}
+          {mounted && (
+            <Suspense fallback={null}>
+              <ThreeGlobe className="absolute inset-0 h-full w-full" />
+            </Suspense>
+          )}
         </div>
       </div>
 
