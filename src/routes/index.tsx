@@ -27,7 +27,7 @@ import {
   Handshake,
   Briefcase,
   Network,
-  Route,
+  Truck,
 } from "lucide-react";
 import workflowTradeData from "@/assets/trade-data.png.asset.json";
 import workflowEnrich from "@/assets/enrich.png.asset.json";
