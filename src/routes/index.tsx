@@ -53,7 +53,7 @@ import usecaseManufacturer from "@/assets/usecase-manufacturer.jpg.asset.json";
 import usecaseTrading from "@/assets/usecase-trading.png.asset.json";
 import usecaseAgencies from "@/assets/usecase-agencies.png.asset.json";
 import usecaseSourcing from "@/assets/usecase-sourcing.png.asset.json";
-import usecaseLogistics from "@/assets/usecase-logistics.png.asset.json";
+import usecaseLogistics from "@/assets/usecase-logistics.jpg.asset.json";
 import planFreeIcon from "@/assets/plan-free.png.asset.json";
 import planPlusIcon from "@/assets/plan-plus.png.asset.json";
 import planProIcon from "@/assets/plan-pro.png.asset.json";
