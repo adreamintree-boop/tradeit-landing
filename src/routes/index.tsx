@@ -1019,94 +1019,146 @@ function AICard({
 /*  Use Cases                                                       */
 /* ---------------------------------------------------------------- */
 
+import usecaseExport from "@/assets/usecase-export.png.asset.json";
+import usecaseManufacturer from "@/assets/usecase-manufacturer.png.asset.json";
+import usecaseTrading from "@/assets/usecase-trading.png.asset.json";
+import usecaseAgencies from "@/assets/usecase-agencies.png.asset.json";
+import usecaseSourcing from "@/assets/usecase-sourcing.png.asset.json";
+import usecaseLogistics from "@/assets/usecase-logistics.png.asset.json";
+
 const USE_CASES = [
   {
     title: "Export Teams",
-    body: "Find verified overseas buyers and build stronger prospect lists with real import data.",
-    icon: Briefcase,
-    bullets: ["Build buyer lists from real import activity", "Prioritize prospects with stronger sales potential"],
+    subtext: "Find verified overseas buyers and build stronger prospect lists with real import data.",
+    image: usecaseExport.url,
+    bullets: [
+      "Build buyer lists from real import activity",
+      "Prioritize prospects with stronger sales potential",
+    ],
   },
   {
     title: "Manufacturers",
-    body: "Discover overseas demand and identify importers already buying products like yours.",
-    icon: Factory,
-    bullets: ["Find new overseas markets for your products", "Discover importers before investing in exhibitions"],
+    subtext: "Discover overseas demand and identify importers already buying products like yours.",
+    image: usecaseManufacturer.url,
+    bullets: [
+      "Find new overseas markets for your products",
+      "Discover importers before investing in exhibitions",
+    ],
   },
   {
     title: "Trading Companies",
-    body: "Track buyers, suppliers, and competitors to uncover new trade opportunities.",
-    icon: Handshake,
-    bullets: ["See who buys, sells, and supplies", "Monitor competitors and supplier relationships"],
+    subtext: "Track buyers, suppliers, and competitors to uncover new trade opportunities.",
+    image: usecaseTrading.url,
+    bullets: [
+      "See who buys, sells, and supplies",
+      "Monitor competitors and supplier relationships",
+    ],
   },
   {
     title: "Agencies & Consultants",
-    body: "Support clients with data-backed market research, buyer discovery, and outreach planning.",
-    icon: Users,
-    bullets: ["Deliver better export research for clients", "Support buyer discovery with real trade data"],
+    subtext: "Support clients with data-backed market research, buyer discovery, and outreach planning.",
+    image: usecaseAgencies.url,
+    bullets: [
+      "Deliver better export research for clients",
+      "Support buyer discovery with real trade data",
+    ],
   },
   {
     title: "Sourcing Teams",
-    body: "Discover verified suppliers and sourcing markets using real shipment data.",
-    icon: Network,
-    bullets: ["Find suppliers with proven export activity", "Compare sourcing routes and supplier relationships"],
+    subtext: "Discover verified suppliers and sourcing markets using real shipment data.",
+    image: usecaseSourcing.url,
+    bullets: [
+      "Find suppliers with proven export activity",
+      "Compare sourcing routes and supplier relationships",
+    ],
   },
   {
     title: "Logistics",
-    body: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
-    icon: Truck,
-    bullets: ["Identify companies with active shipment volume", "Analyze trade routes, ports, and market movement"],
+    subtext: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
+    image: usecaseLogistics.url,
+    bullets: [
+      "Identify companies with active shipment volume",
+      "Analyze trade routes, ports, and market movement",
+    ],
   },
 ];
 
 function UseCases() {
+  const [active, setActive] = useState(0);
+  const current = USE_CASES[active];
+
   return (
     <section className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
-          <div className="flex flex-col justify-center">
-            <Pill>Use cases</Pill>
-            <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Built for teams that sell across borders
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-ink-soft">
-              Whether you export, manufacture, trade, or support global sales, TradeIt helps your
-              team find real buyers and act on better opportunities.
-            </p>
-            <div className="mt-8">
-              <PrimaryCTA>Get Started</PrimaryCTA>
-            </div>
-          </div>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center text-center">
+          <Pill>Use Cases</Pill>
+          <h2 className="mt-6 max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+            Built for teams that sell across borders
+          </h2>
+        </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {USE_CASES.map((u) => {
-              const Icon = u.icon;
-              return (
-                <article
-                  key={u.title}
-                  className="group flex h-full flex-col rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
-                >
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint text-brand">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-ink">{u.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{u.body}</p>
-                  <ul className="mt-4 space-y-1.5">
-                    {u.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-xs text-ink-soft">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              );
-            })}
+        {/* Tabs */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:gap-x-10">
+          {USE_CASES.map((u, i) => (
+            <button
+              key={u.title}
+              type="button"
+              onClick={() => setActive(i)}
+              className={cn(
+                "relative pb-2 text-sm font-medium transition-colors sm:text-base",
+                active === i
+                  ? "text-brand"
+                  : "text-ink-soft hover:text-ink",
+              )}
+            >
+              {u.title}
+              {active === i && (
+                <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-brand" />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Content */}
+        <div
+          key={active}
+          className="mt-12 grid gap-6 animate-in fade-in duration-500 lg:grid-cols-2 lg:gap-8"
+        >
+          <div className="overflow-hidden rounded-3xl">
+            <img
+              src={current.image}
+              alt={current.title}
+              className="h-full w-full object-cover"
+              style={{ minHeight: "420px" }}
+            />
+          </div>
+          <div className="flex flex-col justify-center rounded-3xl bg-[#f7f5f0] p-8 sm:p-10 lg:p-12">
+            <h3
+              className="text-3xl leading-tight tracking-tight text-ink sm:text-4xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {current.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-ink-soft">
+              {current.subtext}
+            </p>
+            <ul className="mt-8 divide-y divide-black/10 border-y border-black/10">
+              {current.bullets.map((b) => (
+                <li key={b} className="flex items-start gap-3 py-4">
+                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-ink-soft/40">
+                    <Check className="h-3 w-3 text-ink-soft" strokeWidth={2.5} />
+                  </span>
+                  <span className="text-sm font-medium text-ink sm:text-base">{b}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------------------------------------------------------- */
 /*  Pricing                                                         */
