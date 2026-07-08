@@ -2034,6 +2034,7 @@ function LandingPage() {
         <Pricing />
         <DataTrust />
         <Testimonials />
+        <ToolsConsolidation />
         <FinalCTA />
         <FaqSection />
       </main>
