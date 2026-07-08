@@ -256,23 +256,23 @@ function Hero() {
 
   return (
     <section className="relative overflow-hidden text-white">
-      {/* Base blue gradient — navy → cobalt → icy blue → white */}
+      {/* Base atmospheric gradient — near-black → deep navy → cobalt → icy blue → white */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, #04061a 0%, #060b2e 18%, #0a1a6b 42%, #1e46c4 62%, #7fb2ea 82%, #d8e8f6 92%, #ffffff 100%)",
+            "linear-gradient(to bottom, #000000 0%, #030510 12%, #060b2e 30%, #0a1a6b 52%, #1e46c4 72%, #4a7fe6 88%, #9fc5f9 96%, #ffffff 100%)",
         }}
       />
 
-      {/* Center glow */}
+      {/* Rich cobalt center glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 50% at 50% 42%, rgba(80,140,255,0.28), transparent 65%)",
+            "radial-gradient(ellipse 55% 52% at 50% 46%, rgba(60,120,255,0.32), transparent 65%)",
         }}
       />
 
@@ -287,29 +287,45 @@ function Hero() {
         </div>
       </div>
 
-      {/* Grain / noise texture — stronger toward bottom */}
+      {/* Soft grain — stronger toward bottom */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 mix-blend-overlay"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
           backgroundSize: "240px 240px",
-          opacity: 0.35,
+          opacity: 0.32,
           WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.95) 100%)",
           maskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.95) 100%)",
         }}
       />
 
-      {/* Soft white fade at bottom for seamless page transition */}
+      {/* Scattered floating particle speckles — concentrated in lower half */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+        className="pointer-events-none absolute inset-0 mix-blend-screen"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='p' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='8' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='discrete' tableValues='0 0 0 0 1 0 0 0'/></feComponentTransfer><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23p)'/></svg>\")",
+          backgroundSize: "320px 320px",
+          opacity: 0.45,
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.35) 68%, rgba(0,0,0,0.85) 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.35) 68%, rgba(0,0,0,0.85) 100%)",
+        }}
+      />
+
+      {/* Soft white fade at bottom for seamless page transition — starts lower */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 55%, #ffffff 100%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.85) 80%, #ffffff 100%)",
         }}
       />
 
