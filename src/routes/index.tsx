@@ -1272,7 +1272,7 @@ const PLANS = [
     cta: "Start for free",
     highlight: false,
     icon: planFreeIcon.url,
-    iconScale: 0.78,
+    iconScale: 0.92,
   },
   {
     name: "Plus Plan",
@@ -1284,7 +1284,7 @@ const PLANS = [
     cta: "Continue with Plus",
     highlight: false,
     icon: planPlusIcon.url,
-    iconScale: 0.85,
+    iconScale: 0.98,
   },
   {
     name: "Pro Plan",
@@ -1296,7 +1296,7 @@ const PLANS = [
     cta: "Continue with Pro",
     highlight: true,
     icon: planProIcon.url,
-    iconScale: 0.95,
+    iconScale: 1.04,
   },
   {
     name: "Premium Plan",
@@ -1308,7 +1308,7 @@ const PLANS = [
     cta: "Continue with Premium",
     highlight: false,
     icon: planPremiumIcon.url,
-    iconScale: 1,
+    iconScale: 1.08,
   },
 ];
 
