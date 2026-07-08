@@ -255,14 +255,24 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#05070d] text-white">
-      {/* Ambient glows */}
+    <section className="relative overflow-hidden text-white">
+      {/* Base blue gradient — navy → cobalt → icy blue → white */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(76,141,255,0.22), transparent 60%), radial-gradient(ellipse 80% 60% at 50% 100%, rgba(10,15,30,0.9), transparent 70%)",
+            "linear-gradient(to bottom, #04061a 0%, #060b2e 18%, #0a1a6b 42%, #1e46c4 62%, #7fb2ea 82%, #d8e8f6 92%, #ffffff 100%)",
+        }}
+      />
+
+      {/* Center glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 50% at 50% 42%, rgba(80,140,255,0.28), transparent 65%)",
         }}
       />
 
@@ -277,15 +287,42 @@ function Hero() {
         </div>
       </div>
 
-      {/* Fade overlay to keep text readable */}
+      {/* Grain / noise texture — stronger toward bottom */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+          backgroundSize: "240px 240px",
+          opacity: 0.35,
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+        }}
+      />
+
+      {/* Soft white fade at bottom for seamless page transition */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 55%, #ffffff 100%)",
+        }}
+      />
+
+      {/* Text-readability overlay behind headline */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 45% 40% at 50% 42%, rgba(5,7,13,0.55), transparent 70%)",
+            "radial-gradient(ellipse 45% 38% at 50% 40%, rgba(4,6,26,0.55), transparent 70%)",
         }}
       />
+
 
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
         <div className="mx-auto max-w-3xl text-center">
