@@ -1044,6 +1044,18 @@ const USE_CASES = [
     icon: Users,
     bullets: ["Deliver better export research for clients", "Support buyer discovery with real trade data"],
   },
+  {
+    title: "Sourcing Teams",
+    body: "Discover verified suppliers and sourcing markets using real shipment data.",
+    icon: Network,
+    bullets: ["Find suppliers with proven export activity", "Compare sourcing routes and supplier relationships"],
+  },
+  {
+    title: "Logistics",
+    body: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
+    icon: Truck,
+    bullets: ["Identify companies with active shipment volume", "Analyze trade routes, ports, and market movement"],
+  },
 ];
 
 function UseCases() {
