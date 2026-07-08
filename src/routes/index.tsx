@@ -278,7 +278,7 @@ function Hero() {
 
       {/* Three.js orbital globe — full-bleed within hero, kept visible */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="relative h-full w-full scale-[0.85]">
+        <div className="relative h-full w-full scale-[0.95]">
           {mounted && (
             <Suspense fallback={null}>
               <ThreeGlobe className="absolute inset-0 h-full w-full" />
