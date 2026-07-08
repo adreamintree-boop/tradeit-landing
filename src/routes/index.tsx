@@ -1734,76 +1734,173 @@ const PILL_POSITIONS = [
   { left: "34%", top: "72%", rotate: 7 },
 ];
 
-function DraggablePill({
-  label,
-  price,
-  index,
-  position,
-  bg,
-  text,
-  priceText,
+function PillPhysics({
+  pills,
 }: {
-  label: string;
-  price: string;
-  index: number;
-  position: { left: string; top: string; rotate: number };
-  bg: string;
-  text: string;
-  priceText: string;
+  pills: typeof CONSOLIDATION_PILLS;
 }) {
-  const rotate = useMotionValue(position.rotate);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const sceneRef = useRef<HTMLDivElement | null>(null);
+  const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [started, setStarted] = useState(false);
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = ref.current;
+  // Kick off physics only when scrolled into view.
+  useEffect(() => {
+    const el = sceneRef.current;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const relX = (e.clientX - rect.left) / rect.width;
-    const tilt = (relX - 0.5) * 18;
-    rotate.set(position.rotate + tilt);
-  };
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setStarted(true);
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
-  const handlePointerUp = () => {
-    rotate.set(position.rotate);
-  };
+  useLayoutEffect(() => {
+    if (!started) return;
+    const scene = sceneRef.current;
+    if (!scene) return;
+
+    const width = scene.clientWidth;
+    const height = scene.clientHeight;
+    const wallThickness = 200;
+
+    const engine = Matter.Engine.create();
+    engine.gravity.y = 1.1;
+    const world = engine.world;
+
+    // Boundaries: floor, left, right (no ceiling so pills fall in from above)
+    const floor = Matter.Bodies.rectangle(
+      width / 2,
+      height + wallThickness / 2,
+      width + wallThickness * 2,
+      wallThickness,
+      { isStatic: true, friction: 0.6, restitution: 0.15 },
+    );
+    const leftWall = Matter.Bodies.rectangle(
+      -wallThickness / 2,
+      height / 2,
+      wallThickness,
+      height * 2,
+      { isStatic: true },
+    );
+    const rightWall = Matter.Bodies.rectangle(
+      width + wallThickness / 2,
+      height / 2,
+      wallThickness,
+      height * 2,
+      { isStatic: true },
+    );
+    Matter.World.add(world, [floor, leftWall, rightWall]);
+
+    // Measure real pill sizes and create bodies
+    const bodies: Matter.Body[] = [];
+    pillRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      // Spawn above the scene, spread horizontally with staggered timing
+      const spawnX =
+        width * 0.15 + (i / Math.max(1, pillRefs.current.length - 1)) * width * 0.7;
+      const spawnY = -60 - i * 90;
+      const body = Matter.Bodies.rectangle(spawnX, spawnY, w, h, {
+        chamfer: { radius: h / 2 },
+        restitution: 0.28,
+        friction: 0.35,
+        frictionAir: 0.018,
+        density: 0.0018,
+        angle: (Math.random() - 0.5) * 0.4,
+      });
+      bodies.push(body);
+    });
+    Matter.World.add(world, bodies);
+
+    // Mouse drag
+    const mouse = Matter.Mouse.create(scene);
+    // Allow page scroll to still work over the physics area
+    // by disabling mousewheel capture.
+    mouse.element.removeEventListener(
+      "wheel",
+      (mouse as unknown as { mousewheel: EventListener }).mousewheel,
+    );
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: { visible: false },
+      },
+    });
+    Matter.World.add(world, mouseConstraint);
+
+    const runner = Matter.Runner.create();
+    Matter.Runner.run(runner, engine);
+
+    let rafId = 0;
+    const sync = () => {
+      bodies.forEach((body, i) => {
+        const el = pillRefs.current[i];
+        if (!el) return;
+        const b = body.bounds;
+        const w = b.max.x - b.min.x;
+        const h = b.max.y - b.min.y;
+        el.style.transform = `translate3d(${body.position.x - w / 2}px, ${body.position.y - h / 2}px, 0) rotate(${body.angle}rad)`;
+      });
+      rafId = requestAnimationFrame(sync);
+    };
+    sync();
+
+    // Handle resize: rebuild walls
+    const ro = new ResizeObserver(() => {
+      const newW = scene.clientWidth;
+      const newH = scene.clientHeight;
+      Matter.Body.setPosition(floor, {
+        x: newW / 2,
+        y: newH + wallThickness / 2,
+      });
+      Matter.Body.setPosition(rightWall, {
+        x: newW + wallThickness / 2,
+        y: newH / 2,
+      });
+    });
+    ro.observe(scene);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+      Matter.Runner.stop(runner);
+      Matter.World.clear(world, false);
+      Matter.Engine.clear(engine);
+    };
+  }, [started, pills]);
 
   return (
-    <motion.div
-      ref={ref}
-      className="absolute cursor-grab active:cursor-grabbing select-none"
-      style={{
-        left: position.left,
-        top: position.top,
-        rotate,
-        touchAction: "none",
-      }}
-      initial={{ y: -420, opacity: 0, rotate: position.rotate }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        type: "spring",
-        stiffness: 120,
-        damping: 10,
-        mass: 0.9,
-        delay: 0.08 * index,
-      }}
-      drag
-      dragSnapToOrigin
-      dragElastic={0.5}
-      dragTransition={{ bounceStiffness: 180, bounceDamping: 14 }}
-      whileHover={{ scale: 1.05 }}
-      whileDrag={{ scale: 1.08, zIndex: 30 }}
-      onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerUp}
-      onPointerCancel={handlePointerUp}
+    <div
+      ref={sceneRef}
+      className="relative mx-auto mt-16 h-[420px] w-full max-w-3xl overflow-hidden touch-none select-none"
+      style={{ cursor: "grab" }}
     >
-      <div
-        className={`flex items-center gap-2 rounded-full ${bg} px-5 py-2.5 shadow-[0_6px_18px_-8px_rgba(15,23,42,0.25)]`}
-      >
-        <span className={`text-sm font-semibold ${text}`}>{label}</span>
-        <span className={`text-sm font-medium ${priceText}`}>{price}</span>
-      </div>
-    </motion.div>
+      {pills.map((p, i) => (
+        <div
+          key={p.label}
+          ref={(el) => {
+            pillRefs.current[i] = el;
+          }}
+          className={`absolute left-0 top-0 flex items-center gap-2 rounded-full ${p.bg} px-5 py-2.5 shadow-[0_6px_18px_-8px_rgba(15,23,42,0.25)] will-change-transform`}
+          style={{ transform: "translate3d(-9999px,-9999px,0)" }}
+        >
+          <span className={`text-sm font-semibold ${p.text}`}>{p.label}</span>
+          <span className={`text-sm font-medium ${p.priceText}`}>{p.price}</span>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -1826,21 +1923,9 @@ function ToolsConsolidation() {
           </p>
         </div>
 
-        {/* Scattered pill cluster — no container box */}
-        <div className="relative mx-auto mt-20 h-[340px] w-full max-w-2xl sm:h-[380px]">
-          {CONSOLIDATION_PILLS.map((p, i) => (
-            <DraggablePill
-              key={p.label}
-              label={p.label}
-              price={p.price}
-              index={i}
-              position={PILL_POSITIONS[i]}
-              bg={p.bg}
-              text={p.text}
-              priceText={p.priceText}
-            />
-          ))}
-        </div>
+        {/* Physics-based pill playground */}
+        <PillPhysics pills={CONSOLIDATION_PILLS} />
+
 
         {/* Editorial Before / After */}
         <div className="mx-auto mt-20 flex max-w-3xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-20">
