@@ -1019,12 +1019,6 @@ function AICard({
 /*  Use Cases                                                       */
 /* ---------------------------------------------------------------- */
 
-import usecaseExport from "@/assets/usecase-export.png.asset.json";
-import usecaseManufacturer from "@/assets/usecase-manufacturer.png.asset.json";
-import usecaseTrading from "@/assets/usecase-trading.png.asset.json";
-import usecaseAgencies from "@/assets/usecase-agencies.png.asset.json";
-import usecaseSourcing from "@/assets/usecase-sourcing.png.asset.json";
-import usecaseLogistics from "@/assets/usecase-logistics.png.asset.json";
 
 const USE_CASES = [
   {
