@@ -1198,26 +1198,26 @@ function UseCases() {
         </div>
 
         {/* Tabs */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:gap-x-10">
-          {USE_CASES.map((u, i) => (
-            <button
-              key={u.title}
-              type="button"
-              onClick={() => setActive(i)}
-              className={cn(
-                "relative pb-2 text-sm font-medium transition-colors sm:text-base",
-                active === i
-                  ? "text-brand"
-                  : "text-ink-soft hover:text-ink",
-              )}
-            >
-              {u.title}
-              {active === i && (
-                <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-brand" />
-              )}
-            </button>
-          ))}
+        <div className="mt-12 flex justify-center">
+          <div className="scrollbar-hide flex w-fit max-w-full items-center gap-1 overflow-x-auto rounded-full bg-muted p-1">
+            {USE_CASES.map((u, i) => (
+              <button
+                key={u.title}
+                type="button"
+                onClick={() => setActive(i)}
+                className={cn(
+                  "shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 sm:px-5 sm:text-base",
+                  active === i
+                    ? "bg-card text-ink shadow-sm"
+                    : "bg-transparent text-ink-soft hover:text-ink",
+                )}
+              >
+                {u.title}
+              </button>
+            ))}
+          </div>
         </div>
+
 
         {/* Content */}
         <div
