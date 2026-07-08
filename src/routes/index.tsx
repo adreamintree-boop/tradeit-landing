@@ -26,6 +26,8 @@ import {
   Factory,
   Handshake,
   Briefcase,
+  Network,
+  Truck,
 } from "lucide-react";
 import workflowTradeData from "@/assets/trade-data.png.asset.json";
 import workflowEnrich from "@/assets/enrich.png.asset.json";
@@ -1042,6 +1044,18 @@ const USE_CASES = [
     icon: Users,
     bullets: ["Deliver better export research for clients", "Support buyer discovery with real trade data"],
   },
+  {
+    title: "Sourcing Teams",
+    body: "Discover verified suppliers and sourcing markets using real shipment data.",
+    icon: Network,
+    bullets: ["Find suppliers with proven export activity", "Compare sourcing routes and supplier relationships"],
+  },
+  {
+    title: "Logistics",
+    body: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
+    icon: Truck,
+    bullets: ["Identify companies with active shipment volume", "Analyze trade routes, ports, and market movement"],
+  },
 ];
 
 function UseCases() {
@@ -1063,13 +1077,13 @@ function UseCases() {
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {USE_CASES.map((u) => {
               const Icon = u.icon;
               return (
                 <article
                   key={u.title}
-                  className="group rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
+                  className="group flex h-full flex-col rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
                 >
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint text-brand">
                     <Icon className="h-5 w-5" />
