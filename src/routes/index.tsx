@@ -1446,37 +1446,37 @@ function DataCurrentOverlay() {
         href="#data-main-path"
         className="data-current-path"
         stroke="url(#data-current-gradient)"
-        strokeWidth="5"
+        strokeWidth="3.5"
         fill="none"
         filter="url(#data-current-glow)"
-        opacity="0.22"
+        opacity="0.18"
       />
       <use
         href="#data-branch-1"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="4"
+        strokeWidth="2.5"
         fill="none"
         filter="url(#data-current-glow)"
-        opacity="0.18"
+        opacity="0.14"
       />
       <use
         href="#data-branch-2"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="4"
+        strokeWidth="2.5"
         fill="none"
         filter="url(#data-current-glow)"
-        opacity="0.18"
+        opacity="0.14"
       />
       <use
         href="#data-branch-3"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="4"
+        strokeWidth="2.5"
         fill="none"
         filter="url(#data-current-glow)"
-        opacity="0.18"
+        opacity="0.14"
       />
 
       {/* Sharp current line */}
@@ -1484,34 +1484,35 @@ function DataCurrentOverlay() {
         href="#data-main-path"
         className="data-current-path"
         stroke="url(#data-current-gradient)"
-        strokeWidth="1.5"
+        strokeWidth="1"
         fill="none"
-        opacity="0.85"
+        opacity="0.75"
       />
       <use
         href="#data-branch-1"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="1.2"
+        strokeWidth="0.8"
         fill="none"
-        opacity="0.8"
+        opacity="0.7"
       />
       <use
         href="#data-branch-2"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="1.2"
+        strokeWidth="0.8"
         fill="none"
-        opacity="0.8"
+        opacity="0.7"
       />
       <use
         href="#data-branch-3"
         className="data-current-branch hidden sm:block"
         stroke="url(#data-current-gradient)"
-        strokeWidth="1.2"
+        strokeWidth="0.8"
         fill="none"
-        opacity="0.8"
+        opacity="0.7"
       />
+
 
       {/* Pulse dots */}
       <g className="hidden sm:block">
