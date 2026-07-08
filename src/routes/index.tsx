@@ -1337,12 +1337,12 @@ function Pricing() {
               }`}
             >
               {/* Icon area */}
-              <div className="flex h-32 items-end justify-center overflow-hidden pb-2">
+              <div className="flex h-40 items-start justify-center overflow-hidden pt-1">
                 <img
                   src={p.icon}
                   alt={`${p.name} icon`}
-                  className="h-full w-auto object-contain drop-shadow-[0_10px_20px_rgba(30,70,196,0.18)]"
-                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "bottom center" }}
+                  className="h-full w-auto object-contain"
+                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top center" }}
                   loading="lazy"
                 />
               </div>
