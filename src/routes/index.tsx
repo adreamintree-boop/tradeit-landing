@@ -1330,11 +1330,26 @@ function Pricing() {
           {PLANS.map((p) => (
             <div
               key={p.name}
-              className={`flex flex-col rounded-[20px] border bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-card ${
+              className={`flex flex-col rounded-[20px] border bg-white p-7 pt-6 transition-all hover:-translate-y-1 hover:shadow-card ${
                 p.highlight
                   ? "border-brand bg-brand-tint"
                   : "border-border"
               }`}
+            >
+              {/* Icon area */}
+              <div className="flex h-32 items-end justify-center overflow-hidden pb-2">
+                <img
+                  src={p.icon}
+                  alt={`${p.name} icon`}
+                  className="h-full w-auto object-contain drop-shadow-[0_10px_20px_rgba(30,70,196,0.18)]"
+                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "bottom center" }}
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Top area */}
+              <div className="pb-6">
+                <div className="text-sm font-semibold text-ink">{p.name}</div>
             >
               {/* Top area */}
               <div className="pb-6">
