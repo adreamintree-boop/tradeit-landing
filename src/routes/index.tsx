@@ -1724,15 +1724,8 @@ const CONSOLIDATION_PILLS = [
   },
 ];
 
-// Loose, scattered pile centered under the headline (percent-based coords).
-const PILL_POSITIONS = [
-  { left: "24%", top: "6%", rotate: -8 },
-  { left: "52%", top: "2%", rotate: 5 },
-  { left: "14%", top: "40%", rotate: -4 },
-  { left: "44%", top: "44%", rotate: 3 },
-  { left: "62%", top: "38%", rotate: -6 },
-  { left: "34%", top: "72%", rotate: 7 },
-];
+
+
 
 function PillPhysics({
   pills,
