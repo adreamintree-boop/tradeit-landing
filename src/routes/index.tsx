@@ -52,6 +52,10 @@ import usecaseTrading from "@/assets/usecase-trading.png.asset.json";
 import usecaseAgencies from "@/assets/usecase-agencies.png.asset.json";
 import usecaseSourcing from "@/assets/usecase-sourcing.png.asset.json";
 import usecaseLogistics from "@/assets/usecase-logistics.png.asset.json";
+import planFreeIcon from "@/assets/plan-free.png.asset.json";
+import planPlusIcon from "@/assets/plan-plus.png.asset.json";
+import planProIcon from "@/assets/plan-pro.png.asset.json";
+import planPremiumIcon from "@/assets/plan-premium.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -1267,6 +1271,8 @@ const PLANS = [
     features: ["Buyer Search", "AI CORE (Market Analysis)", "Buyer Enrich", "Buyer Fit", "CRM"],
     cta: "Start for free",
     highlight: false,
+    icon: planFreeIcon.url,
+    iconScale: 0.78,
   },
   {
     name: "Plus Plan",
@@ -1277,6 +1283,8 @@ const PLANS = [
     features: ["All Free features", "1 Email account sync", "Buyer email log", "Credit rollover"],
     cta: "Continue with Plus",
     highlight: false,
+    icon: planPlusIcon.url,
+    iconScale: 0.85,
   },
   {
     name: "Pro Plan",
@@ -1287,6 +1295,8 @@ const PLANS = [
     features: ["All Plus features", "2 Emails account sync", "shared buyer email log"],
     cta: "Continue with Pro",
     highlight: true,
+    icon: planProIcon.url,
+    iconScale: 0.95,
   },
   {
     name: "Premium Plan",
@@ -1297,6 +1307,8 @@ const PLANS = [
     features: ["All Pro features", "3 Emails account sync", "priority support"],
     cta: "Continue with Premium",
     highlight: false,
+    icon: planPremiumIcon.url,
+    iconScale: 1,
   },
 ];
 
@@ -1318,12 +1330,23 @@ function Pricing() {
           {PLANS.map((p) => (
             <div
               key={p.name}
-              className={`flex flex-col rounded-[20px] border bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-card ${
+              className={`flex flex-col rounded-[20px] border bg-white p-7 pt-6 transition-all hover:-translate-y-1 hover:shadow-card ${
                 p.highlight
                   ? "border-brand bg-brand-tint"
                   : "border-border"
               }`}
             >
+              {/* Icon area */}
+              <div className="flex h-32 items-end justify-center overflow-hidden pb-2">
+                <img
+                  src={p.icon}
+                  alt={`${p.name} icon`}
+                  className="h-full w-auto object-contain drop-shadow-[0_10px_20px_rgba(30,70,196,0.18)]"
+                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "bottom center" }}
+                  loading="lazy"
+                />
+              </div>
+
               {/* Top area */}
               <div className="pb-6">
                 <div className="text-sm font-semibold text-ink">{p.name}</div>
