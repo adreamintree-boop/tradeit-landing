@@ -1308,7 +1308,7 @@ const PLANS = [
     cta: "Continue with Premium",
     highlight: false,
     icon: planPremiumIcon.url,
-    iconScale: 1.08,
+    iconScale: 0.98,
   },
 ];
 
