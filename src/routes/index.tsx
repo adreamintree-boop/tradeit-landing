@@ -45,6 +45,12 @@ import nimeshAvatar from "@/assets/nimesh.png.asset.json";
 import philemonAvatar from "@/assets/philemon.png.asset.json";
 import marianAvatar from "@/assets/marian.png.asset.json";
 import abdulAvatar from "@/assets/abdul.png.asset.json";
+import usecaseExport from "@/assets/usecase-export.png.asset.json";
+import usecaseManufacturer from "@/assets/usecase-manufacturer.png.asset.json";
+import usecaseTrading from "@/assets/usecase-trading.png.asset.json";
+import usecaseAgencies from "@/assets/usecase-agencies.png.asset.json";
+import usecaseSourcing from "@/assets/usecase-sourcing.png.asset.json";
+import usecaseLogistics from "@/assets/usecase-logistics.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
