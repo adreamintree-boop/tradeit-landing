@@ -1766,7 +1766,7 @@ function PillPhysics({
     const wallThickness = 200;
 
     const engine = Matter.Engine.create();
-    engine.gravity.y = 1.1;
+    engine.gravity.y = 1.35;
     const world = engine.world;
 
     // Boundaries: floor, left, right (no ceiling so pills fall in from above)
@@ -1800,21 +1800,24 @@ function PillPhysics({
       const rect = el.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
-      // Spawn above the scene, spread horizontally with staggered timing
+      // Spawn inside the lower half of the playground so pills don't overlap
+      // the headline/subcopy area above.
       const spawnX =
         width * 0.15 + (i / Math.max(1, pillRefs.current.length - 1)) * width * 0.7;
-      const spawnY = -60 - i * 90;
+      const spawnY = height * 0.35 - i * 22;
       const body = Matter.Bodies.rectangle(spawnX, spawnY, w, h, {
         chamfer: { radius: h / 2 },
-        restitution: 0.22,
+        restitution: 0.2,
         friction: 0.5,
         frictionAir: 0.025,
         density: 0.006,
         angle: (Math.random() - 0.5) * 0.4,
       });
+      Matter.Body.setVelocity(body, { x: 0, y: 3 });
       bodies.push(body);
     });
     Matter.World.add(world, bodies);
+
 
     // Mouse drag — MouseConstraint auto-anchors to the exact clicked local point,
     // so grabbing a pill's edge produces torque and the free end swings down.
@@ -1880,7 +1883,7 @@ function PillPhysics({
   return (
     <div
       ref={sceneRef}
-      className="relative mx-auto mt-16 h-[420px] w-full max-w-3xl overflow-hidden touch-none select-none"
+      className="relative mx-auto mt-16 h-[280px] w-full max-w-3xl overflow-hidden touch-none select-none"
       style={{ cursor: "grab" }}
     >
       {pills.map((p, i) => (
