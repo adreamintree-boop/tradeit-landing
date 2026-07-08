@@ -248,22 +248,52 @@ function KeywordMarquee({
 function Hero() {
   const [query, setQuery] = useState("");
   const [paused, setPaused] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-hero-light">
-      <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
+    <section className="relative overflow-hidden bg-[#05070d] text-white">
+      {/* Ambient glows */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(76,141,255,0.22), transparent 60%), radial-gradient(ellipse 80% 60% at 50% 100%, rgba(10,15,30,0.9), transparent 70%)",
+        }}
+      />
+
+      {/* Three.js orbital globe */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="relative h-[120%] w-[120%] max-w-[1400px]">
+          {mounted && <ThreeGlobe />}
+        </div>
+      </div>
+
+      {/* Fade overlay to keep text readable */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 40% at 50% 42%, rgba(5,7,13,0.55), transparent 70%)",
+        }}
+      />
+
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
         <div className="mx-auto max-w-3xl text-center">
-          <Pill>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
-          </Pill>
-          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+          </span>
+          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Find real buyers through
             <br />
-            <span className="italic text-ink-soft">global trade data.</span>
+            <span className="italic text-white/60">global trade data.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/70">
             Search billions of shipment records to discover companies already importing products like yours.
           </p>
         </div>
@@ -272,7 +302,7 @@ function Hero() {
         <div className="mx-auto mt-10 max-w-4xl">
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
+            className="flex flex-col items-stretch gap-2 rounded-full border border-white/10 bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
           >
             <button
               type="button"
@@ -321,8 +351,14 @@ function Hero() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-          <PrimaryCTA>Get Started</PrimaryCTA>
-          <SecondaryLink>Explore Trade Data</SecondaryLink>
+          <button className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-brand transition-all hover:brightness-110">
+            Get Started
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </button>
+          <button className="inline-flex items-center gap-1.5 text-sm font-medium text-white/70 transition-colors hover:text-white">
+            Explore Trade Data
+            <ArrowRight className="h-3.5 w-3.5" />
+          </button>
         </div>
 
         {/* Floating UI cards */}
