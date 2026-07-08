@@ -1806,20 +1806,19 @@ function PillPhysics({
       const spawnY = -60 - i * 90;
       const body = Matter.Bodies.rectangle(spawnX, spawnY, w, h, {
         chamfer: { radius: h / 2 },
-        restitution: 0.28,
-        friction: 0.35,
-        frictionAir: 0.018,
-        density: 0.0018,
+        restitution: 0.22,
+        friction: 0.5,
+        frictionAir: 0.025,
+        density: 0.006,
         angle: (Math.random() - 0.5) * 0.4,
       });
       bodies.push(body);
     });
     Matter.World.add(world, bodies);
 
-    // Mouse drag
+    // Mouse drag — MouseConstraint auto-anchors to the exact clicked local point,
+    // so grabbing a pill's edge produces torque and the free end swings down.
     const mouse = Matter.Mouse.create(scene);
-    // Allow page scroll to still work over the physics area
-    // by disabling mousewheel capture.
     mouse.element.removeEventListener(
       "wheel",
       (mouse as unknown as { mousewheel: EventListener }).mousewheel,
@@ -1827,7 +1826,11 @@ function PillPhysics({
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
       constraint: {
-        stiffness: 0.2,
+        stiffness: 0.18,
+        damping: 0.15,
+        angularStiffness: 0,
+        render: { visible: false },
+
         render: { visible: false },
       },
     });
