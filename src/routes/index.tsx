@@ -1077,13 +1077,13 @@ function UseCases() {
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {USE_CASES.map((u) => {
               const Icon = u.icon;
               return (
                 <article
                   key={u.title}
-                  className="group rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
+                  className="group flex h-full flex-col rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
                 >
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint text-brand">
                     <Icon className="h-5 w-5" />
