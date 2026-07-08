@@ -1308,7 +1308,7 @@ const PLANS = [
     cta: "Continue with Premium",
     highlight: false,
     icon: planPremiumIcon.url,
-    iconScale: 1.08,
+    iconScale: 0.98,
   },
 ];
 
@@ -1337,19 +1337,19 @@ function Pricing() {
               }`}
             >
               {/* Icon area */}
-              <div className="flex h-40 items-start justify-center overflow-hidden pt-1">
+              <div className="flex h-40 items-start justify-start overflow-hidden pt-1">
                 <img
                   src={p.icon}
                   alt={`${p.name} icon`}
                   className="h-full w-auto object-contain"
-                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top center" }}
+                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top left" }}
                   loading="lazy"
                 />
               </div>
 
               {/* Top area */}
               <div className="pb-6">
-                <div className="text-sm font-semibold text-ink">{p.name}</div>
+                <div className="text-xl font-semibold text-ink">{p.name}</div>
                 <div className="mt-3 flex items-baseline gap-1.5">
                   <span
                     className="text-4xl font-bold text-ink"
