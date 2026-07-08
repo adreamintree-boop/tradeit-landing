@@ -1350,10 +1350,6 @@ function Pricing() {
               {/* Top area */}
               <div className="pb-6">
                 <div className="text-sm font-semibold text-ink">{p.name}</div>
-            >
-              {/* Top area */}
-              <div className="pb-6">
-                <div className="text-sm font-semibold text-ink">{p.name}</div>
                 <div className="mt-3 flex items-baseline gap-1.5">
                   <span
                     className="text-4xl font-bold text-ink"
