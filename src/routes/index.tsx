@@ -1093,7 +1093,9 @@ function UseCases() {
         <div className="flex flex-col items-center text-center">
           <Pill>Use Cases</Pill>
           <h2 className="mt-6 max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built for teams that sell across borders
+            Built for teams
+            <br />
+            that sell across borders
           </h2>
         </div>
 
@@ -1122,9 +1124,9 @@ function UseCases() {
         {/* Content */}
         <div
           key={active}
-          className="mt-12 grid gap-6 animate-in fade-in duration-500 lg:grid-cols-2 lg:gap-8"
+          className="mt-12 grid gap-5 animate-in fade-in duration-500 lg:grid-cols-2 lg:gap-6"
         >
-          <div className="overflow-hidden rounded-3xl">
+          <div className="overflow-hidden rounded-2xl">
             <img
               src={current.image}
               alt={current.title}
@@ -1132,16 +1134,13 @@ function UseCases() {
               style={{ minHeight: "420px" }}
             />
           </div>
-          <div className="flex flex-col justify-center rounded-3xl bg-[#f7f5f0] p-8 sm:p-10 lg:p-12">
+          <div className="flex flex-col justify-center rounded-2xl bg-[#f2f8fc] p-8 sm:p-10 lg:p-12">
             <h3
-              className="text-3xl leading-tight tracking-tight text-ink sm:text-4xl"
+              className="text-2xl leading-snug tracking-tight text-ink sm:text-3xl lg:text-[1.75rem]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              {current.title}
-            </h3>
-            <p className="mt-4 text-base leading-relaxed text-ink-soft">
               {current.subtext}
-            </p>
+            </h3>
             <ul className="mt-8 divide-y divide-black/10 border-y border-black/10">
               {current.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-3 py-4">
