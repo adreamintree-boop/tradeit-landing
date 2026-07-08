@@ -1828,12 +1828,9 @@ function PillPhysics({
       constraint: {
         stiffness: 0.18,
         damping: 0.15,
-        angularStiffness: 0,
         render: { visible: false },
+      } as Matter.IConstraintDefinition & { angularStiffness?: number },
 
-        render: { visible: false },
-      },
-    });
     Matter.World.add(world, mouseConstraint);
 
     const runner = Matter.Runner.create();
