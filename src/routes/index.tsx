@@ -255,7 +255,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden text-white">
+    <section className="relative w-full overflow-hidden text-white">
       {/* Base atmospheric gradient — near-black → deep navy → cobalt → icy blue → white */}
       <div
         aria-hidden
@@ -276,9 +276,9 @@ function Hero() {
         }}
       />
 
-      {/* Three.js orbital globe */}
+      {/* Three.js orbital globe — full-bleed within hero, kept visible */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="relative h-[120%] w-[120%] max-w-[1400px] scale-[0.85]">
+        <div className="relative h-full w-full scale-[0.85]">
           {mounted && (
             <Suspense fallback={null}>
               <ThreeGlobe className="absolute inset-0 h-full w-full" />
