@@ -1272,7 +1272,7 @@ const PLANS = [
     cta: "Start for free",
     highlight: false,
     icon: planFreeIcon.url,
-    iconScale: 0.78,
+    iconScale: 0.92,
   },
   {
     name: "Plus Plan",
@@ -1284,7 +1284,7 @@ const PLANS = [
     cta: "Continue with Plus",
     highlight: false,
     icon: planPlusIcon.url,
-    iconScale: 0.85,
+    iconScale: 0.98,
   },
   {
     name: "Pro Plan",
@@ -1296,7 +1296,7 @@ const PLANS = [
     cta: "Continue with Pro",
     highlight: true,
     icon: planProIcon.url,
-    iconScale: 0.95,
+    iconScale: 1.04,
   },
   {
     name: "Premium Plan",
@@ -1308,7 +1308,7 @@ const PLANS = [
     cta: "Continue with Premium",
     highlight: false,
     icon: planPremiumIcon.url,
-    iconScale: 1,
+    iconScale: 1.08,
   },
 ];
 
@@ -1337,12 +1337,12 @@ function Pricing() {
               }`}
             >
               {/* Icon area */}
-              <div className="flex h-32 items-end justify-center overflow-hidden pb-2">
+              <div className="flex h-40 items-start justify-center overflow-hidden pt-1">
                 <img
                   src={p.icon}
                   alt={`${p.name} icon`}
-                  className="h-full w-auto object-contain drop-shadow-[0_10px_20px_rgba(30,70,196,0.18)]"
-                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "bottom center" }}
+                  className="h-full w-auto object-contain"
+                  style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top center" }}
                   loading="lazy"
                 />
               </div>
