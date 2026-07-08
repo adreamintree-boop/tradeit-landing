@@ -1829,9 +1829,12 @@ function PillPhysics({
         stiffness: 0.18,
         damping: 0.15,
         render: { visible: false },
-      } as Matter.IConstraintDefinition & { angularStiffness?: number },
-
+      },
+    });
+    // Ensure the drag constraint doesn't force rotation — pills swing freely from the grab point.
+    (mouseConstraint.constraint as unknown as { angularStiffness: number }).angularStiffness = 0;
     Matter.World.add(world, mouseConstraint);
+
 
     const runner = Matter.Runner.create();
     Matter.Runner.run(runner, engine);
