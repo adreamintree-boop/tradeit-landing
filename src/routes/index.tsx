@@ -1514,8 +1514,8 @@ function DataCurrentOverlay() {
         opacity="0.7"
       />
 
-
       {/* Pulse dots */}
+
       <g className="hidden sm:block">
         <circle r="1.4" fill="#27b7ff" filter="url(#data-current-glow)">
           <animateMotion
