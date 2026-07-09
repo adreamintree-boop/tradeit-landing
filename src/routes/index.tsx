@@ -353,49 +353,69 @@ function Hero() {
 
             {/* Animated SVG wave stack — real fluid surface */}
             <svg
-              className="absolute inset-x-0 top-0 h-40 w-full"
-              viewBox="0 0 1440 160"
+              className="absolute inset-x-0 top-0 h-64 w-full"
+              viewBox="0 0 1440 220"
               preserveAspectRatio="none"
               aria-hidden
             >
               <defs>
                 <linearGradient id="heroWaveA" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.9)" />
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
                   <stop offset="100%" stopColor="rgba(190,218,250,0.15)" />
                 </linearGradient>
                 <linearGradient id="heroWaveB" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(150,190,240,0.6)" />
+                  <stop offset="0%" stopColor="rgba(150,190,240,0.7)" />
                   <stop offset="100%" stopColor="rgba(96,150,232,0)" />
                 </linearGradient>
                 <linearGradient id="heroWaveC" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(80,140,225,0.55)" />
+                  <stop offset="0%" stopColor="rgba(80,140,225,0.65)" />
                   <stop offset="100%" stopColor="rgba(80,140,225,0)" />
                 </linearGradient>
               </defs>
 
-              {/* Back wave — slower */}
-              <g className="hero-wave-slow" style={{ transformOrigin: "center" }}>
+              {/* Back wave — slower, deeper amplitude */}
+              <g className="hero-wave-slow">
                 <path
                   fill="url(#heroWaveC)"
-                  d="M-1440 70 Q -1080 30 -720 70 T 0 70 T 720 70 T 1440 70 T 2160 70 T 2880 70 V160 H-1440 Z"
+                  d="M-1440 110 Q -1080 40 -720 110 T 0 110 T 720 110 T 1440 110 T 2160 110 T 2880 110 V220 H-1440 Z"
                 />
               </g>
               {/* Mid wave */}
-              <g className="hero-wave-mid" style={{ transformOrigin: "center" }}>
+              <g className="hero-wave-mid">
                 <path
                   fill="url(#heroWaveB)"
-                  d="M-1440 60 Q -1080 100 -720 60 T 0 60 T 720 60 T 1440 60 T 2160 60 T 2880 60 V160 H-1440 Z"
+                  d="M-1440 95 Q -1080 160 -720 95 T 0 95 T 720 95 T 1440 95 T 2160 95 T 2880 95 V220 H-1440 Z"
                 />
               </g>
-              {/* Crest wave — brightest, fastest */}
-              <g className="hero-wave-fast" style={{ transformOrigin: "center" }}>
+              {/* Crest wave — brightest, fastest, largest amplitude */}
+              <g className="hero-wave-fast">
                 <path
                   fill="url(#heroWaveA)"
-                  d="M-1440 50 Q -1080 20 -720 50 T 0 50 T 720 50 T 1440 50 T 2160 50 T 2880 50 V90 H-1440 Z"
-                  opacity="0.85"
+                  d="M-1440 75 Q -1080 15 -720 75 T 0 75 T 720 75 T 1440 75 T 2160 75 T 2880 75 V140 H-1440 Z"
+                  opacity="0.9"
                 />
               </g>
             </svg>
+
+            {/* Container ships floating on the wave */}
+            <div className="absolute inset-x-0 top-16 h-40 pointer-events-none">
+              <ContainerShip
+                className="hero-ship hero-ship-a"
+                style={{ left: "12%", width: "180px" }}
+                accent="#1e46c4"
+              />
+              <ContainerShip
+                className="hero-ship hero-ship-b"
+                style={{ left: "44%", width: "220px" }}
+                accent="#0f2f8a"
+              />
+              <ContainerShip
+                className="hero-ship hero-ship-c"
+                style={{ left: "72%", width: "160px" }}
+                accent="#2a58d4"
+              />
+            </div>
+
 
             {/* Shimmer glow along wave crest */}
             <div
