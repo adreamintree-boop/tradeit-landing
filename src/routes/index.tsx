@@ -335,11 +335,11 @@ function Hero() {
         <div className="h-10" aria-hidden />
 
         {/* Liquid layer — starts below keyword chips, flows to the bottom of the hero */}
-        <div className="relative min-h-[420px] sm:min-h-[500px]">
+        <div className="relative min-h-[220px] sm:min-h-[260px]">
 
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-[-50vw] top-0 bottom-[-6rem] overflow-hidden"
+            className="pointer-events-none absolute inset-x-[-50vw] top-0 bottom-[-1.5rem] overflow-hidden"
           >
             {/* Base soft blue gradient surface */}
             <div
@@ -352,39 +352,37 @@ function Hero() {
 
             {/* Dense particle/noise dissolve band at the white→wave boundary */}
             <div
-              className="absolute inset-x-0 top-0 h-40"
+              className="absolute inset-x-0 top-0 h-28"
               style={{
                 backgroundImage:
                   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.5  0 0 0 0 0.82  0 0 0 1.1 -0.15'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
                 backgroundSize: "320px 320px",
-                opacity: 0.9,
+                opacity: 0.85,
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 20%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0.35) 75%, transparent 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 20%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0.35) 75%, transparent 100%)",
                 mixBlendMode: "normal",
               }}
             />
             {/* Second sparser particle pass to add scattered grain on top */}
             <div
-              className="absolute inset-x-0 top-0 h-48"
+              className="absolute inset-x-0 top-0 h-36"
               style={{
                 backgroundImage:
                   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 -0.15'/></filter><rect width='100%' height='100%' filter='url(%23n2)'/></svg>\")",
                 backgroundSize: "260px 260px",
-                opacity: 0.55,
+                opacity: 0.5,
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.5) 70%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 25%, rgba(0,0,0,0.45) 65%, transparent 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.5) 70%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 25%, rgba(0,0,0,0.45) 65%, transparent 100%)",
               }}
             />
 
-
             {/* Animated SVG wave stack — real fluid surface */}
             <svg
-              className="absolute inset-x-0 top-0 h-80 w-full"
-
+              className="absolute inset-x-0 top-0 h-48 w-full"
               viewBox="0 0 1440 220"
               preserveAspectRatio="none"
               aria-hidden
@@ -429,23 +427,21 @@ function Hero() {
             </svg>
 
             {/* Container ships floating and sailing rightward on the wave */}
-            <div className="absolute inset-x-0 top-16 h-64 pointer-events-none overflow-hidden">
-              <div className="hero-ship-drift hero-ship-drift-a absolute top-8" style={{ width: "180px" }}>
+            <div className="absolute inset-x-0 top-6 h-48 pointer-events-none overflow-hidden">
+              <div className="hero-ship-drift hero-ship-drift-a absolute top-4" style={{ width: "140px" }}>
                 <ContainerShip className="hero-ship hero-ship-a" accent="#1e46c4" />
               </div>
-              <div className="hero-ship-drift hero-ship-drift-b absolute top-20" style={{ width: "220px" }}>
+              <div className="hero-ship-drift hero-ship-drift-b absolute top-16" style={{ width: "180px" }}>
                 <ContainerShip className="hero-ship hero-ship-b" accent="#0f2f8a" />
               </div>
-              <div className="hero-ship-drift hero-ship-drift-c absolute top-32" style={{ width: "160px" }}>
+              <div className="hero-ship-drift hero-ship-drift-c absolute top-28" style={{ width: "120px" }}>
                 <ContainerShip className="hero-ship hero-ship-c" accent="#2a58d4" />
               </div>
             </div>
 
-
-
             {/* Shimmer glow along wave crest */}
             <div
-              className="absolute inset-x-0 top-8 h-10"
+              className="absolute inset-x-0 top-5 h-10"
               style={{
                 background:
                   "linear-gradient(to bottom, rgba(255,255,255,0.55), transparent)",
@@ -458,7 +454,7 @@ function Hero() {
 
             {/* Drifting soft highlights inside the fluid */}
             <div
-              className="absolute inset-x-[-10%] top-20 h-[60%]"
+              className="absolute inset-x-[-10%] top-14 h-[60%]"
               style={{
                 background:
                   "radial-gradient(ellipse 55% 60% at 30% 40%, rgba(255,255,255,0.35), transparent 60%), radial-gradient(ellipse 45% 55% at 75% 55%, rgba(180,210,255,0.4), transparent 65%)",
@@ -477,21 +473,21 @@ function Hero() {
               viewBox="0 0 800 600"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.7) 60%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 92%, transparent 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.7) 60%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 92%, transparent 100%)",
               }}
             >
-              <g className="hero-particles-a" fill="rgba(255,255,255,0.85)">
-                {Array.from({ length: 60 }).map((_, i) => {
+              <g className="hero-particles-a" fill="rgba(255,255,255,0.75)">
+                {Array.from({ length: 70 }).map((_, i) => {
                   const x = (i * 137.5) % 800;
                   const y = ((i * 53.7) % 600);
                   const r = ((i * 7) % 3 === 0 ? 1.2 : 0.7);
                   return <circle key={`pa-${i}`} cx={x} cy={y} r={r} />;
                 })}
               </g>
-              <g className="hero-particles-b" fill="rgba(200,224,255,0.7)">
-                {Array.from({ length: 45 }).map((_, i) => {
+              <g className="hero-particles-b" fill="rgba(200,224,255,0.6)">
+                {Array.from({ length: 55 }).map((_, i) => {
                   const x = ((i * 91.3) % 800);
                   const y = ((i * 71.1) % 600);
                   const r = ((i * 5) % 4 === 0 ? 1.4 : 0.6);
@@ -500,24 +496,24 @@ function Hero() {
               </g>
             </svg>
 
-            {/* Fine grain noise overlay */}
+            {/* Fine grain noise overlay — strongest at the transition, subtle throughout */}
             <div
-              className="absolute inset-0 mix-blend-overlay"
+              className={cn(
+                "absolute inset-0 mix-blend-overlay hero-grain-drift",
+                prefersReducedMotion && "[animation:none!important]"
+              )}
               style={{
                 backgroundImage:
-                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
                 backgroundSize: "240px 240px",
-                opacity: 0.35,
+                opacity: 0.22,
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 8%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.75) 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 8%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.75) 100%)",
               }}
             />
           </div>
-
-
-
 
         </div>
       </div>
