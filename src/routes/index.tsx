@@ -1590,10 +1590,13 @@ function DataTrust() {
         <div className="max-w-3xl">
           <Eyebrow>Data you can trust</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built on global trade data <span className="italic text-ink-soft">you can trust</span>
+            Built on global trade data
+            <br />
+            <span className="italic text-brand">you can trust.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
             TradeIt helps sales teams discover real buyers using billions of shipment records,
+            <br />
             global market coverage, and verified business contact data.
           </p>
         </div>
