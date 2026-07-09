@@ -488,16 +488,7 @@ function Hero() {
           </div>
 
 
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 pt-6">
-            <button className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-brand transition-all hover:brightness-110">
-              Get Started
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
-            <button className="inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-brand">
-              Explore Trade Data
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
-          </div>
+
 
         </div>
       </div>
