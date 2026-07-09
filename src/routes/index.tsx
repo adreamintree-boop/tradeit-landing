@@ -461,7 +461,7 @@ function HeroFloatingCards() {
       value: "4.8M tons",
       trend: "9.6%",
       Icon: Weight,
-      pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%] translate-y-[30px]",
+      pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%] translate-y-[80px]",
       hideOn: "hidden xl:block",
       delay: "1.6s",
     },
