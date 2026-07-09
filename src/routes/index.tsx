@@ -266,18 +266,18 @@ function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden bg-white text-ink">
-      {/* Orbital globe background — enlarged premium blue particle sphere */}
+      {/* Orbital globe background — enlarged premium blue particle sphere, shifted down so the top is fully visible */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 top-[62%] z-0 flex justify-center"
         style={{
           height: "min(1400px, 150vh)",
-          transform: "translateY(-50%)",
+          transform: "translateY(-40%)",
           WebkitMaskImage:
             "radial-gradient(ellipse 62% 58% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0) 80%)",
           maskImage:
             "radial-gradient(ellipse 62% 58% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0) 80%)",
-          opacity: 0.45,
+          opacity: 0.4,
         }}
       >
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
@@ -349,6 +349,9 @@ function Hero() {
           </div>
         </div>
 
+        {/* Floating trade metric cards */}
+        <HeroFloatingCards />
+
         {/* Bottom breathing room so the globe has space */}
         <div className="h-24 sm:h-32" aria-hidden />
 
@@ -356,6 +359,75 @@ function Hero() {
     </section>
   );
 }
+
+function HeroFloatingCards() {
+  const cards = [
+    {
+      label: "Total Trade Value",
+      value: "$78.6B",
+      trend: "18.4%",
+      // desktop position
+      pos: "left-2 top-[62%] sm:left-6 lg:left-[-2rem] xl:left-[-4rem]",
+      hideOn: "",
+    },
+    {
+      label: "Total Shipments",
+      value: "256,430",
+      trend: "12.7%",
+      pos: "right-2 top-[58%] sm:right-6 lg:right-[-2rem] xl:right-[-4rem]",
+      hideOn: "",
+    },
+    {
+      label: "Total Weight",
+      value: "4.8M tons",
+      trend: "9.6%",
+      pos: "right-6 bottom-16 sm:right-16 lg:right-[6rem]",
+      hideOn: "hidden sm:block",
+    },
+  ];
+
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 z-10">
+      {cards.map((c, i) => (
+        <motion.div
+          key={c.label}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 + i * 0.4, duration: 0.7, ease: "easeOut" }}
+          className={cn("absolute", c.pos, c.hideOn)}
+        >
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              duration: 5 + i * 0.6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+            className="w-[220px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm sm:w-[240px]"
+          >
+            <div className="flex items-start justify-between">
+              <span className="text-xs font-medium text-ink-soft">{c.label}</span>
+              <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-brand">
+                <span className="text-[8px]">▲</span> {c.trend}
+              </span>
+            </div>
+            <div className="mt-3 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              {c.value}
+            </div>
+            <div className="mt-1 flex items-center justify-between">
+              <span className="text-[11px] text-ink-soft">vs last 12 months</span>
+              <span className="grid h-6 w-6 place-items-center rounded-md bg-brand/10 text-brand">
+                <TrendingUp className="h-3 w-3" />
+              </span>
+            </div>
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 
 function ContainerShip({
   className,
