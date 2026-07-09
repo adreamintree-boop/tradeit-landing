@@ -237,7 +237,7 @@ function KeywordMarquee({
   return (
     <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
       <div
-        className={`flex w-max gap-2 ${
+        className={`flex w-max gap-2 overflow-visible py-1.5 ${
           direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
         }`}
         style={{ animationPlayState: paused ? "paused" : "running" }}
@@ -247,7 +247,7 @@ function KeywordMarquee({
             key={`${kw}-${i}`}
             type="button"
             onClick={() => onPick(kw)}
-            className="shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-ink-soft shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-card"
+            className="relative shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-ink-soft shadow-soft transition-all hover:z-10 hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-card"
           >
             {kw}
           </button>
