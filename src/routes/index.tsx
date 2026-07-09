@@ -1214,12 +1214,12 @@ function AICard({
 }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-      <div className="aspect-[4/3] overflow-hidden rounded-t-3xl bg-white p-5 pb-4">
-        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-2xl border border-border/60 bg-white shadow-inner">
+      <div className="aspect-square w-full overflow-hidden rounded-t-3xl bg-white p-[10px]">
+        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-border/40 bg-white">
           <img
             src={image}
             alt={title}
-            className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.01]"
+            className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.01]"
             loading="lazy"
           />
         </div>
