@@ -266,21 +266,21 @@ function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden bg-white text-ink">
-      {/* Orbital globe background — subtle blue particle sphere */}
+      {/* Orbital globe background — enlarged premium blue particle sphere */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[38%] z-0 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex justify-center"
         style={{
-          height: "min(720px, 78vh)",
-          transform: "translateY(-38%)",
+          height: "min(1400px, 150vh)",
+          transform: "translateY(-50%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 78%)",
+            "radial-gradient(ellipse 62% 58% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0) 80%)",
           maskImage:
-            "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 78%)",
-          opacity: 0.55,
+            "radial-gradient(ellipse 62% 58% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0) 80%)",
+          opacity: 0.45,
         }}
       >
-        <HeroOrbitalGlobe className="h-full w-full max-w-[1100px]" />
+        <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
