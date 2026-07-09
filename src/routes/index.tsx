@@ -257,13 +257,36 @@ function KeywordMarquee({
   );
 }
 
+const SEARCH_CATEGORIES = [
+  { value: "product", label: "Product & Item", placeholder: "Enter a product name to find real buyers." },
+  { value: "hs", label: "HS Code", placeholder: "Enter HS Code to find precise trade records." },
+  { value: "importer", label: "Importer", placeholder: "Enter a company name to view import history." },
+  { value: "exporter", label: "Exporter", placeholder: "Enter an exporter or competitor name to analyze shipment records." },
+] as const;
+
 function Hero() {
   const [query, setQuery] = useState("");
   const [paused, setPaused] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [categoryIdx, setCategoryIdx] = useState(0);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const category = SEARCH_CATEGORIES[categoryIdx];
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [dropdownOpen]);
 
   const prefersReducedMotion =
     typeof window !== "undefined" &&
@@ -291,11 +314,11 @@ function Hero() {
       {/* Floating trade metric cards — positioned relative to the hero section */}
       <HeroFloatingCards />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-72">
+      <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Now with AI Buyer Fit scoring
+            Trade data updating in real time
           </span>
           <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
             Find your target buyers
@@ -313,20 +336,52 @@ function Hero() {
             onSubmit={(e) => e.preventDefault()}
             className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
           >
-            <button
-              type="button"
-              className="flex items-center justify-between gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-ink hover:bg-muted sm:justify-start sm:border-r sm:border-border sm:rounded-none sm:rounded-l-full"
-            >
-              <span>Product &amp; Item</span>
-              <ChevronDown className="h-4 w-4 text-ink-soft" />
-            </button>
+            <div ref={dropdownRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setDropdownOpen((o) => !o)}
+                aria-haspopup="listbox"
+                aria-expanded={dropdownOpen}
+                className="flex w-full items-center justify-between gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-ink hover:bg-muted sm:w-auto sm:justify-start sm:border-r sm:border-border sm:rounded-none sm:rounded-l-full"
+              >
+                <span>{category.label}</span>
+                <ChevronDown className={cn("h-4 w-4 text-ink-soft transition-transform", dropdownOpen && "rotate-180")} />
+              </button>
+              {dropdownOpen && (
+                <ul
+                  role="listbox"
+                  className="absolute left-0 top-full z-40 mt-2 w-56 overflow-hidden rounded-2xl border border-border bg-white p-1.5 shadow-[0_18px_50px_-14px_rgba(15,47,138,0.22)]"
+                >
+                  {SEARCH_CATEGORIES.map((opt, idx) => (
+                    <li key={opt.value}>
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={idx === categoryIdx}
+                        onClick={() => {
+                          setCategoryIdx(idx);
+                          setDropdownOpen(false);
+                        }}
+                        className={cn(
+                          "flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-medium transition-colors hover:bg-muted",
+                          idx === categoryIdx ? "text-brand" : "text-ink",
+                        )}
+                      >
+                        <span>{opt.label}</span>
+                        {idx === categoryIdx && <Check className="h-4 w-4" />}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <div className="flex flex-1 items-center gap-2 px-2">
               <Search className="h-4 w-4 shrink-0 text-ink-soft" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter a product name to find real buyers."
+                placeholder={category.placeholder}
                 className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink outline-none placeholder:text-ink-soft/60 sm:text-base"
               />
             </div>
@@ -337,6 +392,7 @@ function Hero() {
               Search
             </button>
           </form>
+
 
           {/* Keyword marquees */}
           <div
