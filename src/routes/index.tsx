@@ -335,7 +335,7 @@ function Hero() {
         <div className="h-10" aria-hidden />
 
         {/* Liquid layer — starts below keyword chips, flows to the bottom of the hero */}
-        <div className="relative min-h-[520px] sm:min-h-[600px]">
+        <div className="relative min-h-[420px] sm:min-h-[500px]">
 
           <div
             aria-hidden
@@ -349,6 +349,37 @@ function Hero() {
                   "linear-gradient(to bottom, rgba(224,236,255,0) 0%, rgba(200,222,252,0.75) 14%, rgba(150,190,244,0.88) 45%, rgba(76,132,224,0.95) 85%, rgba(52,104,200,1) 100%)",
               }}
             />
+
+            {/* Dense particle/noise dissolve band at the white→wave boundary */}
+            <div
+              className="absolute inset-x-0 top-0 h-40"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.5  0 0 0 0 0.82  0 0 0 1.1 -0.15'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+                backgroundSize: "320px 320px",
+                opacity: 0.9,
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+                mixBlendMode: "normal",
+              }}
+            />
+            {/* Second sparser particle pass to add scattered grain on top */}
+            <div
+              className="absolute inset-x-0 top-0 h-48"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 -0.15'/></filter><rect width='100%' height='100%' filter='url(%23n2)'/></svg>\")",
+                backgroundSize: "260px 260px",
+                opacity: 0.55,
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.5) 70%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.5) 70%, transparent 100%)",
+              }}
+            />
+
 
             {/* Animated SVG wave stack — real fluid surface */}
             <svg
