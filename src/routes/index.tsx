@@ -420,22 +420,22 @@ function HeroFloatingCards() {
         >
           <div
             className={cn(
-              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-3 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
+              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-2 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
               c.floatClass,
             )}
             style={{ width: c.width }}
           >
-            <div className="flex items-start justify-between">
-              <span className="text-[11px] font-medium text-ink-soft">{c.label}</span>
-              <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-brand">
+            <div className="flex items-center justify-between gap-1">
+              <span className="truncate text-[11px] font-medium text-ink-soft">{c.label}</span>
+              <span className="inline-flex shrink-0 items-center gap-0.5 text-[10px] font-semibold text-brand">
                 <span className="text-[8px]">▲</span> {c.trend}
               </span>
             </div>
-            <div className="mt-2 flex items-end justify-between">
+            <div className="mt-1 flex items-end justify-between">
               <div className={cn("font-semibold tracking-tight text-ink", c.valueClass)}>
                 {c.value}
               </div>
-              <span className="grid h-5 w-5 place-items-center rounded-full bg-brand/10 text-brand">
+              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand/10 text-brand">
                 <c.Icon className="h-3 w-3" />
               </span>
             </div>
