@@ -297,11 +297,13 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
           </span>
-          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
             Find your target buyers
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Search billions of shipment records to discover companies already importing products like yours.
+          <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-soft">
+            Search billions of shipment records to discover{" "}
+            <br className="hidden lg:inline" />
+            companies already importing products like yours.
           </p>
         </div>
 
