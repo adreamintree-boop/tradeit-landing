@@ -311,10 +311,12 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      {/* Floating trade metric cards — positioned relative to the hero section */}
-      <HeroFloatingCards />
+      {/* Foreground hero content — shifted down 25px while the globe stays fixed */}
+      <div className="translate-y-[25px]">
+        {/* Floating trade metric cards — positioned relative to the hero section */}
+        <HeroFloatingCards />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
+        <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
