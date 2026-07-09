@@ -983,9 +983,7 @@ function WorkflowSection() {
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Pill>
-            <Workflow className="h-3 w-3 text-brand" /> One connected workspace
-          </Pill>
+          <Eyebrow>One connected workspace</Eyebrow>
           <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             From trade data to buyer outreach in one workflow
           </h2>
@@ -1230,9 +1228,7 @@ function AIFeatures() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-end md:gap-16">
           <div>
-            <Pill>
-              <Sparkles className="h-3 w-3 text-brand" /> TradeIt AI
-            </Pill>
+            <Eyebrow>TradeIt AI</Eyebrow>
             <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
               Turn AI buyer analysis into actionable sales decisions
             </h2>
@@ -1364,7 +1360,7 @@ function UseCases() {
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <Pill>Use Cases</Pill>
+          <Eyebrow>Use Cases</Eyebrow>
           <h2 className="mt-6 max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Built for teams
             <br />
@@ -1492,7 +1488,7 @@ function Pricing() {
     <section id="pricing" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Pill>Pricing</Pill>
+          <Eyebrow>Pricing</Eyebrow>
           <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Stop searching. <span className="italic text-brand">Start selling.</span>
           </h2>
@@ -1589,7 +1585,7 @@ function DataTrust() {
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <Pill>Data you can trust</Pill>
+          <Eyebrow>Data you can trust</Eyebrow>
           <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Built on global trade data <span className="italic text-ink-soft">you can trust</span>
           </h2>
