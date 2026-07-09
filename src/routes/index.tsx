@@ -502,13 +502,71 @@ function Hero() {
             </button>
           </div>
 
-          {/* Floating UI cards float above the liquid */}
-          <div className="relative z-10 mt-16 grid gap-4 sm:mt-20 sm:grid-cols-3">
-            <MiniShipmentCard />
-            <MiniBuyerCard />
-            <MiniAIScoreCard />
-          </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ContainerShip({
+  className,
+  style,
+  accent = "#1e46c4",
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+  accent?: string;
+}) {
+  return (
+    <div
+      className={cn("absolute top-0", className)}
+      style={style}
+      aria-hidden
+    >
+      <svg viewBox="0 0 220 90" className="w-full h-auto drop-shadow-[0_8px_16px_rgba(15,47,138,0.25)]">
+        {/* Containers stack */}
+        <g>
+          {/* row 1 */}
+          <rect x="46" y="30" width="18" height="14" fill="#e85d3a" />
+          <rect x="64" y="30" width="18" height="14" fill="#f0d78c" />
+          <rect x="82" y="30" width="18" height="14" fill="#2a58d4" />
+          <rect x="100" y="30" width="18" height="14" fill="#e85d3a" />
+          <rect x="118" y="30" width="18" height="14" fill="#0f2f8a" />
+          <rect x="136" y="30" width="18" height="14" fill="#f0d78c" />
+          <rect x="154" y="30" width="18" height="14" fill="#2a58d4" />
+          {/* row 2 */}
+          <rect x="55" y="18" width="18" height="12" fill="#0f2f8a" />
+          <rect x="73" y="18" width="18" height="12" fill="#e85d3a" />
+          <rect x="91" y="18" width="18" height="12" fill="#f0d78c" />
+          <rect x="109" y="18" width="18" height="12" fill="#2a58d4" />
+          <rect x="127" y="18" width="18" height="12" fill="#e85d3a" />
+          <rect x="145" y="18" width="18" height="12" fill="#0f2f8a" />
+          {/* row 3 */}
+          <rect x="82" y="8" width="18" height="10" fill="#f0d78c" />
+          <rect x="100" y="8" width="18" height="10" fill="#2a58d4" />
+          <rect x="118" y="8" width="18" height="10" fill="#e85d3a" />
+        </g>
+        {/* Bridge / superstructure */}
+        <rect x="176" y="14" width="20" height="30" fill="#f5f5f5" stroke="#0f2f8a" strokeWidth="0.8" />
+        <rect x="180" y="18" width="4" height="4" fill="#0f2f8a" />
+        <rect x="188" y="18" width="4" height="4" fill="#0f2f8a" />
+        <rect x="184" y="6" width="4" height="10" fill="#0f2f8a" />
+        {/* Hull */}
+        <path
+          d="M20 44 L200 44 L192 62 L28 62 Z"
+          fill={accent}
+        />
+        <rect x="20" y="44" width="180" height="3" fill="rgba(255,255,255,0.5)" />
+        <rect x="28" y="52" width="4" height="4" fill="rgba(255,255,255,0.6)" />
+        <rect x="40" y="52" width="4" height="4" fill="rgba(255,255,255,0.6)" />
+        <rect x="52" y="52" width="4" height="4" fill="rgba(255,255,255,0.6)" />
+        <rect x="180" y="52" width="4" height="4" fill="rgba(255,255,255,0.6)" />
+      </svg>
+    </div>
+  );
+}
+
+
       </div>
     </section>
   );
