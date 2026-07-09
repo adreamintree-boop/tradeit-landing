@@ -195,6 +195,25 @@
 .hero-card-float-1 { animation-duration: 6s; animation-delay: 0s; }
 .hero-card-float-2 { animation-duration: 7s; animation-delay: 0.9s; }
 .hero-card-float-3 { animation-duration: 8s; animation-delay: 1.8s; }
+
+/* Loop: fade in (0.6s) → hold (3s) → fade out (1.5s) → pause (0.5s) with subtle bob */
+@keyframes hero-card-loop {
+  0%    { opacity: 0; transform: translate3d(0, 10px, 0); }
+  10%   { opacity: 1; transform: translate3d(0, 0, 0); }         /* ~0.6s in */
+  40%   { opacity: 1; transform: translate3d(0, -4px, 0); }      /* midway bob */
+  60%   { opacity: 1; transform: translate3d(0, 0, 0); }         /* ~3.6s */
+  85%   { opacity: 0; transform: translate3d(0, -6px, 0); }      /* fade out 1.5s */
+  100%  { opacity: 0; transform: translate3d(0, -6px, 0); }      /* pause */
+}
+.hero-card-loop {
+  animation: hero-card-loop 6s ease-in-out infinite both;
+  will-change: transform, opacity;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-card-loop { animation: none !important; opacity: 1 !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-card-float { animation: none !important; }
 }
