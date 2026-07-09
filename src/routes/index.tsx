@@ -399,24 +399,19 @@ function Hero() {
               </g>
             </svg>
 
-            {/* Container ships floating on the wave */}
-            <div className="absolute inset-x-0 top-16 h-40 pointer-events-none">
-              <ContainerShip
-                className="hero-ship hero-ship-a"
-                style={{ left: "12%", width: "180px" }}
-                accent="#1e46c4"
-              />
-              <ContainerShip
-                className="hero-ship hero-ship-b"
-                style={{ left: "44%", width: "220px" }}
-                accent="#0f2f8a"
-              />
-              <ContainerShip
-                className="hero-ship hero-ship-c"
-                style={{ left: "72%", width: "160px" }}
-                accent="#2a58d4"
-              />
+            {/* Container ships floating and sailing rightward on the wave */}
+            <div className="absolute inset-x-0 top-16 h-64 pointer-events-none overflow-hidden">
+              <div className="hero-ship-drift hero-ship-drift-a absolute top-8" style={{ width: "180px" }}>
+                <ContainerShip className="hero-ship hero-ship-a" accent="#1e46c4" />
+              </div>
+              <div className="hero-ship-drift hero-ship-drift-b absolute top-20" style={{ width: "220px" }}>
+                <ContainerShip className="hero-ship hero-ship-b" accent="#0f2f8a" />
+              </div>
+              <div className="hero-ship-drift hero-ship-drift-c absolute top-32" style={{ width: "160px" }}>
+                <ContainerShip className="hero-ship hero-ship-c" accent="#2a58d4" />
+              </div>
             </div>
+
 
 
             {/* Shimmer glow along wave crest */}
