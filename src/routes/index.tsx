@@ -285,7 +285,7 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
+      <div className="relative mx-auto max-w-7xl px-4 pb-40 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-56">
         <div className="relative z-20 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
@@ -354,37 +354,49 @@ function Hero() {
         {/* Floating trade metric cards */}
         <HeroFloatingCards />
 
-        {/* Bottom breathing room so the globe has space */}
-        <div className="h-24 sm:h-32" aria-hidden />
-
       </div>
     </section>
   );
 }
 
+type FloatingCard = {
+  label: string;
+  value: string;
+  trend: string;
+  Icon: React.ComponentType<{ className?: string }>;
+  pos: string;
+  hideOn: string;
+  floatClass: string;
+};
+
 function HeroFloatingCards() {
-  const cards = [
+  const cards: FloatingCard[] = [
     {
       label: "Total Trade Value",
       value: "$78.6B",
       trend: "18.4%",
-      // desktop position
-      pos: "left-2 top-[62%] sm:left-6 lg:left-[-2rem] xl:left-[-4rem]",
+      Icon: CircleDollarSign,
+      pos: "left-4 top-[54%] sm:left-8 lg:left-[10%]",
       hideOn: "",
+      floatClass: "hero-card-float-1",
     },
     {
       label: "Total Shipments",
       value: "256,430",
       trend: "12.7%",
-      pos: "right-2 top-[58%] sm:right-6 lg:right-[-2rem] xl:right-[-4rem]",
+      Icon: Ship,
+      pos: "right-4 top-[50%] sm:right-8 lg:right-[10%]",
       hideOn: "",
+      floatClass: "hero-card-float-2",
     },
     {
       label: "Total Weight",
       value: "4.8M tons",
       trend: "9.6%",
-      pos: "right-6 bottom-16 sm:right-16 lg:right-[6rem]",
+      Icon: Weight,
+      pos: "right-8 top-[68%] sm:right-16 lg:right-[19%]",
       hideOn: "hidden sm:block",
+      floatClass: "hero-card-float-3",
     },
   ];
 
@@ -398,15 +410,11 @@ function HeroFloatingCards() {
           transition={{ delay: 0.6 + i * 0.4, duration: 0.7, ease: "easeOut" }}
           className={cn("absolute", c.pos, c.hideOn)}
         >
-          <motion.div
-            animate={{ y: [0, -6, 0] }}
-            transition={{
-              duration: 5 + i * 0.6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
-            }}
-            className="w-[220px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm sm:w-[240px]"
+          <div
+            className={cn(
+              "hero-card-float w-[220px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm sm:w-[240px]",
+              c.floatClass,
+            )}
           >
             <div className="flex items-start justify-between">
               <span className="text-xs font-medium text-ink-soft">{c.label}</span>
@@ -419,16 +427,17 @@ function HeroFloatingCards() {
             </div>
             <div className="mt-1 flex items-center justify-between">
               <span className="text-[11px] text-ink-soft">vs last 12 months</span>
-              <span className="grid h-6 w-6 place-items-center rounded-md bg-brand/10 text-brand">
-                <TrendingUp className="h-3 w-3" />
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-brand/10 text-brand">
+                <c.Icon className="h-3.5 w-3.5" />
               </span>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       ))}
     </div>
   );
 }
+
 
 
 function ContainerShip({
