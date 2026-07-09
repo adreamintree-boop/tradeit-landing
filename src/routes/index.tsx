@@ -59,6 +59,9 @@ import planFreeIcon from "@/assets/plan-free.png.asset.json";
 import planPlusIcon from "@/assets/plan-plus.png.asset.json";
 import planProIcon from "@/assets/plan-pro.png.asset.json";
 import planPremiumIcon from "@/assets/plan-premium.png.asset.json";
+import aiFillImg from "@/assets/ai-fill.png.asset.json";
+import aiCoreImg from "@/assets/ai-core.png.asset.json";
+import aiBuyerFitImg from "@/assets/ai-buyer-fit.png.asset.json";
 import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
 
 export const Route = createFileRoute("/")({
@@ -1180,78 +1183,20 @@ function AIFeatures() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           <AICard
+            image={aiFillImg.url}
             title="AI Fill"
-            body="Fill missing buyer company information in real time, including website, address, and official contact details."
-            icon={Wand2}
-          >
-            <div className="space-y-1.5 text-xs">
-              {[
-                ["Website", "acmecorp.com"],
-                ["Address", "Rotterdam, NL"],
-                ["Contact", "l.vandijk@…"],
-              ].map(([k, v]) => (
-                <div key={k} className="flex items-center justify-between rounded-lg bg-surface-alt px-3 py-2">
-                  <span className="text-ink-soft">{k}</span>
-                  <span className="flex items-center gap-1.5 font-medium text-ink">
-                    {v} <Check className="h-3 w-3 text-emerald-600" />
-                  </span>
-                </div>
-              ))}
-            </div>
-          </AICard>
-
+            body="Fill missing buyer company information in real time, including website, address, products, phone number, official email, and headquarters."
+          />
           <AICard
+            image={aiCoreImg.url}
             title="AI CORE"
-            body="Analyze global market potential based on your company, product, and target context."
-            icon={Brain}
-            highlight
-          >
-            <div className="rounded-xl bg-white/70 p-4 backdrop-blur">
-              <div className="text-xs text-ink-soft">Global market potential</div>
-              <div className="mt-1 flex items-baseline gap-1">
-                <span className="text-3xl font-semibold text-ink" style={{ fontFamily: "var(--font-display)" }}>
-                  $3.9M
-                </span>
-                <span className="text-xs text-emerald-600">+18%</span>
-              </div>
-              <div className="mt-3 flex h-12 items-end gap-1">
-                {[30, 45, 40, 60, 55, 70, 65, 85, 75, 90, 80, 100].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-sm bg-gradient-brand"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-            </div>
-          </AICard>
-
+            body="Analyze your company, product, and target market to identify key product keywords, HS codes, competitors, and market opportunities."
+          />
           <AICard
+            image={aiBuyerFitImg.url}
             title="AI Buyer Fit"
-            body="Evaluate buyer relevance and sales potential before starting outreach."
-            icon={Target}
-          >
-            <div className="space-y-2 text-xs">
-              {[
-                ["Nordvolt", 92, "text-emerald-600"],
-                ["Battery House", 78, "text-brand"],
-                ["Voltix", 61, "text-amber-600"],
-              ].map(([n, v, c]) => (
-                <div key={n as string} className="rounded-lg bg-surface-alt p-2.5">
-                  <div className="flex justify-between">
-                    <span className="text-ink">{n}</span>
-                    <span className={`font-semibold ${c}`}>{v}</span>
-                  </div>
-                  <div className="mt-1 h-1 rounded-full bg-white">
-                    <div
-                      className="h-full rounded-full bg-brand"
-                      style={{ width: `${v as number}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AICard>
+            body="Evaluate buyer relevance, product overlap, proposal potential, and outreach angles before starting sales conversations."
+          />
         </div>
       </div>
     </section>
@@ -1259,39 +1204,28 @@ function AIFeatures() {
 }
 
 function AICard({
+  image,
   title,
   body,
-  icon: Icon,
-  highlight = false,
-  children,
 }: {
+  image: string;
   title: string;
   body: string;
-  icon: React.ComponentType<{ className?: string }>;
-  highlight?: boolean;
-  children: React.ReactNode;
 }) {
   return (
-    <div
-      className={`flex flex-col rounded-3xl border p-6 transition-transform hover:-translate-y-1 ${
-        highlight
-          ? "border-brand/40 bg-gradient-card-blue shadow-brand"
-          : "border-border bg-surface-alt hover:shadow-card"
-      }`}
-    >
-      <div className="flex items-center gap-3">
-        <div className={`grid h-10 w-10 place-items-center rounded-xl ${highlight ? "bg-brand text-white" : "bg-white text-brand shadow-soft"}`}>
-          <Icon className="h-4 w-4" />
-        </div>
-        <h3 className="text-lg font-semibold text-ink">{title}</h3>
-        {highlight && (
-          <span className="ml-auto rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-brand">
-            Most loved
-          </span>
-        )}
+    <div className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+      <div className="aspect-[4/3] overflow-hidden bg-surface-alt">
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          loading="lazy"
+        />
       </div>
-      <p className="mt-3 text-sm leading-relaxed text-ink-soft">{body}</p>
-      <div className="mt-6 flex-1">{children}</div>
+      <div className="flex flex-1 flex-col gap-2 p-6">
+        <h3 className="text-xl font-semibold text-ink">{title}</h3>
+        <p className="text-sm leading-relaxed text-ink-soft">{body}</p>
+      </div>
     </div>
   );
 }
