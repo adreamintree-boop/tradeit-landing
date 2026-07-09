@@ -441,7 +441,7 @@ function Hero() {
 
             {/* Shimmer glow along wave crest */}
             <div
-              className="absolute inset-x-0 top-6 h-10"
+              className="absolute inset-x-0 top-5 h-10"
               style={{
                 background:
                   "linear-gradient(to bottom, rgba(255,255,255,0.55), transparent)",
@@ -454,7 +454,7 @@ function Hero() {
 
             {/* Drifting soft highlights inside the fluid */}
             <div
-              className="absolute inset-x-[-10%] top-16 h-[60%]"
+              className="absolute inset-x-[-10%] top-14 h-[60%]"
               style={{
                 background:
                   "radial-gradient(ellipse 55% 60% at 30% 40%, rgba(255,255,255,0.35), transparent 60%), radial-gradient(ellipse 45% 55% at 75% 55%, rgba(180,210,255,0.4), transparent 65%)",
