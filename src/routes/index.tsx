@@ -267,7 +267,7 @@ function Hero() {
     window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   return (
-    <section className="relative w-full overflow-hidden bg-white text-ink">
+    <section className="relative w-full overflow-hidden bg-white text-ink lg:min-h-[1050px]">
       {/* Orbital globe background — enlarged premium blue particle sphere, shifted down so the top is fully visible */}
       <div
         aria-hidden
@@ -285,8 +285,8 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-40 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-56">
-        <div className="relative z-20 mx-auto max-w-3xl text-center">
+      <div className="relative mx-auto max-w-7xl px-4 pb-56 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-72">
+        <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
