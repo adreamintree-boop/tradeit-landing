@@ -376,8 +376,8 @@ function HeroFloatingCards() {
       value: "$78.6B",
       trend: "18.4%",
       Icon: CircleDollarSign,
-      pos: "left-4 top-[54%] sm:left-8 lg:left-[10%]",
-      hideOn: "",
+      pos: "lg:left-[6%] xl:left-[8%] top-[68%] lg:top-[62%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-1",
     },
     {
@@ -385,8 +385,8 @@ function HeroFloatingCards() {
       value: "256,430",
       trend: "12.7%",
       Icon: Ship,
-      pos: "right-4 top-[50%] sm:right-8 lg:right-[10%]",
-      hideOn: "",
+      pos: "lg:right-[6%] xl:right-[8%] top-[64%] lg:top-[58%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-2",
     },
     {
@@ -394,14 +394,14 @@ function HeroFloatingCards() {
       value: "4.8M tons",
       trend: "9.6%",
       Icon: Weight,
-      pos: "right-8 top-[68%] sm:right-16 lg:right-[19%]",
-      hideOn: "hidden sm:block",
+      pos: "lg:right-[16%] xl:right-[18%] top-[80%] lg:top-[76%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-3",
     },
   ];
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 z-10">
+    <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]">
       {cards.map((c, i) => (
         <motion.div
           key={c.label}
