@@ -347,47 +347,129 @@ function Hero() {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to bottom, rgba(224,236,255,0) 0%, rgba(210,226,252,0.55) 22%, rgba(160,196,246,0.75) 55%, rgba(96,150,232,0.85) 100%)",
+                  "linear-gradient(to bottom, rgba(224,236,255,0) 0%, rgba(200,222,252,0.75) 14%, rgba(150,190,244,0.88) 45%, rgba(76,132,224,0.95) 85%, rgba(52,104,200,1) 100%)",
               }}
             />
-            {/* Slow left/right drifting liquid highlights */}
+
+            {/* Animated SVG wave stack — real fluid surface */}
+            <svg
+              className="absolute inset-x-0 top-0 h-40 w-full"
+              viewBox="0 0 1440 160"
+              preserveAspectRatio="none"
+              aria-hidden
+            >
+              <defs>
+                <linearGradient id="heroWaveA" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.9)" />
+                  <stop offset="100%" stopColor="rgba(190,218,250,0.15)" />
+                </linearGradient>
+                <linearGradient id="heroWaveB" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(150,190,240,0.6)" />
+                  <stop offset="100%" stopColor="rgba(96,150,232,0)" />
+                </linearGradient>
+                <linearGradient id="heroWaveC" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(80,140,225,0.55)" />
+                  <stop offset="100%" stopColor="rgba(80,140,225,0)" />
+                </linearGradient>
+              </defs>
+
+              {/* Back wave — slower */}
+              <g className="hero-wave-slow" style={{ transformOrigin: "center" }}>
+                <path
+                  fill="url(#heroWaveC)"
+                  d="M-1440 70 Q -1080 30 -720 70 T 0 70 T 720 70 T 1440 70 T 2160 70 T 2880 70 V160 H-1440 Z"
+                />
+              </g>
+              {/* Mid wave */}
+              <g className="hero-wave-mid" style={{ transformOrigin: "center" }}>
+                <path
+                  fill="url(#heroWaveB)"
+                  d="M-1440 60 Q -1080 100 -720 60 T 0 60 T 720 60 T 1440 60 T 2160 60 T 2880 60 V160 H-1440 Z"
+                />
+              </g>
+              {/* Crest wave — brightest, fastest */}
+              <g className="hero-wave-fast" style={{ transformOrigin: "center" }}>
+                <path
+                  fill="url(#heroWaveA)"
+                  d="M-1440 50 Q -1080 20 -720 50 T 0 50 T 720 50 T 1440 50 T 2160 50 T 2880 50 V90 H-1440 Z"
+                  opacity="0.85"
+                />
+              </g>
+            </svg>
+
+            {/* Shimmer glow along wave crest */}
             <div
-              className="absolute inset-x-[-10%] top-6 h-[70%]"
+              className="absolute inset-x-0 top-8 h-10"
               style={{
                 background:
-                  "radial-gradient(ellipse 55% 60% at 30% 40%, rgba(255,255,255,0.55), transparent 60%), radial-gradient(ellipse 45% 55% at 75% 55%, rgba(180,210,255,0.55), transparent 65%)",
-                filter: "blur(22px)",
+                  "linear-gradient(to bottom, rgba(255,255,255,0.55), transparent)",
+                filter: "blur(10px)",
+                animation: prefersReducedMotion
+                  ? undefined
+                  : "hero-crest-shimmer 6s ease-in-out infinite alternate",
+              }}
+            />
+
+            {/* Drifting soft highlights inside the fluid */}
+            <div
+              className="absolute inset-x-[-10%] top-20 h-[60%]"
+              style={{
+                background:
+                  "radial-gradient(ellipse 55% 60% at 30% 40%, rgba(255,255,255,0.35), transparent 60%), radial-gradient(ellipse 45% 55% at 75% 55%, rgba(180,210,255,0.4), transparent 65%)",
+                filter: "blur(30px)",
                 animation: prefersReducedMotion
                   ? undefined
                   : "hero-liquid-drift 18s ease-in-out infinite alternate",
               }}
             />
-            <div
-              className="absolute inset-x-[-10%] top-16 h-[70%] mix-blend-screen"
+
+            {/* Suspended particle / mist layer (SVG dots) */}
+            <svg
+              className="absolute inset-0 h-full w-full"
+              aria-hidden
+              preserveAspectRatio="xMidYMid slice"
+              viewBox="0 0 800 600"
               style={{
-                background:
-                  "radial-gradient(ellipse 40% 45% at 60% 55%, rgba(120,170,240,0.45), transparent 65%), radial-gradient(ellipse 35% 40% at 20% 65%, rgba(90,140,225,0.4), transparent 65%)",
-                filter: "blur(28px)",
-                animation: prefersReducedMotion
-                  ? undefined
-                  : "hero-liquid-drift-reverse 24s ease-in-out infinite alternate",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.7) 60%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.7) 60%, transparent 100%)",
               }}
-            />
-            {/* Subtle particle/noise texture near surface */}
+            >
+              <g className="hero-particles-a" fill="rgba(255,255,255,0.85)">
+                {Array.from({ length: 60 }).map((_, i) => {
+                  const x = (i * 137.5) % 800;
+                  const y = ((i * 53.7) % 600);
+                  const r = ((i * 7) % 3 === 0 ? 1.2 : 0.7);
+                  return <circle key={`pa-${i}`} cx={x} cy={y} r={r} />;
+                })}
+              </g>
+              <g className="hero-particles-b" fill="rgba(200,224,255,0.7)">
+                {Array.from({ length: 45 }).map((_, i) => {
+                  const x = ((i * 91.3) % 800);
+                  const y = ((i * 71.1) % 600);
+                  const r = ((i * 5) % 4 === 0 ? 1.4 : 0.6);
+                  return <circle key={`pb-${i}`} cx={x} cy={y} r={r} />;
+                })}
+              </g>
+            </svg>
+
+            {/* Fine grain noise overlay */}
             <div
               className="absolute inset-0 mix-blend-overlay"
               style={{
                 backgroundImage:
-                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
                 backgroundSize: "240px 240px",
-                opacity: 0.25,
+                opacity: 0.35,
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%)",
               }}
             />
           </div>
+
 
           <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 pt-6">
             <button className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-brand transition-all hover:brightness-110">
