@@ -294,3 +294,16 @@
   .hero-ship-a, .hero-ship-b, .hero-ship-c { animation: none !important; }
 }
 
+
+/* Ship horizontal drift — seamless rightward loop across the wave */
+@keyframes hero-ship-drift {
+  0%   { transform: translate3d(-20vw, 0, 0); }
+  100% { transform: translate3d(110vw, 0, 0); }
+}
+.hero-ship-drift { left: 0; will-change: transform; }
+.hero-ship-drift-a { animation: hero-ship-drift 42s linear infinite; }
+.hero-ship-drift-b { animation: hero-ship-drift 58s linear infinite; animation-delay: -18s; }
+.hero-ship-drift-c { animation: hero-ship-drift 34s linear infinite; animation-delay: -8s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-ship-drift-a, .hero-ship-drift-b, .hero-ship-drift-c { animation: none !important; }
+}
