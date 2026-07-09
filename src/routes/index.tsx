@@ -59,6 +59,9 @@ import planFreeIcon from "@/assets/plan-free.png.asset.json";
 import planPlusIcon from "@/assets/plan-plus.png.asset.json";
 import planProIcon from "@/assets/plan-pro.png.asset.json";
 import planPremiumIcon from "@/assets/plan-premium.png.asset.json";
+import aiFillImg from "@/assets/ai-fill.png.asset.json";
+import aiCoreImg from "@/assets/ai-core.png.asset.json";
+import aiBuyerFitImg from "@/assets/ai-buyer-fit.png.asset.json";
 import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
 
 export const Route = createFileRoute("/")({
