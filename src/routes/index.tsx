@@ -420,9 +420,10 @@ function HeroFloatingCards() {
         >
           <div
             className={cn(
-              "hero-card-float w-[220px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm sm:w-[240px]",
+              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
               c.floatClass,
             )}
+            style={{ width: c.width }}
           >
             <div className="flex items-start justify-between">
               <span className="text-xs font-medium text-ink-soft">{c.label}</span>
@@ -430,7 +431,7 @@ function HeroFloatingCards() {
                 <span className="text-[8px]">▲</span> {c.trend}
               </span>
             </div>
-            <div className="mt-3 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            <div className={cn("mt-3 font-semibold tracking-tight text-ink", c.valueClass)}>
               {c.value}
             </div>
             <div className="mt-1 flex items-center justify-between">
