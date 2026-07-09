@@ -645,7 +645,7 @@ function Problems() {
         {/* Desktop: sticky scroll-driven */}
         <div
           ref={scrollWrapRef}
-          className="relative mt-14 hidden lg:block"
+          className="relative mt-28 hidden lg:block"
           style={{ height: `${PROBLEMS.length * 90}vh` }}
         >
           <div className="sticky top-24 grid gap-14 lg:grid-cols-[32%_1fr]">
@@ -719,7 +719,7 @@ function Problems() {
         </div>
 
         {/* Mobile: accordion-style, tap to reveal image */}
-        <div className="mt-10 space-y-3 lg:hidden">
+        <div className="mt-16 space-y-3 lg:hidden">
           {PROBLEMS.map((p, i) => {
             const isActive = i === displayIdx;
             return (
