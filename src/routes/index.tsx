@@ -703,7 +703,7 @@ function Problems() {
         {/* Desktop: sticky scroll-driven */}
         <div
           ref={scrollWrapRef}
-          className="relative mt-28 hidden lg:block"
+          className="relative mt-10 hidden lg:block"
           style={{ height: `${PROBLEMS.length * 90}vh` }}
         >
           <div className="sticky top-24 grid gap-14 lg:grid-cols-[32%_1fr]">
