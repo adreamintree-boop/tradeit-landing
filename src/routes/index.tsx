@@ -267,7 +267,7 @@ function Hero() {
     window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   return (
-    <section className="relative w-full overflow-hidden bg-white text-ink">
+    <section className="relative w-full overflow-hidden bg-white text-ink lg:min-h-[1050px]">
       {/* Orbital globe background — enlarged premium blue particle sphere, shifted down so the top is fully visible */}
       <div
         aria-hidden
@@ -285,8 +285,8 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-40 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-56">
-        <div className="relative z-20 mx-auto max-w-3xl text-center">
+      <div className="relative mx-auto max-w-7xl px-4 pb-56 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-72">
+        <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
@@ -300,7 +300,7 @@ function Hero() {
         </div>
 
         {/* Search module */}
-        <div className="relative z-20 mx-auto mt-10 max-w-4xl">
+        <div className="relative z-30 mx-auto mt-10 max-w-4xl">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
@@ -376,8 +376,8 @@ function HeroFloatingCards() {
       value: "$78.6B",
       trend: "18.4%",
       Icon: CircleDollarSign,
-      pos: "left-4 top-[54%] sm:left-8 lg:left-[10%]",
-      hideOn: "",
+      pos: "lg:left-[6%] xl:left-[8%] top-[68%] lg:top-[62%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-1",
     },
     {
@@ -385,8 +385,8 @@ function HeroFloatingCards() {
       value: "256,430",
       trend: "12.7%",
       Icon: Ship,
-      pos: "right-4 top-[50%] sm:right-8 lg:right-[10%]",
-      hideOn: "",
+      pos: "lg:right-[6%] xl:right-[8%] top-[64%] lg:top-[58%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-2",
     },
     {
@@ -394,14 +394,14 @@ function HeroFloatingCards() {
       value: "4.8M tons",
       trend: "9.6%",
       Icon: Weight,
-      pos: "right-8 top-[68%] sm:right-16 lg:right-[19%]",
-      hideOn: "hidden sm:block",
+      pos: "lg:right-[16%] xl:right-[18%] top-[80%] lg:top-[76%]",
+      hideOn: "hidden lg:block",
       floatClass: "hero-card-float-3",
     },
   ];
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 z-10">
+    <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]">
       {cards.map((c, i) => (
         <motion.div
           key={c.label}
