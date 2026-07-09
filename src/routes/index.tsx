@@ -38,6 +38,7 @@ import workflowEnrich from "@/assets/enrich.png.asset.json";
 import workflowAIAnalysis from "@/assets/ai-analysis.png.asset.json";
 import workflowCRM from "@/assets/crm.png.asset.json";
 import workflowOutreach from "@/assets/outreach.png.asset.json";
+import ctaBg from "@/assets/cta-bg.png.asset.json";
 import tradeItLogo from "@/assets/tradeit-logo.png.asset.json";
 import {
   Accordion,
@@ -2156,33 +2157,37 @@ function ToolsConsolidation() {
 
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-cta-light py-20 sm:py-28">
-      <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Find the verified buyers <span className="italic text-brand">right now.</span>
-            </h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-soft">
-              Try Trade Data search and AI buyer analysis for free.
-            </p>
-            <div className="mt-8 flex items-center gap-6">
-              <PrimaryCTA>Get Started</PrimaryCTA>
-              <SecondaryLink>Try for free</SecondaryLink>
-            </div>
-          </div>
-
-          {/* Collage */}
-          <div className="relative h-[420px]">
-            <div className="absolute right-0 top-0 w-64">
-              <MiniShipmentCard />
-            </div>
-            <div className="absolute left-4 top-24 w-64">
-              <MiniAIScoreCard />
-            </div>
-            <div className="absolute bottom-0 right-8 w-64">
-              <MiniBuyerCard />
+    <section className="bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          className="relative overflow-hidden rounded-[28px] border border-border/60 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.18)] min-h-[380px] lg:min-h-[400px] bg-surface-alt"
+          style={{
+            backgroundImage: `url(${ctaBg.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "right center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div
+            className="absolute inset-0"
+            aria-hidden
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.82) 36%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.05) 100%)",
+            }}
+          />
+          <div className="relative flex min-h-[380px] lg:min-h-[400px] items-center px-6 py-14 sm:px-10 lg:px-16 lg:py-16">
+            <div className="max-w-[520px]">
+              <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl lg:text-[52px]">
+                Find verified buyers <span className="italic text-brand">right now.</span>
+              </h2>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-ink-soft">
+                Try Trade Data search and AI buyer analysis for free.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-6">
+                <PrimaryCTA>Get Started</PrimaryCTA>
+                <SecondaryLink>Try for free</SecondaryLink>
+              </div>
             </div>
           </div>
         </div>
