@@ -755,9 +755,12 @@ function Problems() {
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-          <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Finding real buyers shouldn't take weeks
-          </h2>
+          <div>
+            <Eyebrow>PROBLEMS</Eyebrow>
+            <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+              Finding real buyers shouldn't take weeks
+            </h2>
+          </div>
           <p className="max-w-lg self-end text-base leading-relaxed text-ink-soft">
             Most export teams still rely on Google searches, exhibitions, outdated directories, and
             guesswork to find overseas buyers. TradeIt helps you start from real shipment data
@@ -984,7 +987,7 @@ function WorkflowSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>One connected workspace</Eyebrow>
-          <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+          <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             From trade data to buyer outreach in one workflow
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
@@ -1229,7 +1232,7 @@ function AIFeatures() {
         <div className="grid gap-8 md:grid-cols-2 md:items-end md:gap-16">
           <div>
             <Eyebrow>TradeIt AI</Eyebrow>
-            <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+            <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
               Turn AI buyer analysis into actionable sales decisions
             </h2>
           </div>
@@ -1361,7 +1364,7 @@ function UseCases() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <Eyebrow>Use Cases</Eyebrow>
-          <h2 className="mt-6 max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+          <h2 className="mt-[21px] max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Built for teams
             <br />
             that sell across borders
@@ -1489,7 +1492,7 @@ function Pricing() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>Pricing</Eyebrow>
-          <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+          <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Stop searching. <span className="italic text-brand">Start selling.</span>
           </h2>
           <p className="mt-4 text-base text-ink-soft">
@@ -1586,7 +1589,7 @@ function DataTrust() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <Eyebrow>Data you can trust</Eyebrow>
-          <h2 className="mt-6 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+          <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             Built on global trade data <span className="italic text-ink-soft">you can trust</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
@@ -1718,7 +1721,7 @@ function Testimonials() {
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
             Our customers
           </div>
-          <h2 className="mt-4 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+          <h2 className="mt-[13px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             What trade professionals<br />
             say about TradeIt
           </h2>
@@ -2087,7 +2090,7 @@ function ToolsConsolidation() {
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
             One workflow. Fewer tools.
           </div>
-          <h2 className="mt-4 text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+          <h2 className="mt-[13px] text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
             Replace scattered export tools with one workflow.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
