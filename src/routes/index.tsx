@@ -1661,7 +1661,8 @@ function Testimonials() {
             Our customers
           </div>
           <h2 className="mt-4 text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            What trade professionals say about TradeIt
+            What trade professionals<br />
+            say about TradeIt
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
             From export sales teams to sourcing agents, users around the world use TradeIt to find
@@ -1751,7 +1752,12 @@ function Testimonials() {
                 className="animate-fade-in-up"
               >
                 <div
-                  className="text-6xl font-semibold text-ink"
+                  className={cn(
+                    "font-semibold text-ink leading-[1.05] lg:whitespace-nowrap",
+                    t.proof.large === "Verified Buyers"
+                      ? "text-[clamp(32px,3.8vw,44px)]"
+                      : "text-[clamp(32px,4vw,48px)]"
+                  )}
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {t.proof.large}
