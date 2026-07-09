@@ -1645,7 +1645,7 @@ const TESTIMONIALS = [
     title: "Founder & Trade Agent",
     company: "Anki's Global Trade",
     quote:
-      "Having access to real shipment records instead of generic company databases helps exporters identify active importers and make better data-driven decisions.",
+      "Having access to real shipment records instead of generic company databases helps exporters like me identifying active importers and make better data-driven decisions.",
     tag: "Trade Data / Sourcing",
     avatar: nimeshAvatar.url,
     avatarShape: "circle" as const,
@@ -1663,7 +1663,7 @@ const TESTIMONIALS = [
     title: "Founder & Managing Director",
     company: "Phil Pro Motors",
     quote:
-      "TradeIt helps us track active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
+      "TradeIt helped me tracking active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
     tag: "Supply Chain / Automotive",
     avatar: philemonAvatar.url,
     avatarShape: "square" as const,
@@ -1681,7 +1681,7 @@ const TESTIMONIALS = [
     title: "Export Sales Executive",
     company: "Jesco Import and Export",
     quote:
-      "TradeIt is based on real trade data, helping users identify active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
+      "TradeIt is based on real trade data, helping me discovering active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
     tag: "Export Sales / Food Supplies",
     avatar: marianAvatar.url,
     avatarShape: "circle" as const,
@@ -1844,7 +1844,7 @@ function Testimonials() {
                 Global trade professionals using TradeIt
               </div>
               <p className="mt-1 text-sm text-ink-soft">
-                Exporters, manufacturers, agents & consultants in 60+ countries.
+                Thousands of exporters, manufacturers, importers, agents & consultants in 60+ countries.
               </p>
             </div>
           </div>
