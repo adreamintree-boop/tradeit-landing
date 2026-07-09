@@ -307,3 +307,13 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-ship-drift-a, .hero-ship-drift-b, .hero-ship-drift-c { animation: none !important; }
 }
+
+/* Subtle animated grain that drifts across the whole wave area */
+@keyframes hero-grain-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 240px 0; }
+}
+.hero-grain-drift { animation: hero-grain-drift 20s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-grain-drift { animation: none !important; }
+}
