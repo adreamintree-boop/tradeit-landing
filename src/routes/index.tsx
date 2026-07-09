@@ -260,113 +260,33 @@ function Hero() {
     setMounted(true);
   }, []);
 
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
   return (
-    <section className="relative w-full overflow-hidden text-white">
-      {/* Base atmospheric gradient — near-black → deep navy → cobalt → icy blue → white */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, #000000 0%, #030510 12%, #060b2e 30%, #0a1a6b 52%, #1e46c4 72%, #4a7fe6 88%, #9fc5f9 96%, #ffffff 100%)",
-        }}
-      />
-
-      {/* Rich cobalt center glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 52% at 50% 46%, rgba(60,120,255,0.32), transparent 65%)",
-        }}
-      />
-
-      {/* Three.js orbital globe — full-bleed within hero, kept visible */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="relative h-full w-full scale-[0.95]">
-          {mounted && (
-            <Suspense fallback={null}>
-              <ThreeGlobe className="absolute inset-0 h-full w-full" />
-            </Suspense>
-          )}
-        </div>
-      </div>
-
-      {/* Soft grain — stronger toward bottom */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-          backgroundSize: "240px 240px",
-          opacity: 0.32,
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.95) 100%)",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.95) 100%)",
-        }}
-      />
-
-      {/* Scattered floating particle speckles — concentrated in lower half */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 mix-blend-screen"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='p' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='8' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='discrete' tableValues='0 0 0 0 1 0 0 0'/></feComponentTransfer><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23p)'/></svg>\")",
-          backgroundSize: "320px 320px",
-          opacity: 0.45,
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.35) 68%, rgba(0,0,0,0.85) 100%)",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.35) 68%, rgba(0,0,0,0.85) 100%)",
-        }}
-      />
-
-      {/* Soft white fade at bottom for seamless page transition — starts lower */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.85) 80%, #ffffff 100%)",
-        }}
-      />
-
-      {/* Text-readability overlay behind headline */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 45% 38% at 50% 40%, rgba(4,6,26,0.55), transparent 70%)",
-        }}
-      />
-
-
+    <section className="relative w-full overflow-hidden bg-white text-ink">
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+        <div className="relative z-20 mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Now with AI Buyer Fit scoring
           </span>
-          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
             Find real buyers through
             <br />
-            <span className="italic text-white/60">global trade data.</span>
+            <span className="italic text-ink-soft/70">global trade data.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             Search billions of shipment records to discover companies already importing products like yours.
           </p>
         </div>
 
         {/* Search module */}
-        <div className="mx-auto mt-10 max-w-4xl">
+        <div className="relative z-20 mx-auto mt-10 max-w-4xl">
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col items-stretch gap-2 rounded-full border border-white/10 bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
+            className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
           >
             <button
               type="button"
@@ -414,22 +334,79 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-          <button className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-brand transition-all hover:brightness-110">
-            Get Started
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
-          <button className="inline-flex items-center gap-1.5 text-sm font-medium text-white/70 transition-colors hover:text-white">
-            Explore Trade Data
-            <ArrowRight className="h-3.5 w-3.5" />
-          </button>
-        </div>
+        {/* Spacer before the liquid layer begins (~40px) */}
+        <div className="h-10" aria-hidden />
 
-        {/* Floating UI cards */}
-        <div className="relative mt-16 grid gap-4 sm:mt-20 sm:grid-cols-3">
-          <MiniShipmentCard />
-          <MiniBuyerCard />
-          <MiniAIScoreCard />
+        {/* Liquid layer — starts below keyword chips, flows to the bottom of the hero */}
+        <div className="relative">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-[-50vw] top-0 bottom-[-6rem] overflow-hidden"
+          >
+            {/* Base soft blue gradient surface */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(224,236,255,0) 0%, rgba(210,226,252,0.55) 22%, rgba(160,196,246,0.75) 55%, rgba(96,150,232,0.85) 100%)",
+              }}
+            />
+            {/* Slow left/right drifting liquid highlights */}
+            <div
+              className="absolute inset-x-[-10%] top-6 h-[70%]"
+              style={{
+                background:
+                  "radial-gradient(ellipse 55% 60% at 30% 40%, rgba(255,255,255,0.55), transparent 60%), radial-gradient(ellipse 45% 55% at 75% 55%, rgba(180,210,255,0.55), transparent 65%)",
+                filter: "blur(22px)",
+                animation: prefersReducedMotion
+                  ? undefined
+                  : "hero-liquid-drift 18s ease-in-out infinite alternate",
+              }}
+            />
+            <div
+              className="absolute inset-x-[-10%] top-16 h-[70%] mix-blend-screen"
+              style={{
+                background:
+                  "radial-gradient(ellipse 40% 45% at 60% 55%, rgba(120,170,240,0.45), transparent 65%), radial-gradient(ellipse 35% 40% at 20% 65%, rgba(90,140,225,0.4), transparent 65%)",
+                filter: "blur(28px)",
+                animation: prefersReducedMotion
+                  ? undefined
+                  : "hero-liquid-drift-reverse 24s ease-in-out infinite alternate",
+              }}
+            />
+            {/* Subtle particle/noise texture near surface */}
+            <div
+              className="absolute inset-0 mix-blend-overlay"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+                backgroundSize: "240px 240px",
+                opacity: 0.25,
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%)",
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 pt-6">
+            <button className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-brand transition-all hover:brightness-110">
+              Get Started
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+            <button className="inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-brand">
+              Explore Trade Data
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+
+          {/* Floating UI cards float above the liquid */}
+          <div className="relative z-10 mt-16 grid gap-4 sm:mt-20 sm:grid-cols-3">
+            <MiniShipmentCard />
+            <MiniBuyerCard />
+            <MiniAIScoreCard />
+          </div>
         </div>
       </div>
     </section>
