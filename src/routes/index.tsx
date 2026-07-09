@@ -400,7 +400,7 @@ function HeroFloatingCards() {
       value: "4.8M tons",
       trend: "9.6%",
       Icon: Weight,
-      pos: "xl:right-[0%] 2xl:right-[18%] top-[60%] xl:top-[60%] 2xl:top-[62%]",
+      pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%]",
       hideOn: "hidden xl:block",
       floatClass: "hero-card-float-3",
       width: "150px",
