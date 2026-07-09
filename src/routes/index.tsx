@@ -237,7 +237,7 @@ function KeywordMarquee({
   return (
     <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
       <div
-        className={`flex w-max gap-2 ${
+        className={`flex w-max gap-2 overflow-visible py-1.5 ${
           direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
         }`}
         style={{ animationPlayState: paused ? "paused" : "running" }}
@@ -247,7 +247,7 @@ function KeywordMarquee({
             key={`${kw}-${i}`}
             type="button"
             onClick={() => onPick(kw)}
-            className="shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-ink-soft shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-card"
+            className="relative shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-ink-soft shadow-soft transition-all hover:z-10 hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-card"
           >
             {kw}
           </button>
@@ -311,10 +311,12 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      {/* Floating trade metric cards — positioned relative to the hero section */}
-      <HeroFloatingCards />
+      {/* Foreground hero content — shifted down 25px while the globe stays fixed */}
+      <div className="translate-y-[25px]">
+        {/* Floating trade metric cards — positioned relative to the hero section */}
+        <HeroFloatingCards />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
+        <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
@@ -415,6 +417,7 @@ function Hero() {
           </div>
         </div>
 
+        </div>
       </div>
     </section>
   );
