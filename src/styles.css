@@ -186,15 +186,15 @@
 
 @keyframes hero-card-float {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -8px, 0); }
+  50% { transform: translate3d(0, -6px, 0); }
 }
 .hero-card-float {
   animation: hero-card-float 6s ease-in-out infinite;
   will-change: transform;
 }
-.hero-card-float-1 { animation-duration: 5.5s; animation-delay: 0s; }
-.hero-card-float-2 { animation-duration: 6.5s; animation-delay: 0.8s; }
-.hero-card-float-3 { animation-duration: 7s; animation-delay: 1.6s; }
+.hero-card-float-1 { animation-duration: 6s; animation-delay: 0s; }
+.hero-card-float-2 { animation-duration: 7s; animation-delay: 0.9s; }
+.hero-card-float-3 { animation-duration: 8s; animation-delay: 1.8s; }
 @media (prefers-reduced-motion: reduce) {
   .hero-card-float { animation: none !important; }
 }

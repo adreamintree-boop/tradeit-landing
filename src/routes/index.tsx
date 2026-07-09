@@ -268,10 +268,10 @@ function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden bg-white text-ink lg:min-h-[1050px]">
-      {/* Orbital globe background — enlarged premium blue particle sphere, shifted down so the top is fully visible */}
+      {/* Orbital globe background — enlarged premium blue particle sphere, shifted up so the top is fully visible */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[62%] z-0 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 top-[52%] z-0 flex justify-center"
         style={{
           height: "min(1400px, 150vh)",
           transform: "translateY(-40%)",
