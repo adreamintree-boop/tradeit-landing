@@ -268,10 +268,10 @@ function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden bg-white text-ink lg:min-h-[1050px]">
-      {/* Orbital globe background — enlarged premium blue particle sphere, shifted down so the top is fully visible */}
+      {/* Orbital globe background — enlarged premium blue particle sphere, shifted up so the top is fully visible */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[62%] z-0 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 top-[52%] z-0 flex justify-center"
         style={{
           height: "min(1400px, 150vh)",
           transform: "translateY(-40%)",
@@ -285,7 +285,10 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-56 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-72">
+      {/* Floating trade metric cards — positioned relative to the hero section */}
+      <HeroFloatingCards />
+
+      <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-72">
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
@@ -351,9 +354,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Floating trade metric cards */}
-        <HeroFloatingCards />
-
       </div>
     </section>
   );
@@ -367,6 +367,8 @@ type FloatingCard = {
   pos: string;
   hideOn: string;
   floatClass: string;
+  width: string;
+  valueClass: string;
 };
 
 function HeroFloatingCards() {
@@ -376,32 +378,38 @@ function HeroFloatingCards() {
       value: "$78.6B",
       trend: "18.4%",
       Icon: CircleDollarSign,
-      pos: "lg:left-[6%] xl:left-[8%] top-[68%] lg:top-[62%]",
-      hideOn: "hidden lg:block",
+      pos: "xl:left-[3%] 2xl:left-[10%] top-[36%] xl:top-[36%] 2xl:top-[38%]",
+      hideOn: "hidden xl:block",
       floatClass: "hero-card-float-1",
+      width: "150px",
+      valueClass: "text-xl",
     },
     {
       label: "Total Shipments",
       value: "256,430",
       trend: "12.7%",
       Icon: Ship,
-      pos: "lg:right-[6%] xl:right-[8%] top-[64%] lg:top-[58%]",
-      hideOn: "hidden lg:block",
+      pos: "xl:right-[0%] 2xl:right-[6%] top-[32%] xl:top-[32%] 2xl:top-[32%]",
+      hideOn: "hidden xl:block",
       floatClass: "hero-card-float-2",
+      width: "150px",
+      valueClass: "text-lg",
     },
     {
       label: "Total Weight",
       value: "4.8M tons",
       trend: "9.6%",
       Icon: Weight,
-      pos: "lg:right-[16%] xl:right-[18%] top-[80%] lg:top-[76%]",
-      hideOn: "hidden lg:block",
+      pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%]",
+      hideOn: "hidden xl:block",
       floatClass: "hero-card-float-3",
+      width: "150px",
+      valueClass: "text-lg",
     },
   ];
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]">
+    <div aria-hidden className="pointer-events-none absolute inset-0 z-10">
       {cards.map((c, i) => (
         <motion.div
           key={c.label}
@@ -412,23 +420,23 @@ function HeroFloatingCards() {
         >
           <div
             className={cn(
-              "hero-card-float w-[220px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm sm:w-[240px]",
+              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-2 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
               c.floatClass,
             )}
+            style={{ width: c.width }}
           >
-            <div className="flex items-start justify-between">
-              <span className="text-xs font-medium text-ink-soft">{c.label}</span>
-              <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-brand">
+            <div className="flex items-center justify-between gap-1">
+              <span className="truncate text-[11px] font-medium text-ink-soft">{c.label}</span>
+              <span className="inline-flex shrink-0 items-center gap-0.5 text-[10px] font-semibold text-brand">
                 <span className="text-[8px]">▲</span> {c.trend}
               </span>
             </div>
-            <div className="mt-3 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              {c.value}
-            </div>
-            <div className="mt-1 flex items-center justify-between">
-              <span className="text-[11px] text-ink-soft">vs last 12 months</span>
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-brand/10 text-brand">
-                <c.Icon className="h-3.5 w-3.5" />
+            <div className="mt-1 flex items-end justify-between">
+              <div className={cn("font-semibold tracking-tight text-ink", c.valueClass)}>
+                {c.value}
+              </div>
+              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand/10 text-brand">
+                <c.Icon className="h-3 w-3" />
               </span>
             </div>
           </div>
