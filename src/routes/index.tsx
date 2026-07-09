@@ -354,7 +354,8 @@ function Hero() {
 
             {/* Animated SVG wave stack — real fluid surface */}
             <svg
-              className="absolute inset-x-0 top-0 h-64 w-full"
+              className="absolute inset-x-0 top-0 h-80 w-full"
+
               viewBox="0 0 1440 220"
               preserveAspectRatio="none"
               aria-hidden
