@@ -367,6 +367,8 @@ type FloatingCard = {
   pos: string;
   hideOn: string;
   floatClass: string;
+  width: string;
+  valueClass: string;
 };
 
 function HeroFloatingCards() {
