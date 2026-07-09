@@ -335,7 +335,7 @@ function Hero() {
         <div className="h-10" aria-hidden />
 
         {/* Liquid layer — starts below keyword chips, flows to the bottom of the hero */}
-        <div className="relative min-h-[280px] sm:min-h-[320px]">
+        <div className="relative min-h-[220px] sm:min-h-[260px]">
 
           <div
             aria-hidden
@@ -382,7 +382,7 @@ function Hero() {
 
             {/* Animated SVG wave stack — real fluid surface */}
             <svg
-              className="absolute inset-x-0 top-0 h-56 w-full"
+              className="absolute inset-x-0 top-0 h-48 w-full"
               viewBox="0 0 1440 220"
               preserveAspectRatio="none"
               aria-hidden
@@ -427,14 +427,14 @@ function Hero() {
             </svg>
 
             {/* Container ships floating and sailing rightward on the wave */}
-            <div className="absolute inset-x-0 top-8 h-56 pointer-events-none overflow-hidden">
-              <div className="hero-ship-drift hero-ship-drift-a absolute top-4" style={{ width: "160px" }}>
+            <div className="absolute inset-x-0 top-6 h-48 pointer-events-none overflow-hidden">
+              <div className="hero-ship-drift hero-ship-drift-a absolute top-4" style={{ width: "140px" }}>
                 <ContainerShip className="hero-ship hero-ship-a" accent="#1e46c4" />
               </div>
-              <div className="hero-ship-drift hero-ship-drift-b absolute top-18" style={{ width: "200px" }}>
+              <div className="hero-ship-drift hero-ship-drift-b absolute top-16" style={{ width: "180px" }}>
                 <ContainerShip className="hero-ship hero-ship-b" accent="#0f2f8a" />
               </div>
-              <div className="hero-ship-drift hero-ship-drift-c absolute top-32" style={{ width: "140px" }}>
+              <div className="hero-ship-drift hero-ship-drift-c absolute top-28" style={{ width: "120px" }}>
                 <ContainerShip className="hero-ship hero-ship-c" accent="#2a58d4" />
               </div>
             </div>
