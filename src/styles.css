@@ -245,8 +245,12 @@
   100% { transform: translate3d(360px, 0, 0); }
 }
 @keyframes hero-wave-bob {
-  0%,100% { transform: translate3d(0, 0, 0); }
-  50%     { transform: translate3d(0, 4px, 0); }
+  0%,100% { transform: translate3d(0, -6px, 0); }
+  50%     { transform: translate3d(0, 10px, 0); }
+}
+@keyframes hero-wave-bob-slow {
+  0%,100% { transform: translate3d(0, -4px, 0); }
+  50%     { transform: translate3d(0, 8px, 0); }
 }
 @keyframes hero-crest-shimmer {
   0%   { opacity: 0.35; transform: translate3d(-20px, 0, 0); }
@@ -260,12 +264,33 @@
   0%   { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(24px, -22px, 0); }
 }
-.hero-wave-slow { animation: hero-wave-shift-a 22s linear infinite; }
-.hero-wave-mid  { animation: hero-wave-shift-b 14s linear infinite; }
-.hero-wave-fast { animation: hero-wave-shift-a 9s linear infinite, hero-wave-bob 5s ease-in-out infinite; }
+.hero-wave-slow { animation: hero-wave-shift-a 16s linear infinite, hero-wave-bob-slow 7s ease-in-out infinite; transform-origin: center; }
+.hero-wave-mid  { animation: hero-wave-shift-b 10s linear infinite, hero-wave-bob 5.5s ease-in-out infinite; transform-origin: center; }
+.hero-wave-fast { animation: hero-wave-shift-a 6s linear infinite, hero-wave-bob 4s ease-in-out infinite; transform-origin: center; }
 .hero-particles-a { animation: hero-particle-drift-a 18s ease-in-out infinite alternate; }
 .hero-particles-b { animation: hero-particle-drift-b 24s ease-in-out infinite alternate; }
+
+/* Container ships — buoyancy: vertical bob + slight rock */
+@keyframes hero-ship-bob-a {
+  0%,100% { transform: translate3d(0, -4px, 0) rotate(-2.5deg); }
+  50%     { transform: translate3d(0, 10px, 0) rotate(2deg); }
+}
+@keyframes hero-ship-bob-b {
+  0%,100% { transform: translate3d(0, 8px, 0) rotate(2deg); }
+  50%     { transform: translate3d(0, -6px, 0) rotate(-2.5deg); }
+}
+@keyframes hero-ship-bob-c {
+  0%,100% { transform: translate3d(0, -2px, 0) rotate(1.8deg); }
+  50%     { transform: translate3d(0, 12px, 0) rotate(-2.2deg); }
+}
+.hero-ship { transform-origin: 50% 90%; will-change: transform; }
+.hero-ship-a { animation: hero-ship-bob-a 5.2s ease-in-out infinite; }
+.hero-ship-b { animation: hero-ship-bob-b 6.4s ease-in-out infinite 0.4s; }
+.hero-ship-c { animation: hero-ship-bob-c 4.6s ease-in-out infinite 0.9s; }
+
 @media (prefers-reduced-motion: reduce) {
   .hero-wave-slow, .hero-wave-mid, .hero-wave-fast,
-  .hero-particles-a, .hero-particles-b { animation: none !important; }
+  .hero-particles-a, .hero-particles-b,
+  .hero-ship-a, .hero-ship-b, .hero-ship-c { animation: none !important; }
 }
+
