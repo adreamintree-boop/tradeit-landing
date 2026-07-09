@@ -2179,14 +2179,13 @@ function FinalCTA() {
           <div className="relative flex min-h-[380px] lg:min-h-[400px] items-center px-6 py-14 sm:px-10 lg:px-16 lg:py-16">
             <div className="max-w-[520px]">
               <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl lg:text-[52px]">
-                Find verified buyers <span className="italic text-brand">right now.</span>
+                Find verified buyers right now.
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-ink-soft">
-                Try Trade Data search and AI buyer analysis for free.
+                Turn trade data into real sales opportunities
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
                 <PrimaryCTA>Get Started</PrimaryCTA>
-                <SecondaryLink>Try for free</SecondaryLink>
               </div>
             </div>
           </div>
