@@ -57,6 +57,7 @@ import planFreeIcon from "@/assets/plan-free.png.asset.json";
 import planPlusIcon from "@/assets/plan-plus.png.asset.json";
 import planProIcon from "@/assets/plan-pro.png.asset.json";
 import planPremiumIcon from "@/assets/plan-premium.png.asset.json";
+import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
