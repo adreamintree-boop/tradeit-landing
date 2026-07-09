@@ -272,9 +272,7 @@ function Hero() {
             Now with AI Buyer Fit scoring
           </span>
           <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-            Find real buyers through
-            <br />
-            <span className="italic text-ink-soft/70">global trade data.</span>
+            Find your target buyers
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             Search billions of shipment records to discover companies already importing products like yours.
