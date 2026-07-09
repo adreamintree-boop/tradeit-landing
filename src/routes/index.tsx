@@ -372,7 +372,7 @@ type FloatingCard = {
 };
 
 function HeroFloatingCards() {
-  const cards: FloatingCard[] = [
+  const cards: Array<Omit<FloatingCard, "floatClass" | "width" | "valueClass"> & { delay: string }> = [
     {
       label: "Total Trade Value",
       value: "$78.6B",
@@ -380,9 +380,7 @@ function HeroFloatingCards() {
       Icon: CircleDollarSign,
       pos: "xl:left-[3%] 2xl:left-[10%] top-[36%] xl:top-[36%] 2xl:top-[38%]",
       hideOn: "hidden xl:block",
-      floatClass: "hero-card-float-1",
-      width: "150px",
-      valueClass: "text-xl",
+      delay: "0s",
     },
     {
       label: "Total Shipments",
@@ -391,9 +389,7 @@ function HeroFloatingCards() {
       Icon: Ship,
       pos: "xl:right-[0%] 2xl:right-[6%] top-[32%] xl:top-[32%] 2xl:top-[32%]",
       hideOn: "hidden xl:block",
-      floatClass: "hero-card-float-2",
-      width: "150px",
-      valueClass: "text-lg",
+      delay: "0.8s",
     },
     {
       label: "Total Weight",
@@ -402,45 +398,34 @@ function HeroFloatingCards() {
       Icon: Weight,
       pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%]",
       hideOn: "hidden xl:block",
-      floatClass: "hero-card-float-3",
-      width: "150px",
-      valueClass: "text-lg",
+      delay: "1.6s",
     },
   ];
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 z-10">
-      {cards.map((c, i) => (
-        <motion.div
-          key={c.label}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 + i * 0.4, duration: 0.7, ease: "easeOut" }}
-          className={cn("absolute", c.pos, c.hideOn)}
-        >
+      {cards.map((c) => (
+        <div key={c.label} className={cn("absolute", c.pos, c.hideOn)}>
           <div
-            className={cn(
-              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-2 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
-              c.floatClass,
-            )}
-            style={{ width: c.width }}
+            className="hero-card-loop rounded-[22px] border border-border/70 bg-white/95 px-5 py-5 shadow-[0_18px_50px_-14px_rgba(15,47,138,0.22)] backdrop-blur-sm"
+            style={{ width: "230px", minHeight: "120px", animationDelay: c.delay }}
           >
-            <div className="flex items-center justify-between gap-1">
-              <span className="truncate text-[11px] font-medium text-ink-soft">{c.label}</span>
-              <span className="inline-flex shrink-0 items-center gap-0.5 text-[10px] font-semibold text-brand">
-                <span className="text-[8px]">▲</span> {c.trend}
+            <div className="flex items-center justify-between gap-2">
+              <span className="truncate text-[13px] font-medium text-ink-soft">{c.label}</span>
+              <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-brand">
+                <span className="text-[10px]">▲</span> {c.trend}
               </span>
             </div>
-            <div className="mt-1 flex items-end justify-between">
-              <div className={cn("font-semibold tracking-tight text-ink", c.valueClass)}>
+            <div className="mt-3 flex items-end justify-between gap-3">
+              <div className="text-[30px] font-bold leading-none tracking-tight text-ink">
                 {c.value}
               </div>
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand/10 text-brand">
-                <c.Icon className="h-3 w-3" />
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand/10 text-brand">
+                <c.Icon className="h-4 w-4" />
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );
