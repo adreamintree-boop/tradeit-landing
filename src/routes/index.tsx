@@ -602,12 +602,13 @@ function Problems() {
       raf = 0;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // progress: 0 when section top hits viewport top, 1 when bottom reaches viewport bottom
-      const total = rect.height - vh;
+      // Start when the interactive area's top reaches viewport center,
+      // end when its bottom reaches viewport center.
+      const total = rect.height;
       if (total <= 0) return;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const p = scrolled / total;
-      const idx = Math.min(PROBLEMS.length - 1, Math.floor(p * PROBLEMS.length));
+      const p = (vh * 0.5 - rect.top) / total;
+      const clamped = Math.min(Math.max(p, 0), 0.9999);
+      const idx = Math.min(PROBLEMS.length - 1, Math.floor(clamped * PROBLEMS.length));
       setActive(idx);
       setManualIdx(null);
     };
