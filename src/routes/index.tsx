@@ -57,6 +57,7 @@ import planFreeIcon from "@/assets/plan-free.png.asset.json";
 import planPlusIcon from "@/assets/plan-plus.png.asset.json";
 import planProIcon from "@/assets/plan-pro.png.asset.json";
 import planPremiumIcon from "@/assets/plan-premium.png.asset.json";
+import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -265,6 +266,23 @@ function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden bg-white text-ink">
+      {/* Orbital globe background — subtle blue particle sphere */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-[38%] z-0 flex justify-center"
+        style={{
+          height: "min(720px, 78vh)",
+          transform: "translateY(-38%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 78%)",
+          maskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 78%)",
+          opacity: 0.55,
+        }}
+      >
+        <HeroOrbitalGlobe className="h-full w-full max-w-[1100px]" />
+      </div>
+
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24">
         <div className="relative z-20 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
