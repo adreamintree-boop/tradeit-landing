@@ -567,10 +567,7 @@ function ContainerShip({
 }
 
 
-      </div>
-    </section>
-  );
-}
+
 
 
 function MiniShipmentCard() {
