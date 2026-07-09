@@ -420,24 +420,23 @@ function HeroFloatingCards() {
         >
           <div
             className={cn(
-              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-4 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
+              "hero-card-float rounded-2xl border border-border/70 bg-white/95 p-3 shadow-[0_10px_40px_-10px_rgba(15,47,138,0.18)] backdrop-blur-sm",
               c.floatClass,
             )}
             style={{ width: c.width }}
           >
             <div className="flex items-start justify-between">
-              <span className="text-xs font-medium text-ink-soft">{c.label}</span>
-              <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-brand">
+              <span className="text-[11px] font-medium text-ink-soft">{c.label}</span>
+              <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-brand">
                 <span className="text-[8px]">▲</span> {c.trend}
               </span>
             </div>
-            <div className={cn("mt-3 font-semibold tracking-tight text-ink", c.valueClass)}>
-              {c.value}
-            </div>
-            <div className="mt-1 flex items-center justify-between">
-              <span className="text-[11px] text-ink-soft">vs last 12 months</span>
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-brand/10 text-brand">
-                <c.Icon className="h-3.5 w-3.5" />
+            <div className="mt-2 flex items-end justify-between">
+              <div className={cn("font-semibold tracking-tight text-ink", c.valueClass)}>
+                {c.value}
+              </div>
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-brand/10 text-brand">
+                <c.Icon className="h-3 w-3" />
               </span>
             </div>
           </div>
