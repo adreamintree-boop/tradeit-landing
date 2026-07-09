@@ -580,7 +580,53 @@ const PROBLEMS = [
 
 function Problems() {
   const [active, setActive] = useState(0);
-  const current = PROBLEMS[active];
+  const [manualIdx, setManualIdx] = useState<number | null>(null);
+  const scrollWrapRef = useRef<HTMLDivElement | null>(null);
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setIsDesktop(mql.matches);
+    onChange();
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  // Scroll-driven active index (desktop only)
+  useEffect(() => {
+    if (!isDesktop) return;
+    const el = scrollWrapRef.current;
+    if (!el) return;
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // progress: 0 when section top hits viewport top, 1 when bottom reaches viewport bottom
+      const total = rect.height - vh;
+      if (total <= 0) return;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const p = scrolled / total;
+      const idx = Math.min(PROBLEMS.length - 1, Math.floor(p * PROBLEMS.length));
+      setActive(idx);
+      setManualIdx(null);
+    };
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [isDesktop]);
+
+  const displayIdx = manualIdx ?? active;
+
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -595,68 +641,138 @@ function Problems() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[32%_1fr] lg:gap-14">
-          {/* Left: problem list */}
-          <ul className="flex flex-col divide-y divide-border/70">
-            {PROBLEMS.map((p, i) => {
-              const isActive = i === active;
-              return (
-                <li key={p.title}>
-                  <button
-                    type="button"
-                    onClick={() => setActive(i)}
-                    className="group block w-full py-5 text-left"
-                    aria-pressed={isActive}
-                  >
-                    <div className="flex items-start gap-3">
-                      <span
-                        className={cn(
-                          "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors",
-                          isActive ? "bg-brand" : "bg-transparent",
-                        )}
-                        aria-hidden="true"
-                      />
-                      <div className="min-w-0">
-                        <h3
+        {/* Desktop: sticky scroll-driven */}
+        <div
+          ref={scrollWrapRef}
+          className="relative mt-14 hidden lg:block"
+          style={{ height: `${PROBLEMS.length * 90}vh` }}
+        >
+          <div className="sticky top-24 grid gap-14 lg:grid-cols-[32%_1fr]">
+            <ul className="flex flex-col divide-y divide-border/70">
+              {PROBLEMS.map((p, i) => {
+                const isActive = i === displayIdx;
+                return (
+                  <li key={p.title}>
+                    <button
+                      type="button"
+                      onClick={() => setManualIdx(i)}
+                      className="group block w-full py-5 text-left"
+                      aria-pressed={isActive}
+                    >
+                      <div className="flex items-start gap-3">
+                        <span
                           className={cn(
-                            "text-sm font-semibold transition-colors sm:text-base",
-                            isActive ? "text-ink" : "text-ink-soft group-hover:text-ink",
+                            "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors duration-300",
+                            isActive ? "bg-brand" : "bg-transparent",
                           )}
-                        >
-                          {p.title}
-                        </h3>
-                        <p
-                          className={cn(
-                            "mt-1.5 text-xs leading-relaxed transition-opacity sm:text-sm",
-                            isActive ? "text-ink-soft opacity-100" : "text-ink-soft/80 opacity-90",
-                          )}
-                        >
-                          {p.body}
-                        </p>
+                          aria-hidden="true"
+                        />
+                        <div className="min-w-0">
+                          <h3
+                            className={cn(
+                              "text-sm transition-colors duration-300 sm:text-base",
+                              isActive
+                                ? "font-semibold text-ink"
+                                : "font-medium text-ink-soft/70 group-hover:text-ink",
+                            )}
+                          >
+                            {p.title}
+                          </h3>
+                          <p
+                            className={cn(
+                              "mt-1.5 text-xs leading-relaxed transition-opacity duration-300 sm:text-sm",
+                              isActive ? "text-ink-soft opacity-100" : "text-ink-soft/60 opacity-70",
+                            )}
+                          >
+                            {p.body}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
 
-          {/* Right: visual panel */}
-          <div className="relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[580px]">
-            {PROBLEMS.map((p, i) => (
-              <img
-                key={p.title}
-                src={p.image}
-                alt={p.title}
-                loading="lazy"
-                className={cn(
-                  "absolute inset-0 h-full w-full object-contain p-1 transition-opacity duration-500 sm:p-2",
-                  i === active ? "opacity-100" : "opacity-0",
-                )}
-                aria-hidden={i === active ? undefined : true}
-              />
-            ))}
+            <div className="relative min-h-[560px] w-full">
+              {PROBLEMS.map((p, i) => {
+                const isActive = i === displayIdx;
+                return (
+                  <img
+                    key={p.title}
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className={cn(
+                      "absolute inset-0 h-full w-full object-contain transition-all duration-700 ease-out",
+                      isActive
+                        ? "translate-y-0 opacity-100"
+                        : "pointer-events-none translate-y-2 opacity-0",
+                    )}
+                    aria-hidden={isActive ? undefined : true}
+                  />
+                );
+              })}
+            </div>
           </div>
+        </div>
+
+        {/* Mobile: accordion-style, tap to reveal image */}
+        <div className="mt-10 space-y-3 lg:hidden">
+          {PROBLEMS.map((p, i) => {
+            const isActive = i === displayIdx;
+            return (
+              <div key={p.title} className="border-b border-border/70 pb-4">
+                <button
+                  type="button"
+                  onClick={() => setManualIdx(isActive ? null : i)}
+                  className="flex w-full items-start gap-3 py-3 text-left"
+                  aria-expanded={isActive}
+                >
+                  <span
+                    className={cn(
+                      "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors",
+                      isActive ? "bg-brand" : "bg-transparent",
+                    )}
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <h3
+                      className={cn(
+                        "text-sm font-semibold transition-colors sm:text-base",
+                        isActive ? "text-ink" : "text-ink-soft",
+                      )}
+                    >
+                      {p.title}
+                    </h3>
+                    <p
+                      className={cn(
+                        "mt-1.5 text-xs leading-relaxed sm:text-sm",
+                        isActive ? "text-ink-soft" : "text-ink-soft/70",
+                      )}
+                    >
+                      {p.body}
+                    </p>
+                  </div>
+                </button>
+                <div
+                  className={cn(
+                    "grid transition-all duration-500 ease-out",
+                    isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      loading="lazy"
+                      className="mt-3 w-full object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
