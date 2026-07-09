@@ -337,7 +337,8 @@ function Hero() {
         <div className="h-10" aria-hidden />
 
         {/* Liquid layer — starts below keyword chips, flows to the bottom of the hero */}
-        <div className="relative">
+        <div className="relative min-h-[520px] sm:min-h-[600px]">
+
           <div
             aria-hidden
             className="pointer-events-none absolute inset-x-[-50vw] top-0 bottom-[-6rem] overflow-hidden"
