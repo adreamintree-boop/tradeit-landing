@@ -378,11 +378,11 @@ function HeroFloatingCards() {
       value: "$78.6B",
       trend: "18.4%",
       Icon: CircleDollarSign,
-      pos: "lg:left-[10%] xl:left-[12%] top-[40%] lg:top-[40%]",
+      pos: "lg:left-[0%] xl:left-[2%] top-[36%] lg:top-[36%]",
       hideOn: "hidden lg:block",
       floatClass: "hero-card-float-1",
-      width: "180px",
-      valueClass: "text-3xl",
+      width: "150px",
+      valueClass: "text-2xl",
     },
     {
       label: "Total Shipments",
@@ -393,7 +393,7 @@ function HeroFloatingCards() {
       hideOn: "hidden lg:block",
       floatClass: "hero-card-float-2",
       width: "150px",
-      valueClass: "text-2xl",
+      valueClass: "text-xl",
     },
     {
       label: "Total Weight",
@@ -404,7 +404,7 @@ function HeroFloatingCards() {
       hideOn: "hidden lg:block",
       floatClass: "hero-card-float-3",
       width: "150px",
-      valueClass: "text-2xl",
+      valueClass: "text-xl",
     },
   ];
 
