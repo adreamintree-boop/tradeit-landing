@@ -300,7 +300,7 @@ function Hero() {
         </div>
 
         {/* Search module */}
-        <div className="relative z-20 mx-auto mt-10 max-w-4xl">
+        <div className="relative z-30 mx-auto mt-10 max-w-4xl">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
