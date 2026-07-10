@@ -1350,56 +1350,25 @@ function UseCases() {
 /*  Pricing                                                         */
 /* ---------------------------------------------------------------- */
 
-const PLANS = [
-  {
-    name: "Free Plan",
-    price: "$0",
-    priceCaption: "",
-    credits: "1,000 Credits (one-time)",
-    description: "Trade Intelligence, risk-free",
-    features: ["Buyer Search", "AI CORE (Market Analysis)", "Buyer Enrich", "Buyer Fit", "CRM"],
-    cta: "Start for free",
-    highlight: false,
-    icon: planFreeIcon.url,
-    iconScale: 0.92,
-  },
-  {
-    name: "Plus Plan",
-    price: "$20",
-    priceCaption: "per month (excl. tax)",
-    credits: "3,000 Credits / month",
-    description: "For individual export managers",
-    features: ["All Free features", "1 Email account sync", "Buyer email log", "Credit rollover"],
-    cta: "Continue with Plus",
-    highlight: false,
-    icon: planPlusIcon.url,
-    iconScale: 0.98,
-  },
-  {
-    name: "Pro Plan",
-    price: "$50",
-    priceCaption: "per month (excl. tax)",
-    credits: "9,000 Credits / month",
-    description: "For teams scaling exports",
-    features: ["All Plus features", "2 Emails account sync", "shared buyer email log"],
-    cta: "Continue with Pro",
-    highlight: true,
-    icon: planProIcon.url,
-    iconScale: 1.04,
-  },
-  {
-    name: "Premium Plan",
-    price: "$100",
-    priceCaption: "per month (excl. tax)",
-    credits: "30,000 Credits / month",
-    description: "For full scale export teams",
-    features: ["All Pro features", "3 Emails account sync", "priority support"],
-    cta: "Continue with Premium",
-    highlight: false,
-    icon: planPremiumIcon.url,
-    iconScale: 0.98,
-  },
+const PLAN_META = [
+  { highlight: false, icon: planFreeIcon.url, iconScale: 0.92 },
+  { highlight: false, icon: planPlusIcon.url, iconScale: 0.98 },
+  { highlight: true, icon: planProIcon.url, iconScale: 1.04 },
+  { highlight: false, icon: planPremiumIcon.url, iconScale: 0.98 },
 ];
+
+const PLANS = t.pricing.plans.map((p, i) => ({
+  name: p.name,
+  price: p.price,
+  priceCaption: p.priceCaption,
+  credits: p.credits,
+  description: p.description,
+  features: p.features,
+  cta: p.cta,
+  highlight: PLAN_META[i].highlight,
+  icon: PLAN_META[i].icon,
+  iconScale: PLAN_META[i].iconScale,
+}));
 
 function Pricing() {
   return (
