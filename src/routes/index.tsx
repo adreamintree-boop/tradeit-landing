@@ -246,8 +246,6 @@ function Nav() {
 /*  Hero                                                            */
 /* ---------------------------------------------------------------- */
 
-const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
-const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
 
 function KeywordMarquee({
   items,
@@ -292,6 +290,15 @@ const SEARCH_CATEGORIES = [
 ] as const;
 
 function Hero() {
+  const t = useT();
+  const SEARCH_CATEGORIES = [
+    { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
+    { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
+    { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
+    { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
+  ] as const;
+  const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
+  const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
   const [query, setQuery] = useState("");
   const [paused, setPaused] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -463,6 +470,7 @@ type FloatingCard = {
 };
 
 function HeroFloatingCards() {
+  const t = useT();
   const cards: Array<Omit<FloatingCard, "floatClass" | "width" | "valueClass"> & { delay: string }> = [
     {
       label: t.hero.floatingCards.tradeValue.label,
@@ -702,14 +710,15 @@ const PROBLEM_META = [
   { icon: Brain, image: problemImg5.url },
 ];
 
-const PROBLEMS = t.problems.items.map((item, i) => ({
-  title: item.title,
-  body: item.body,
-  icon: PROBLEM_META[i].icon,
-  image: PROBLEM_META[i].image,
-}));
 
 function Problems() {
+  const t = useT();
+  const PROBLEMS = t.problems.items.map((item, i) => ({
+    title: item.title,
+    body: item.body,
+    icon: PROBLEM_META[i].icon,
+    image: PROBLEM_META[i].image,
+  }));
   const [active, setActive] = useState(0);
   const [manualIdx, setManualIdx] = useState<number | null>(null);
   const scrollWrapRef = useRef<HTMLDivElement | null>(null);
@@ -925,17 +934,18 @@ const STEP_IMAGES = [
   workflowOutreach.url,
 ];
 
-const STEPS = t.workflow.steps.map((s, i) => ({
-  tab: s.tab,
-  label: s.label,
-  headline: s.headline,
-  body: s.body,
-  bullets: s.bullets,
-  image: STEP_IMAGES[i],
-  imageAlt: s.imageAlt,
-}));
 
 function WorkflowSection() {
+  const t = useT();
+  const STEPS = t.workflow.steps.map((s, i) => ({
+    tab: s.tab,
+    label: s.label,
+    headline: s.headline,
+    body: s.body,
+    bullets: s.bullets,
+    image: STEP_IMAGES[i],
+    imageAlt: s.imageAlt,
+  }));
   const [active, setActive] = useState(0);
   const step = STEPS[active];
   return (
@@ -1184,6 +1194,7 @@ function PreviewOutreach() {
 /* ---------------------------------------------------------------- */
 
 function AIFeatures() {
+  const t = useT();
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1264,14 +1275,15 @@ const USE_CASE_IMAGES = [
   usecaseLogistics.url,
 ];
 
-const USE_CASES = t.useCases.items.map((u, i) => ({
-  title: u.title,
-  subtext: u.subtext,
-  image: USE_CASE_IMAGES[i],
-  bullets: u.bullets,
-}));
 
 function UseCases() {
+  const t = useT();
+  const USE_CASES = t.useCases.items.map((u, i) => ({
+    title: u.title,
+    subtext: u.subtext,
+    image: USE_CASE_IMAGES[i],
+    bullets: u.bullets,
+  }));
   const [active, setActive] = useState(0);
   const current = USE_CASES[active];
 
@@ -1358,20 +1370,21 @@ const PLAN_META = [
   { highlight: false, icon: planPremiumIcon.url, iconScale: 0.98 },
 ];
 
-const PLANS = t.pricing.plans.map((p, i) => ({
-  name: p.name,
-  price: p.price,
-  priceCaption: p.priceCaption,
-  credits: p.credits,
-  description: p.description,
-  features: p.features,
-  cta: p.cta,
-  highlight: PLAN_META[i].highlight,
-  icon: PLAN_META[i].icon,
-  iconScale: PLAN_META[i].iconScale,
-}));
 
 function Pricing() {
+  const t = useT();
+  const PLANS = t.pricing.plans.map((p, i) => ({
+    name: p.name,
+    price: p.price,
+    priceCaption: p.priceCaption,
+    credits: p.credits,
+    description: p.description,
+    features: p.features,
+    cta: p.cta,
+    highlight: PLAN_META[i].highlight,
+    icon: PLAN_META[i].icon,
+    iconScale: PLAN_META[i].iconScale,
+  }));
   return (
     <section id="pricing" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1461,9 +1474,10 @@ function Pricing() {
 /*  Data Trust                                                      */
 /* ---------------------------------------------------------------- */
 
-const METRICS = t.dataTrust.metrics;
 
 function DataTrust() {
+  const t = useT();
+  const METRICS = t.dataTrust.metrics;
   return (
     <section id="data" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
