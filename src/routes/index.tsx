@@ -1050,12 +1050,12 @@ function WorkflowSection() {
                 ))}
               </ul>
             </div>
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="relative aspect-[16/10] w-full min-h-[320px] overflow-hidden rounded-2xl border border-border bg-white p-0.5 shadow-soft lg:min-h-[420px]">
+            <div className="flex items-stretch justify-center lg:justify-end">
+              <div className="relative h-full w-full min-h-[320px] overflow-hidden rounded-2xl border border-border bg-white p-0.5 shadow-soft lg:min-h-0">
                 <img
                   src={step.image}
                   alt={step.imageAlt}
-                  className="absolute inset-0 h-full w-full rounded-xl object-contain"
+                  className="h-full w-full rounded-xl object-contain"
                   loading="eager"
                 />
               </div>
