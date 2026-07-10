@@ -417,7 +417,7 @@ function Hero() {
               type="submit"
               className="shrink-0 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 sm:px-8"
             >
-              Search
+              {t.hero.searchButton}
             </button>
           </form>
 
