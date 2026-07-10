@@ -1870,6 +1870,8 @@ function PillPhysics({
 }
 
 function ToolsConsolidation() {
+  const t = useT();
+  const CONSOLIDATION_PILLS = buildConsolidationPills(t);
   return (
     <section className="relative overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -1941,6 +1943,7 @@ function ToolsConsolidation() {
 /* ---------------------------------------------------------------- */
 
 function FinalCTA() {
+  const t = useT();
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1984,9 +1987,9 @@ function FinalCTA() {
 /*  FAQ                                                             */
 /* ---------------------------------------------------------------- */
 
-const FAQ = t.faq.items;
-
 function FaqSection() {
+  const t = useT();
+  const FAQ = t.faq.items;
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -2045,6 +2048,7 @@ function YouTubeIcon({ className }: { className?: string }) {
 }
 
 function Footer() {
+  const t = useT();
   return (
     <footer className="bg-white">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 sm:px-6 md:flex-row md:gap-4 lg:px-8">
