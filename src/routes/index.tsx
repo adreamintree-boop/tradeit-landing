@@ -1532,22 +1532,20 @@ const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
 
 function Testimonials() {
   const [i, setI] = useState(0);
-  const t = TESTIMONIALS[i];
+  const tst = TESTIMONIALS[i];
   return (
     <section id="customers" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-            Our customers
+            {t.testimonials.eyebrow}
           </div>
           <h2 className="mt-[13px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            What trade professionals<br />
-            say about TradeIt
+            {t.testimonials.headlineLine1}<br />
+            {t.testimonials.headlineLine2}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            From export sales teams to sourcing agents, users around the world use TradeIt to find
-            active importers and exporters, understand buying patterns, and connect with genuine
-            buyers.
+            {t.testimonials.subcopy}
           </p>
         </div>
 
