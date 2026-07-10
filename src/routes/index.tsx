@@ -145,11 +145,11 @@ function Nav() {
   }, []);
 
   const links = [
-    { label: "Features", href: "#features" },
-    { label: "Use Cases", href: "#use-cases" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Data", href: "#data" },
-    { label: "Customers", href: "#customers" },
+    { label: t.nav.features, href: "#features" },
+    { label: t.nav.useCases, href: "#use-cases" },
+    { label: t.nav.pricing, href: "#pricing" },
+    { label: t.nav.data, href: "#data" },
+    { label: t.nav.customers, href: "#customers" },
   ];
 
   const scrollToSection = (href: string) => {
