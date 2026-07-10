@@ -351,3 +351,11 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-grain-drift { animation: none !important; }
 }
+
+/* Language-based font mapping for the main landing page */
+[data-lang="ko"] { font-family: "Noto Sans KR", "Noto Sans", sans-serif; }
+[data-lang="ja"] { font-family: "Noto Sans JP", "M PLUS 1p", "Noto Sans", sans-serif; }
+[data-lang="zh"] { font-family: "Noto Sans SC", "Noto Sans", sans-serif; }
+[data-lang="ru"] { font-family: "Noto Sans", sans-serif; }
+[data-lang="es"] { font-family: "Noto Sans", sans-serif; }
+[data-lang="vi"] { font-family: "Be Vietnam Pro", "Noto Sans", sans-serif; }
