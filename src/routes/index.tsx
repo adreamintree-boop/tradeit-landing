@@ -135,6 +135,7 @@ function SecondaryLink({ children }: { children: React.ReactNode }) {
 /* ---------------------------------------------------------------- */
 
 function Nav() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -233,6 +234,7 @@ function Nav() {
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
+        <LanguageSelector />
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
           {t.nav.loginSignup}
           <ArrowRight className="h-3.5 w-3.5" />
