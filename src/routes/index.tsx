@@ -1254,62 +1254,21 @@ function AICard({
 /* ---------------------------------------------------------------- */
 
 
-const USE_CASES = [
-  {
-    title: "Export Teams",
-    subtext: "Find verified overseas buyers and build stronger prospect lists with real import data.",
-    image: usecaseExport.url,
-    bullets: [
-      "Build buyer lists from real import activity",
-      "Prioritize prospects with stronger sales potential",
-    ],
-  },
-  {
-    title: "Manufacturers",
-    subtext: "Discover overseas demand and identify importers already buying products like yours.",
-    image: usecaseManufacturer.url,
-    bullets: [
-      "Find new overseas markets for your products",
-      "Discover importers before investing in exhibitions",
-    ],
-  },
-  {
-    title: "Trading Companies",
-    subtext: "Track buyers, suppliers, and competitors to uncover new trade opportunities.",
-    image: usecaseTrading.url,
-    bullets: [
-      "See who buys, sells, and supplies",
-      "Monitor competitors and supplier relationships",
-    ],
-  },
-  {
-    title: "Agencies & Consultants",
-    subtext: "Support clients with data-backed market research, buyer discovery, and outreach planning.",
-    image: usecaseAgencies.url,
-    bullets: [
-      "Deliver better export research for clients",
-      "Support buyer discovery with real trade data",
-    ],
-  },
-  {
-    title: "Sourcing Teams",
-    subtext: "Discover verified suppliers and sourcing markets using real shipment data.",
-    image: usecaseSourcing.url,
-    bullets: [
-      "Find suppliers with proven export activity",
-      "Compare sourcing routes and supplier relationships",
-    ],
-  },
-  {
-    title: "Logistics",
-    subtext: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
-    image: usecaseLogistics.url,
-    bullets: [
-      "Identify companies with active shipment volume",
-      "Analyze trade routes, ports, and market movement",
-    ],
-  },
+const USE_CASE_IMAGES = [
+  usecaseExport.url,
+  usecaseManufacturer.url,
+  usecaseTrading.url,
+  usecaseAgencies.url,
+  usecaseSourcing.url,
+  usecaseLogistics.url,
 ];
+
+const USE_CASES = t.useCases.items.map((u, i) => ({
+  title: u.title,
+  subtext: u.subtext,
+  image: USE_CASE_IMAGES[i],
+  bullets: u.bullets,
+}));
 
 function UseCases() {
   const [active, setActive] = useState(0);
