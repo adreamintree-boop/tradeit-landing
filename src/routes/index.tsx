@@ -221,8 +221,16 @@ function Nav() {
         </div>
       )}
 
-      {/* Always-visible floating Login / Sign Up button */}
-      <div className="pointer-events-none absolute right-0 top-0 p-4 sm:px-6 lg:px-8">
+      {/* Always-visible floating Login / Sign Up button + mobile menu toggle */}
+      <div className="pointer-events-none absolute right-0 top-0 flex items-center gap-2 p-4 sm:px-6 lg:px-8">
+        <button
+          type="button"
+          onClick={() => setMobileOpen((o) => !o)}
+          className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+        >
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
           Login / Sign Up
           <ArrowRight className="h-3.5 w-3.5" />
