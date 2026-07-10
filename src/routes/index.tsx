@@ -172,7 +172,7 @@ function Nav() {
           scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         )}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 pr-48 sm:px-6 sm:pr-6 md:pr-8 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center">
             <img
               src={tradeItLogo.url}
@@ -195,16 +195,6 @@ function Nav() {
               </a>
             ))}
           </nav>
-
-          {/* Mobile menu toggle */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
 
           <div className="hidden w-28 md:block" />
         </div>
