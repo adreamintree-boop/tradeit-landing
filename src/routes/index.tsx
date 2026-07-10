@@ -1674,50 +1674,20 @@ function Testimonials() {
 /*  Tools Consolidation                                             */
 /* ---------------------------------------------------------------- */
 
-const CONSOLIDATION_PILLS = [
-  {
-    label: "Trade Data",
-    price: "$300+",
-    bg: "bg-[#E8F0FF]",
-    text: "text-[#1E3A8A]",
-    priceText: "text-[#1E3A8A]/70",
-  },
-  {
-    label: "CRM",
-    price: "$50",
-    bg: "bg-[#FFE9D6]",
-    text: "text-[#9A3D0B]",
-    priceText: "text-[#9A3D0B]/70",
-  },
-  {
-    label: "Enrichment",
-    price: "$49+",
-    bg: "bg-[#EDE7FF]",
-    text: "text-[#4C2A9E]",
-    priceText: "text-[#4C2A9E]/70",
-  },
-  {
-    label: "AI Research",
-    price: "$20+",
-    bg: "bg-[#DFF5E6]",
-    text: "text-[#1F6B3A]",
-    priceText: "text-[#1F6B3A]/70",
-  },
-  {
-    label: "Buyer Lists",
-    price: "$200+",
-    bg: "bg-[#FFF1C2]",
-    text: "text-[#8A5A00]",
-    priceText: "text-[#8A5A00]/70",
-  },
-  {
-    label: "Email Tools",
-    price: "$15+",
-    bg: "bg-[#FFE0E8]",
-    text: "text-[#9A1E4B]",
-    priceText: "text-[#9A1E4B]/70",
-  },
+const CONSOLIDATION_PILL_META = [
+  { bg: "bg-[#E8F0FF]", text: "text-[#1E3A8A]", priceText: "text-[#1E3A8A]/70" },
+  { bg: "bg-[#FFE9D6]", text: "text-[#9A3D0B]", priceText: "text-[#9A3D0B]/70" },
+  { bg: "bg-[#EDE7FF]", text: "text-[#4C2A9E]", priceText: "text-[#4C2A9E]/70" },
+  { bg: "bg-[#DFF5E6]", text: "text-[#1F6B3A]", priceText: "text-[#1F6B3A]/70" },
+  { bg: "bg-[#FFF1C2]", text: "text-[#8A5A00]", priceText: "text-[#8A5A00]/70" },
+  { bg: "bg-[#FFE0E8]", text: "text-[#9A1E4B]", priceText: "text-[#9A1E4B]/70" },
 ];
+
+const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
+  label: p.label,
+  price: p.price,
+  ...CONSOLIDATION_PILL_META[i],
+}));
 
 
 
