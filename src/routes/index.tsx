@@ -172,7 +172,7 @@ function Nav() {
           scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         )}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 pr-28 sm:px-6 sm:pr-6 md:pr-8 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 pr-48 sm:px-6 sm:pr-6 md:pr-8 lg:px-8">
           <a href="#" className="flex items-center">
             <img
               src={tradeItLogo.url}
