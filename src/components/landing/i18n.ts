@@ -24,7 +24,7 @@ export const dictionaries = {
   ru: mainRu,
   es: mainEs,
   vi: mainVi,
-} as Record<LangCode, MainDict>;
+} as unknown as Record<LangCode, MainDict>;
 
 export const LANGUAGES: {
   code: LangCode;
