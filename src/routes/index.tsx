@@ -1518,80 +1518,17 @@ function DataTrust() {
 /*  Testimonials                                                    */
 /* ---------------------------------------------------------------- */
 
-const TESTIMONIALS = [
-  {
-    name: "Nimesh Solanki",
-    country: "India",
-    countryFlag: "🇮🇳",
-    title: "Founder & Trade Agent",
-    company: "Anki's Global Trade",
-    quote:
-      "Having access to real shipment records instead of generic company databases helps exporters like me identifying active importers and make better data-driven decisions.",
-    tag: "Trade Data / Sourcing",
-    avatar: nimeshAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "8B+",
-      label: "Trade records",
-      description: "Real shipment data for better buyer discovery.",
-    },
-  },
-  {
-    name: "Philemon Oy",
-    country: "Uganda / Congo",
-    countryFlag: "🇺🇬",
-    title: "Founder & Managing Director",
-    company: "Phil Pro Motors",
-    quote:
-      "TradeIt helped me tracking active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
-    tag: "Supply Chain / Automotive",
-    avatar: philemonAvatar.url,
-    avatarShape: "square" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Supply Chain",
-      label: "Automotive trade",
-      description: "Track active importers and connect suppliers with qualified buyers.",
-    },
-  },
-  {
-    name: "Marian Mourice",
-    country: "Egypt",
-    countryFlag: "🇪🇬",
-    title: "Export Sales Executive",
-    company: "Jesco Import and Export",
-    quote:
-      "TradeIt is based on real trade data, helping me discovering active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
-    tag: "Export Sales / Food Supplies",
-    avatar: marianAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Food Export",
-      label: "Buyer verification",
-      description: "Understand sourcing patterns and verify real opportunities.",
-    },
-  },
-  {
-    name: "Abdulhafeez Yahya Mogauri",
-    country: "Nigeria",
-    countryFlag: "🇳🇬",
-    title: "Founder & CEO",
-    company: "AYM CARS ZARIA LTD",
-    quote:
-      "TradeIt is a valuable way to understand international trade and connect verified suppliers with genuine buyers.",
-    tag: "Automotive / Importers",
-    avatar: abdulAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Verified Buyers",
-      label: "Global trade network",
-      description: "Connect genuine buyers and suppliers across markets.",
-    },
-  },
+const TESTIMONIAL_META = [
+  { avatar: nimeshAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
+  { avatar: philemonAvatar.url, avatarShape: "square" as const, avatarFit: "cover" as const },
+  { avatar: marianAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
+  { avatar: abdulAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
 ];
+
+const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
+  ...it,
+  ...TESTIMONIAL_META[idx],
+}));
 
 function Testimonials() {
   const [i, setI] = useState(0);
