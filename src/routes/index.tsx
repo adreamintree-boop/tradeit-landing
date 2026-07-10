@@ -1398,7 +1398,7 @@ function Pricing() {
               <div className="flex h-40 items-start justify-start overflow-hidden pt-1">
                 <img
                   src={p.icon}
-                  alt={`${p.name} icon`}
+                  alt={`${p.name} ${t.pricing.iconAltSuffix}`}
                   className="h-full w-auto object-contain"
                   style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top left" }}
                   loading="lazy"
