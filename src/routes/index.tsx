@@ -916,73 +916,23 @@ function Problems() {
 /*  Workflow                                                        */
 /* ---------------------------------------------------------------- */
 
-const STEPS = [
-  {
-    tab: "Trade Data",
-    label: "STEP 1 — TRADE DATA",
-    headline: "Find real buyers through shipment data",
-    body: "Search products, HS codes, or company names to discover real importers and exporters through global shipment data.",
-    bullets: [
-      "Search by product, HS code, or company name",
-      "Discover active importers and exporters",
-      "Review shipment history and trade activity",
-    ],
-    image: workflowTradeData.url,
-    imageAlt: "TradeIt B/L Trade Data Search interface showing shipment records",
-  },
-  {
-    tab: "Enrich",
-    label: "STEP 2 — ENRICH",
-    headline: "Turn company names into buyer profiles",
-    body: "Enrich buyer records with company websites, business details, and available decision-maker contact information.",
-    bullets: [
-      "Add company website and basic business details",
-      "Find available contact information",
-      "Build more complete buyer profiles",
-    ],
-    image: workflowEnrich.url,
-    imageAlt: "TradeIt Buyer Enrichment interface showing company overview and contacts",
-  },
-  {
-    tab: "AI Analysis",
-    label: "STEP 3 — AI ANALYSIS",
-    headline: "Understand which buyers are worth your time",
-    body: "Use AI to analyze buyer relevance, market potential, shipment history, and fit before starting outreach.",
-    bullets: [
-      "Analyze buyer fit and sales potential",
-      "Review trade activity and sourcing patterns",
-      "Prioritize buyers with stronger signals",
-    ],
-    image: workflowAIAnalysis.url,
-    imageAlt: "TradeIt AI Buyer Analysis interface showing buyer insights",
-  },
-  {
-    tab: "CRM",
-    label: "STEP 4 — CRM",
-    headline: "Manage buyers in one sales workspace",
-    body: "Save buyers, organize lists, track stages, write notes, and manage follow-up activities inside Sales Note CRM.",
-    bullets: [
-      "Save qualified buyers into Sales Note CRM",
-      "Track sales stages and follow-up tasks",
-      "Keep buyer notes and communication history organized",
-    ],
-    image: workflowCRM.url,
-    imageAlt: "TradeIt CRM interface showing sales pipeline with buyers on a world map",
-  },
-  {
-    tab: "Outreach",
-    label: "STEP 5 — OUTREACH",
-    headline: "Reach the right buyers with better context",
-    body: "Create personalized outreach using buyer context and manage email communication from one connected workflow.",
-    bullets: [
-      "Create personalized outreach messages",
-      "Use buyer context from trade data and enrichment",
-      "Track email activity and follow-ups",
-    ],
-    image: workflowOutreach.url,
-    imageAlt: "TradeIt Compose Email interface showing buyer and contact selection",
-  },
+const STEP_IMAGES = [
+  workflowTradeData.url,
+  workflowEnrich.url,
+  workflowAIAnalysis.url,
+  workflowCRM.url,
+  workflowOutreach.url,
 ];
+
+const STEPS = t.workflow.steps.map((s, i) => ({
+  tab: s.tab,
+  label: s.label,
+  headline: s.headline,
+  body: s.body,
+  bullets: s.bullets,
+  image: STEP_IMAGES[i],
+  imageAlt: s.imageAlt,
+}));
 
 function WorkflowSection() {
   const [active, setActive] = useState(0);
