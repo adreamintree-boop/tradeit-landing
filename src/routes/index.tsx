@@ -1188,32 +1188,31 @@ function AIFeatures() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-end md:gap-16">
           <div>
-            <Eyebrow>TradeIt AI</Eyebrow>
+            <Eyebrow>{t.aiFeatures.eyebrow}</Eyebrow>
             <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Turn AI buyer analysis into actionable sales decisions
+              {t.aiFeatures.headline}
             </h2>
           </div>
           <p className="max-w-lg text-base leading-relaxed text-ink-soft">
-            From filling buyer information to market analysis and buyer fit evaluation, TradeIt AI
-            helps you understand which buyers are worth your time.
+            {t.aiFeatures.body}
           </p>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           <AICard
             image={aiFillImg.url}
-            title="AI Fill"
-            body="Fill missing buyer company information in real time, including website, address, products, phone number, official email, and headquarters."
+            title={t.aiFeatures.cards[0].title}
+            body={t.aiFeatures.cards[0].body}
           />
           <AICard
             image={aiCoreImg.url}
-            title="AI CORE"
-            body="Analyze your company, product, and target market to identify key product keywords, HS codes, competitors, and market opportunities."
+            title={t.aiFeatures.cards[1].title}
+            body={t.aiFeatures.cards[1].body}
           />
           <AICard
             image={aiBuyerFitImg.url}
-            title="AI Buyer Fit"
-            body="Evaluate buyer relevance, product overlap, proposal potential, and outreach angles before starting sales conversations."
+            title={t.aiFeatures.cards[2].title}
+            body={t.aiFeatures.cards[2].body}
           />
         </div>
       </div>
