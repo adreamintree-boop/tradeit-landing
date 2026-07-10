@@ -287,6 +287,7 @@ function KeywordMarquee({
 
 function Hero() {
   const t = useT();
+  const lang = useLang();
   const SEARCH_CATEGORIES = [
     { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
     { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
