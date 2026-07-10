@@ -16,7 +16,7 @@ export type LangCode = "en" | "ko" | "ja" | "zh" | "ru" | "es" | "vi";
 
 export type MainDict = typeof mainEn;
 
-export const dictionaries: Record<LangCode, MainDict> = {
+export const dictionaries = {
   en: mainEn,
   ko: mainKo,
   ja: mainJa,
@@ -24,7 +24,7 @@ export const dictionaries: Record<LangCode, MainDict> = {
   ru: mainRu,
   es: mainEs,
   vi: mainVi,
-};
+} as unknown as Record<LangCode, MainDict>;
 
 export const LANGUAGES: {
   code: LangCode;
