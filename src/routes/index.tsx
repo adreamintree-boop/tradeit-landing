@@ -168,10 +168,10 @@ function Nav() {
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50">
-      {/* Header bar */}
+      {/* Desktop scrolled header */}
       <div
         className={cn(
-          "border-b border-border/60 bg-white/70 backdrop-blur-xl transition-all duration-300 ease-out",
+          "hidden border-b border-border/60 bg-white/70 backdrop-blur-xl transition-all duration-300 ease-out md:block",
           scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         )}
       >
@@ -198,42 +198,75 @@ function Nav() {
               </a>
             ))}
           </nav>
-
           <div className="hidden w-28 md:block" />
         </div>
       </div>
 
-      {/* Mobile nav dropdown */}
+      {/* Mobile always-visible header */}
+      <div className="border-b border-border/60 bg-white/90 backdrop-blur-xl md:hidden">
+        <div className="flex h-14 items-center justify-between px-4">
+          <a href="#" className="flex items-center">
+            <img src={tradeItLogo.url} alt="TradeIt" className="h-[18px] w-auto object-contain" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="grid h-10 w-10 place-items-center rounded-full bg-white text-ink shadow-sm ring-1 ring-black/5"
+            aria-label={t.nav.openMenu}
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu drawer */}
       {mobileOpen && (
-        <div className="border-b border-border/60 bg-white/95 px-4 pb-4 pt-2 shadow-lg backdrop-blur-xl md:hidden">
-          <nav className="flex flex-col gap-1">
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(l.href);
-                }}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-muted hover:text-ink"
-              >
-                {l.label}
-              </a>
-            ))}
-          </nav>
+        <div className="fixed inset-0 z-[60] flex flex-col bg-white md:hidden">
+          <div className="flex h-14 items-center justify-between border-b border-border/60 px-4">
+            <a href="#" className="flex items-center" onClick={() => setMobileOpen(false)}>
+              <img src={tradeItLogo.url} alt="TradeIt" className="h-[18px] w-auto object-contain" />
+            </a>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              className="grid h-10 w-10 place-items-center rounded-full bg-white text-ink shadow-sm ring-1 ring-black/5"
+              aria-label={t.nav.closeMenu}
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto px-6 pt-6 pb-8">
+            <nav className="flex flex-col">
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(l.href);
+                  }}
+                  className="border-b border-border/50 py-4 text-base font-medium text-ink"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+            <div className="mt-6">
+              <LanguageSelector className="w-full" />
+            </div>
+            <button
+              type="button"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-brand/90"
+            >
+              {t.nav.loginSignup}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
       )}
 
-      {/* Always-visible floating Login / Sign Up button + mobile menu toggle */}
-      <div className="pointer-events-none absolute right-0 top-0 flex items-center gap-2 p-4 sm:px-6 lg:px-8">
-        <button
-          type="button"
-          onClick={() => setMobileOpen((o) => !o)}
-          className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
-          aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+      {/* Desktop floating language + CTA */}
+      <div className="pointer-events-none absolute right-0 top-0 hidden items-center gap-2 p-4 sm:px-6 md:flex lg:px-8">
         <LanguageSelector />
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
           {t.nav.loginSignup}
