@@ -693,38 +693,20 @@ import problemImg3 from "@/assets/problem-static-v2.png.asset.json";
 import problemImg4 from "@/assets/problem-signals-v2.png.asset.json";
 import problemImg5 from "@/assets/problem-guesswork-v2.png.asset.json";
 
-const PROBLEMS = [
-  {
-    title: "Buyer search takes too long",
-    body: "Export teams spend too much time searching across Google, directories, and exhibition lists.",
-    icon: Search,
-    image: problemImg1.url,
-  },
-  {
-    title: "Buyer quality is unclear",
-    body: "A company may look relevant, but you don't know if they actually buy products like yours.",
-    icon: Target,
-    image: problemImg2.url,
-  },
-  {
-    title: "Static lists go outdated fast",
-    body: "Traditional buyer lists quickly become outdated and often miss recent trade activity.",
-    icon: ClipboardList,
-    image: problemImg3.url,
-  },
-  {
-    title: "Purchase signals are hard to see",
-    body: "Without shipment data, it's difficult to know who is actively importing and from where.",
-    icon: TrendingUp,
-    image: problemImg4.url,
-  },
-  {
-    title: "Sales teams start from guesswork",
-    body: "Without real trade records, outreach often begins with assumptions instead of evidence.",
-    icon: Brain,
-    image: problemImg5.url,
-  },
+const PROBLEM_META = [
+  { icon: Search, image: problemImg1.url },
+  { icon: Target, image: problemImg2.url },
+  { icon: ClipboardList, image: problemImg3.url },
+  { icon: TrendingUp, image: problemImg4.url },
+  { icon: Brain, image: problemImg5.url },
 ];
+
+const PROBLEMS = t.problems.items.map((item, i) => ({
+  title: item.title,
+  body: item.body,
+  icon: PROBLEM_META[i].icon,
+  image: PROBLEM_META[i].image,
+}));
 
 function Problems() {
   const [active, setActive] = useState(0);
