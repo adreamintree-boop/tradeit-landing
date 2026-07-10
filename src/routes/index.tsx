@@ -763,15 +763,13 @@ function Problems() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16">
           <div>
-            <Eyebrow>PROBLEMS</Eyebrow>
+            <Eyebrow>{t.problems.eyebrow}</Eyebrow>
             <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Finding real buyers shouldn't take weeks
+              {t.problems.headline}
             </h2>
           </div>
           <p className="max-w-lg self-end text-base leading-relaxed text-ink-soft">
-            Most export teams still rely on Google searches, exhibitions, outdated directories, and
-            guesswork to find overseas buyers. TradeIt helps you start from real shipment data
-            instead.
+            {t.problems.body}
           </p>
         </div>
 
