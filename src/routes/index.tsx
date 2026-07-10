@@ -228,12 +228,12 @@ function Nav() {
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
           className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
-          Login / Sign Up
+          {t.nav.loginSignup}
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
       </div>
