@@ -1040,7 +1040,7 @@ function WorkflowSection() {
   const [active, setActive] = useState(0);
   const step = STEPS[active];
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section id="features" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>One connected workspace</Eyebrow>
@@ -1420,7 +1420,7 @@ function UseCases() {
   const current = USE_CASES[active];
 
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section id="use-cases" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <Eyebrow>Use Cases</Eyebrow>
@@ -1645,7 +1645,7 @@ const METRICS = [
 
 function DataTrust() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section id="data" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <Eyebrow>Data you can trust</Eyebrow>
@@ -1778,7 +1778,7 @@ function Testimonials() {
   const [i, setI] = useState(0);
   const t = TESTIMONIALS[i];
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section id="customers" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
