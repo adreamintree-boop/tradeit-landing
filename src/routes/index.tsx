@@ -1460,28 +1460,23 @@ function Pricing() {
 /*  Data Trust                                                      */
 /* ---------------------------------------------------------------- */
 
-const METRICS = [
-  { value: "8B+", label: "TRADE RECORDS", desc: "Understand real import and export activity through global shipment records." },
-  { value: "200+", label: "COUNTRIES & REGIONS", desc: "Explore trade data across countries and regions worldwide." },
-  { value: "230M+", label: "COMPANIES & CONTACTS", desc: "Access company and contact data to reach the right business decision-makers." },
-  { value: "1 Tool", label: "SALES WORKFLOW", desc: "Turn scattered buyer research, CRM, and outreach into one integrated sales workflow." },
-];
+const METRICS = t.dataTrust.metrics;
 
 function DataTrust() {
   return (
     <section id="data" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <Eyebrow>Data you can trust</Eyebrow>
+          <Eyebrow>{t.dataTrust.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built on global trade data
+            {t.dataTrust.headlineLine1}
             <br />
-            <span className="italic text-brand">you can trust.</span>
+            <span className="italic text-brand">{t.dataTrust.headlineLine2}</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
-            TradeIt helps sales teams discover real buyers using billions of shipment records,
+            {t.dataTrust.subcopyLine1}
             <br />
-            global market coverage, and verified business contact data.
+            {t.dataTrust.subcopyLine2}
           </p>
         </div>
 
