@@ -347,12 +347,19 @@ function Hero() {
         <HeroFloatingCards />
 
         <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
-        <div className="relative z-30 mx-auto max-w-3xl text-center">
+        <div className={cn("relative z-30 mx-auto text-center", lang === "en" ? "max-w-3xl" : "max-w-4xl")}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             {t.hero.badge}
           </span>
-          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
+          <h1
+            className={cn(
+              "mx-auto mt-6 w-full tracking-tight text-ink text-balance",
+              lang === "en"
+                ? "text-5xl leading-[1.05] sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap"
+                : "text-4xl leading-[1.1] sm:text-5xl lg:text-[clamp(44px,4.6vw,64px)]"
+            )}
+          >
             {t.hero.headline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-soft">
