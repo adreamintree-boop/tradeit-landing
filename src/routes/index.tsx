@@ -941,13 +941,12 @@ function WorkflowSection() {
     <section id="features" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>One connected workspace</Eyebrow>
+          <Eyebrow>{t.workflow.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            From trade data to buyer outreach in one workflow
+            {t.workflow.headline}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            TradeIt connects buyer discovery, company enrichment, AI analysis, CRM and email
-            outreach in one connected workspace.
+            {t.workflow.body}
           </p>
         </div>
 
