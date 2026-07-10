@@ -1963,13 +1963,13 @@ function FinalCTA() {
           <div className="relative flex min-h-[380px] lg:min-h-[400px] items-center px-6 py-14 sm:px-10 lg:px-16 lg:py-16">
             <div className="max-w-[520px]">
               <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl lg:text-[52px]">
-                Find verified buyers right now.
+                {t.cta.headline}
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-ink-soft">
-                Turn trade data into real sales opportunities
+                {t.cta.subcopy}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
-                <PrimaryCTA>Get Started</PrimaryCTA>
+                <PrimaryCTA>{t.cta.button}</PrimaryCTA>
               </div>
             </div>
           </div>
