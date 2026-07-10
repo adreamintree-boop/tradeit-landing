@@ -1278,11 +1278,11 @@ function UseCases() {
     <section id="use-cases" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <Eyebrow>Use Cases</Eyebrow>
+          <Eyebrow>{t.useCases.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built for teams
+            {t.useCases.headlineLine1}
             <br />
-            that sell across borders
+            {t.useCases.headlineLine2}
           </h2>
         </div>
 
