@@ -1875,15 +1875,13 @@ function ToolsConsolidation() {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-            One workflow. Fewer tools.
+            {t.fewerTools.eyebrow}
           </div>
           <h2 className="mt-[13px] text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            Replace scattered export tools with one workflow.
+            {t.fewerTools.headline}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
-            Instead of paying for separate CRM, trade data, enrichment, and research
-            tools, TradeIt gives export teams one connected workflow for finding and
-            reaching real buyers.
+            {t.fewerTools.body}
           </p>
         </div>
 
@@ -1896,16 +1894,16 @@ function ToolsConsolidation() {
           {/* Before */}
           <div className="text-center">
             <div className="text-sm font-medium text-ink-soft">
-              Typical export stack
+              {t.fewerTools.before.title}
             </div>
             <div className="mt-1 text-xs text-ink-soft/70">
-              Multiple tools + manual research
+              {t.fewerTools.before.caption}
             </div>
             <div className="relative mt-4 inline-block">
               <span className="text-4xl font-semibold text-ink-soft/60 sm:text-5xl">
-                $634+
+                {t.fewerTools.before.price}
               </span>
-              <span className="ml-1 text-base text-ink-soft/60">/mo</span>
+              <span className="ml-1 text-base text-ink-soft/60">{t.fewerTools.before.per}</span>
               <span
                 aria-hidden
                 className="pointer-events-none absolute left-[-6%] right-[-6%] top-1/2 h-[3px] -translate-y-1/2 rotate-[-8deg] rounded-full bg-[#E85D3A]"
@@ -1920,15 +1918,15 @@ function ToolsConsolidation() {
 
           {/* After */}
           <div className="text-center">
-            <div className="text-sm font-semibold text-brand">TradeIt</div>
+            <div className="text-sm font-semibold text-brand">{t.fewerTools.after.title}</div>
             <div className="mt-1 text-xs text-ink-soft/70">
-              One connected workflow
+              {t.fewerTools.after.caption}
             </div>
             <div className="mt-4">
               <span className="text-4xl font-semibold text-ink sm:text-5xl">
-                $50
+                {t.fewerTools.after.price}
               </span>
-              <span className="ml-1 text-base text-ink-soft">/mo</span>
+              <span className="ml-1 text-base text-ink-soft">{t.fewerTools.after.per}</span>
             </div>
           </div>
         </div>
