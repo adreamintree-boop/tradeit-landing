@@ -134,6 +134,7 @@ function SecondaryLink({ children }: { children: React.ReactNode }) {
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -142,7 +143,25 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Product", "Solutions", "Pricing", "Data", "Customers"];
+  const links = [
+    { label: "Features", href: "#features" },
+    { label: "Use Cases", href: "#use-cases" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Data", href: "#data" },
+    { label: "Customers", href: "#customers" },
+  ];
+
+  const scrollToSection = (href: string) => {
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      const headerOffset = 72;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50">
@@ -164,17 +183,53 @@ function Nav() {
           <nav className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
               <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
+                key={l.label}
+                href={l.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(l.href);
+                }}
                 className="text-sm text-ink-soft transition-colors hover:text-ink"
               >
-                {l}
+                {l.label}
               </a>
             ))}
           </nav>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((o) => !o)}
+            className="grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+
           <div className="hidden w-28 md:block" />
         </div>
       </div>
+
+      {/* Mobile nav dropdown */}
+      {mobileOpen && (
+        <div className="border-b border-border/60 bg-white/95 px-4 pb-4 pt-2 shadow-lg backdrop-blur-xl md:hidden">
+          <nav className="flex flex-col gap-1">
+            {links.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(l.href);
+                }}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-muted hover:text-ink"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
 
       {/* Always-visible floating Login / Sign Up button */}
       <div className="pointer-events-none absolute right-0 top-0 p-4 sm:px-6 lg:px-8">
