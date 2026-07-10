@@ -66,7 +66,8 @@ import aiFillImg from "@/assets/ai-fill.png.asset.json";
 import aiCoreImg from "@/assets/ai-core.png.asset.json";
 import aiBuyerFitImg from "@/assets/ai-buyer-fit.png.asset.json";
 import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
-import { mainEn as t } from "@/components/landing/main-i18n-en";
+import { useT, type MainDict } from "@/components/landing/i18n";
+import { LanguageSelector } from "@/components/landing/LanguageSelector";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
