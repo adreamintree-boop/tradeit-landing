@@ -346,15 +346,15 @@ function Hero() {
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Trade data updating in real time
+            {t.hero.badge}
           </span>
           <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
-            Find your target buyers
+            {t.hero.headline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-soft">
-            Search billions of shipment records to discover{" "}
+            {t.hero.subcopyLine1}{" "}
             <br className="hidden lg:inline" />
-            companies already importing products like yours.
+            {t.hero.subcopyLine2}
           </p>
         </div>
 
