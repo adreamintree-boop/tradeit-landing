@@ -2129,8 +2129,9 @@ function Footer() {
 /* ---------------------------------------------------------------- */
 
 function LandingPage() {
+  const lang = useLang();
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" data-lang={lang}>
       <Nav />
       <main>
         <Hero />
