@@ -1375,12 +1375,12 @@ function Pricing() {
     <section id="pricing" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Pricing</Eyebrow>
+          <Eyebrow>{t.pricing.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Stop searching. <span className="italic text-brand">Start selling.</span>
+            {t.pricing.headlinePart1} <span className="italic text-brand">{t.pricing.headlinePart2}</span>
           </h2>
           <p className="mt-4 text-base text-ink-soft">
-            No more Googling. Just subscribe and start reaching out.
+            {t.pricing.subcopy}
           </p>
         </div>
 
