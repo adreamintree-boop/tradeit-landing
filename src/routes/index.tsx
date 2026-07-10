@@ -1526,12 +1526,13 @@ const TESTIMONIAL_META = [
   { avatar: abdulAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
 ];
 
-const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
-  ...it,
-  ...TESTIMONIAL_META[idx],
-}));
 
 function Testimonials() {
+  const t = useT();
+  const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
+    ...it,
+    ...TESTIMONIAL_META[idx],
+  }));
   const [i, setI] = useState(0);
   const tst = TESTIMONIALS[i];
   return (
@@ -1684,11 +1685,15 @@ const CONSOLIDATION_PILL_META = [
   { bg: "bg-[#FFE0E8]", text: "text-[#9A1E4B]", priceText: "text-[#9A1E4B]/70" },
 ];
 
-const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
-  label: p.label,
-  price: p.price,
-  ...CONSOLIDATION_PILL_META[i],
-}));
+function buildConsolidationPills(t: MainDict) {
+  return t.fewerTools.pills.map((p, i) => ({
+    label: p.label,
+    price: p.price,
+    ...CONSOLIDATION_PILL_META[i],
+  }));
+}
+
+type ConsolidationPill = ReturnType<typeof buildConsolidationPills>[number];
 
 
 
@@ -1696,7 +1701,7 @@ const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
 function PillPhysics({
   pills,
 }: {
-  pills: typeof CONSOLIDATION_PILLS;
+  pills: ConsolidationPill[];
 }) {
   const sceneRef = useRef<HTMLDivElement | null>(null);
   const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
