@@ -1545,7 +1545,7 @@ function Testimonials() {
             {t.testimonials.headlineLine2}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            {t.testimonials.subcopy}
+            {t.testimonials.body}
           </p>
         </div>
 
