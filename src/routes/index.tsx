@@ -282,12 +282,6 @@ function KeywordMarquee({
   );
 }
 
-const SEARCH_CATEGORIES = [
-  { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
-  { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
-  { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
-  { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
-] as const;
 
 function Hero() {
   const t = useT();
