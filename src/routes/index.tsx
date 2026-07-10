@@ -245,39 +245,8 @@ function Nav() {
 /*  Hero                                                            */
 /* ---------------------------------------------------------------- */
 
-const KEYWORDS_ROW_1 = [
-  "smartphone", "computer", "led tv", "air conditioner", "electronic circuit",
-  "usb cable", "sound processor", "printed circuit board", "resistor",
-  "cnc machine", "molding machine", "excavator", "industrial robot",
-  "packaging machine", "electric vehicle", "door latch", "padlock", "switch fuse",
-  "sulfuric acid", "ethylene oxide", "solvent", "plastic resin",
-  "polypropylene resin", "acrylic polymer", "Polyethylene resin", "Butyl rubber",
-  "Nitrile rubber", "Steel Coil", "Galvanized steel", "Stainless pipe",
-  "Steel Pipe", "Cold rolled steel", "iron ore", "ferrous steel",
-  "copper cathode", "aluminum ingot", "nickel ore", "cotton yarn",
-  "polyester yarn", "cotton fabric", "denim fabric", "knit fabric",
-  "t-shirt", "denim jeans", "sportswear", "dress shirt", "sweater",
-  "running shoes", "canvas sneakers", "leather shoes", "casual shoes",
-];
-
-const KEYWORDS_ROW_2 = [
-  "refrigerator", "washing machine", "microwave oven", "vaccum cleaner",
-  "office chair", "dining table", "sofa set", "bed frame", "kitchen cabinet",
-  "kitchenware", "household cleaning tools", "toilet paper", "garbage bags",
-  "tableware set", "soybean", "corn grain", "wheat", "coffee beans",
-  "frozen shrimp", "soybean meal", "gluten feed", "feed premix",
-  "frozen chicken", "pork belly", "corrugated cardboard box",
-  "plastic packaging film", "PET preform", "FIBC", "adhesive label",
-  "wooden pallet", "plastic pallet", "steel drum", "aluminum can",
-  "metal container", "Pharmaceutical tablets", "injectable solution",
-  "antibiotics", "vitamin", "medical devices", "syringe", "surgical mask",
-  "diagnostic test", "patient monitor", "ultrasound system", "solar panel",
-  "power transformer", "diesel generator", "wind turbine",
-  "energy storage system", "hydraulic excavator", "wheel loader",
-  "tower crane", "concrete pump truck", "industrial truck forklift",
-  "skincare", "facial cleanser", "body lotion", "shampoo", "sunscreen",
-  "sheet mask", "lipstick", "eye shadow palette",
-];
+const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
+const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
 
 function KeywordMarquee({
   items,
@@ -285,7 +254,7 @@ function KeywordMarquee({
   onPick,
   paused,
 }: {
-  items: string[];
+  items: readonly string[];
   direction: "left" | "right";
   onPick: (kw: string) => void;
   paused: boolean;
@@ -315,10 +284,10 @@ function KeywordMarquee({
 }
 
 const SEARCH_CATEGORIES = [
-  { value: "product", label: "Product & Item", placeholder: "Enter a product name to find real buyers." },
-  { value: "hs", label: "HS Code", placeholder: "Enter HS Code to find precise trade records." },
-  { value: "importer", label: "Importer", placeholder: "Enter a company name to view import history." },
-  { value: "exporter", label: "Exporter", placeholder: "Enter an exporter or competitor name to analyze shipment records." },
+  { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
+  { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
+  { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
+  { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
 ] as const;
 
 function Hero() {
