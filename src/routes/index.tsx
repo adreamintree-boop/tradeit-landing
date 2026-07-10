@@ -1991,7 +1991,7 @@ function FaqSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-surface-alt p-6 sm:p-10 lg:p-14">
           <h2 className="text-3xl leading-tight tracking-tight text-ink sm:text-4xl">
-            Frequently asked questions
+            {t.faq.heading}
           </h2>
           <Accordion type="single" collapsible className="mt-8 w-full">
             {FAQ.map((f, i) => (
@@ -2057,7 +2057,7 @@ function Footer() {
             />
           </a>
           <span className="text-[14px] text-ink-soft">
-            © 2026 TradeIt. All rights reserved.
+            {t.footer.copyright}
           </span>
         </div>
 
@@ -2067,32 +2067,32 @@ function Footer() {
             href="#"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
-            Terms of Service
+            {t.footer.terms}
           </a>
           <a
             href="#"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
-            Privacy Policy
+            {t.footer.privacy}
           </a>
           <div className="flex items-center gap-4">
             <a
               href="#"
-              aria-label="LinkedIn"
+              aria-label={t.footer.social.linkedin}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
             <a
               href="#"
-              aria-label="Facebook"
+              aria-label={t.footer.social.facebook}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <FacebookIcon className="h-4 w-4" />
             </a>
             <a
               href="#"
-              aria-label="YouTube"
+              aria-label={t.footer.social.youtube}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <YouTubeIcon className="h-4 w-4" />
