@@ -1567,29 +1567,29 @@ function Testimonials() {
                 className="mt-6 text-2xl leading-snug sm:text-3xl"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{tst.quote}&rdquo;
               </p>
             </div>
             <div className="relative mt-10 flex items-end justify-between gap-4">
               <div className="flex items-center gap-4">
                 <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className={`h-12 w-12 shrink-0 ${t.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
-                  style={{ objectFit: t.avatarFit }}
+                  src={tst.avatar}
+                  alt={tst.name}
+                  className={`h-12 w-12 shrink-0 ${tst.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
+                  style={{ objectFit: tst.avatarFit }}
                 />
                 <div>
-                  <div className="font-semibold">{t.name}</div>
+                  <div className="font-semibold">{tst.name}</div>
                   <div className="text-xs text-white/60">
-                    {t.title} · {t.company}
+                    {tst.title} · {tst.company}
                   </div>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-[10px] text-white/90">
-                      <span className="text-xs leading-none">{t.countryFlag}</span>
-                      <span>{t.country}</span>
+                      <span className="text-xs leading-none">{tst.countryFlag}</span>
+                      <span>{tst.country}</span>
                     </span>
                     <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70">
-                      {t.tag}
+                      {tst.tag}
                     </span>
                   </div>
                 </div>
@@ -1626,22 +1626,22 @@ function Testimonials() {
           <div className="grid gap-5">
             <div className="rounded-3xl bg-gradient-card-blue p-8">
               <div
-                key={t.proof.large}
+                key={tst.proof.large}
                 className="animate-fade-in-up"
               >
                 <div
                   className={cn(
                     "font-semibold text-ink leading-[1.05] lg:whitespace-nowrap",
-                    t.proof.large === "Verified Buyers"
+                    tst.proof.large === "Verified Buyers"
                       ? "text-[clamp(32px,3.8vw,44px)]"
                       : "text-[clamp(32px,4vw,48px)]"
                   )}
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  {t.proof.large}
+                  {tst.proof.large}
                 </div>
-                <div className="mt-2 text-sm font-semibold text-ink">{t.proof.label}</div>
-                <p className="mt-2 text-sm text-ink-soft">{t.proof.description}</p>
+                <div className="mt-2 text-sm font-semibold text-ink">{tst.proof.label}</div>
+                <p className="mt-2 text-sm text-ink-soft">{tst.proof.description}</p>
               </div>
             </div>
             <div className="rounded-3xl border border-border bg-surface-alt p-8">
