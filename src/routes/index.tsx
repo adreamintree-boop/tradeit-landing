@@ -1019,12 +1019,15 @@ function WorkflowSection() {
         </div>
 
         <div
-          className="mt-8 rounded-3xl p-6 sm:p-10 lg:p-12"
+          className="mt-8 min-h-[640px] rounded-3xl p-6 sm:p-10 lg:p-12"
           style={{ backgroundColor: "#f5f8fb" }}
         >
-          <div
+          <motion.div
             key={active}
-            className="grid animate-fade-in-up gap-6 lg:grid-cols-[1fr_2.25fr] lg:items-stretch lg:gap-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="grid gap-6 lg:grid-cols-[1fr_2.25fr] lg:items-stretch lg:gap-8"
           >
             <div className="flex flex-col justify-center">
               <div className="text-[11px] font-semibold uppercase tracking-wider text-brand">
@@ -1046,16 +1049,16 @@ function WorkflowSection() {
               </ul>
             </div>
             <div className="flex items-center justify-center lg:justify-end">
-              <div className="w-full overflow-hidden rounded-2xl border border-border bg-white p-0.5 shadow-soft">
+              <div className="relative aspect-[16/10] w-full min-h-[320px] overflow-hidden rounded-2xl border border-border bg-white p-0.5 shadow-soft lg:min-h-[420px]">
                 <img
                   src={step.image}
                   alt={step.imageAlt}
-                  className="h-auto w-full rounded-xl object-contain"
-                  loading="lazy"
+                  className="absolute inset-0 h-full w-full rounded-xl object-contain"
+                  loading="eager"
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
