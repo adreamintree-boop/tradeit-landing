@@ -66,6 +66,7 @@ import aiFillImg from "@/assets/ai-fill.png.asset.json";
 import aiCoreImg from "@/assets/ai-core.png.asset.json";
 import aiBuyerFitImg from "@/assets/ai-buyer-fit.png.asset.json";
 import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
+import { mainEn as t } from "@/components/landing/main-i18n-en";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -144,11 +145,11 @@ function Nav() {
   }, []);
 
   const links = [
-    { label: "Features", href: "#features" },
-    { label: "Use Cases", href: "#use-cases" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Data", href: "#data" },
-    { label: "Customers", href: "#customers" },
+    { label: t.nav.features, href: "#features" },
+    { label: t.nav.useCases, href: "#use-cases" },
+    { label: t.nav.pricing, href: "#pricing" },
+    { label: t.nav.data, href: "#data" },
+    { label: t.nav.customers, href: "#customers" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -227,12 +228,12 @@ function Nav() {
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
           className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm md:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
-          Login / Sign Up
+          {t.nav.loginSignup}
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
       </div>
@@ -244,39 +245,8 @@ function Nav() {
 /*  Hero                                                            */
 /* ---------------------------------------------------------------- */
 
-const KEYWORDS_ROW_1 = [
-  "smartphone", "computer", "led tv", "air conditioner", "electronic circuit",
-  "usb cable", "sound processor", "printed circuit board", "resistor",
-  "cnc machine", "molding machine", "excavator", "industrial robot",
-  "packaging machine", "electric vehicle", "door latch", "padlock", "switch fuse",
-  "sulfuric acid", "ethylene oxide", "solvent", "plastic resin",
-  "polypropylene resin", "acrylic polymer", "Polyethylene resin", "Butyl rubber",
-  "Nitrile rubber", "Steel Coil", "Galvanized steel", "Stainless pipe",
-  "Steel Pipe", "Cold rolled steel", "iron ore", "ferrous steel",
-  "copper cathode", "aluminum ingot", "nickel ore", "cotton yarn",
-  "polyester yarn", "cotton fabric", "denim fabric", "knit fabric",
-  "t-shirt", "denim jeans", "sportswear", "dress shirt", "sweater",
-  "running shoes", "canvas sneakers", "leather shoes", "casual shoes",
-];
-
-const KEYWORDS_ROW_2 = [
-  "refrigerator", "washing machine", "microwave oven", "vaccum cleaner",
-  "office chair", "dining table", "sofa set", "bed frame", "kitchen cabinet",
-  "kitchenware", "household cleaning tools", "toilet paper", "garbage bags",
-  "tableware set", "soybean", "corn grain", "wheat", "coffee beans",
-  "frozen shrimp", "soybean meal", "gluten feed", "feed premix",
-  "frozen chicken", "pork belly", "corrugated cardboard box",
-  "plastic packaging film", "PET preform", "FIBC", "adhesive label",
-  "wooden pallet", "plastic pallet", "steel drum", "aluminum can",
-  "metal container", "Pharmaceutical tablets", "injectable solution",
-  "antibiotics", "vitamin", "medical devices", "syringe", "surgical mask",
-  "diagnostic test", "patient monitor", "ultrasound system", "solar panel",
-  "power transformer", "diesel generator", "wind turbine",
-  "energy storage system", "hydraulic excavator", "wheel loader",
-  "tower crane", "concrete pump truck", "industrial truck forklift",
-  "skincare", "facial cleanser", "body lotion", "shampoo", "sunscreen",
-  "sheet mask", "lipstick", "eye shadow palette",
-];
+const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
+const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
 
 function KeywordMarquee({
   items,
@@ -284,7 +254,7 @@ function KeywordMarquee({
   onPick,
   paused,
 }: {
-  items: string[];
+  items: readonly string[];
   direction: "left" | "right";
   onPick: (kw: string) => void;
   paused: boolean;
@@ -314,10 +284,10 @@ function KeywordMarquee({
 }
 
 const SEARCH_CATEGORIES = [
-  { value: "product", label: "Product & Item", placeholder: "Enter a product name to find real buyers." },
-  { value: "hs", label: "HS Code", placeholder: "Enter HS Code to find precise trade records." },
-  { value: "importer", label: "Importer", placeholder: "Enter a company name to view import history." },
-  { value: "exporter", label: "Exporter", placeholder: "Enter an exporter or competitor name to analyze shipment records." },
+  { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
+  { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
+  { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
+  { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
 ] as const;
 
 function Hero() {
@@ -376,15 +346,15 @@ function Hero() {
         <div className="relative z-30 mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Trade data updating in real time
+            {t.hero.badge}
           </span>
           <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
-            Find your target buyers
+            {t.hero.headline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-soft">
-            Search billions of shipment records to discover{" "}
+            {t.hero.subcopyLine1}{" "}
             <br className="hidden lg:inline" />
-            companies already importing products like yours.
+            {t.hero.subcopyLine2}
           </p>
         </div>
 
@@ -447,7 +417,7 @@ function Hero() {
               type="submit"
               className="shrink-0 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 sm:px-8"
             >
-              Search
+              {t.hero.searchButton}
             </button>
           </form>
 
@@ -494,27 +464,27 @@ type FloatingCard = {
 function HeroFloatingCards() {
   const cards: Array<Omit<FloatingCard, "floatClass" | "width" | "valueClass"> & { delay: string }> = [
     {
-      label: "Total Trade Value",
-      value: "$78.6B",
-      trend: "18.4%",
+      label: t.hero.floatingCards.tradeValue.label,
+      value: t.hero.floatingCards.tradeValue.value,
+      trend: t.hero.floatingCards.tradeValue.trend,
       Icon: CircleDollarSign,
       pos: "xl:left-[3%] 2xl:left-[10%] top-[36%] xl:top-[36%] 2xl:top-[38%]",
       hideOn: "hidden xl:block",
       delay: "0s",
     },
     {
-      label: "Total Shipments",
-      value: "256,430",
-      trend: "12.7%",
+      label: t.hero.floatingCards.shipments.label,
+      value: t.hero.floatingCards.shipments.value,
+      trend: t.hero.floatingCards.shipments.trend,
       Icon: Ship,
       pos: "xl:right-[0%] 2xl:right-[6%] top-[32%] xl:top-[32%] 2xl:top-[32%]",
       hideOn: "hidden xl:block",
       delay: "0.8s",
     },
     {
-      label: "Total Weight",
-      value: "4.8M tons",
-      trend: "9.6%",
+      label: t.hero.floatingCards.weight.label,
+      value: t.hero.floatingCards.weight.value,
+      trend: t.hero.floatingCards.weight.trend,
       Icon: Weight,
       pos: "xl:right-[0%] 2xl:right-[18%] top-[62%] xl:top-[62%] 2xl:top-[62%] translate-y-[80px]",
       hideOn: "hidden xl:block",
@@ -723,38 +693,20 @@ import problemImg3 from "@/assets/problem-static-v2.png.asset.json";
 import problemImg4 from "@/assets/problem-signals-v2.png.asset.json";
 import problemImg5 from "@/assets/problem-guesswork-v2.png.asset.json";
 
-const PROBLEMS = [
-  {
-    title: "Buyer search takes too long",
-    body: "Export teams spend too much time searching across Google, directories, and exhibition lists.",
-    icon: Search,
-    image: problemImg1.url,
-  },
-  {
-    title: "Buyer quality is unclear",
-    body: "A company may look relevant, but you don't know if they actually buy products like yours.",
-    icon: Target,
-    image: problemImg2.url,
-  },
-  {
-    title: "Static lists go outdated fast",
-    body: "Traditional buyer lists quickly become outdated and often miss recent trade activity.",
-    icon: ClipboardList,
-    image: problemImg3.url,
-  },
-  {
-    title: "Purchase signals are hard to see",
-    body: "Without shipment data, it's difficult to know who is actively importing and from where.",
-    icon: TrendingUp,
-    image: problemImg4.url,
-  },
-  {
-    title: "Sales teams start from guesswork",
-    body: "Without real trade records, outreach often begins with assumptions instead of evidence.",
-    icon: Brain,
-    image: problemImg5.url,
-  },
+const PROBLEM_META = [
+  { icon: Search, image: problemImg1.url },
+  { icon: Target, image: problemImg2.url },
+  { icon: ClipboardList, image: problemImg3.url },
+  { icon: TrendingUp, image: problemImg4.url },
+  { icon: Brain, image: problemImg5.url },
 ];
+
+const PROBLEMS = t.problems.items.map((item, i) => ({
+  title: item.title,
+  body: item.body,
+  icon: PROBLEM_META[i].icon,
+  image: PROBLEM_META[i].image,
+}));
 
 function Problems() {
   const [active, setActive] = useState(0);
@@ -811,15 +763,13 @@ function Problems() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16">
           <div>
-            <Eyebrow>PROBLEMS</Eyebrow>
+            <Eyebrow>{t.problems.eyebrow}</Eyebrow>
             <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Finding real buyers shouldn't take weeks
+              {t.problems.headline}
             </h2>
           </div>
           <p className="max-w-lg self-end text-base leading-relaxed text-ink-soft">
-            Most export teams still rely on Google searches, exhibitions, outdated directories, and
-            guesswork to find overseas buyers. TradeIt helps you start from real shipment data
-            instead.
+            {t.problems.body}
           </p>
         </div>
 
@@ -966,73 +916,23 @@ function Problems() {
 /*  Workflow                                                        */
 /* ---------------------------------------------------------------- */
 
-const STEPS = [
-  {
-    tab: "Trade Data",
-    label: "STEP 1 — TRADE DATA",
-    headline: "Find real buyers through shipment data",
-    body: "Search products, HS codes, or company names to discover real importers and exporters through global shipment data.",
-    bullets: [
-      "Search by product, HS code, or company name",
-      "Discover active importers and exporters",
-      "Review shipment history and trade activity",
-    ],
-    image: workflowTradeData.url,
-    imageAlt: "TradeIt B/L Trade Data Search interface showing shipment records",
-  },
-  {
-    tab: "Enrich",
-    label: "STEP 2 — ENRICH",
-    headline: "Turn company names into buyer profiles",
-    body: "Enrich buyer records with company websites, business details, and available decision-maker contact information.",
-    bullets: [
-      "Add company website and basic business details",
-      "Find available contact information",
-      "Build more complete buyer profiles",
-    ],
-    image: workflowEnrich.url,
-    imageAlt: "TradeIt Buyer Enrichment interface showing company overview and contacts",
-  },
-  {
-    tab: "AI Analysis",
-    label: "STEP 3 — AI ANALYSIS",
-    headline: "Understand which buyers are worth your time",
-    body: "Use AI to analyze buyer relevance, market potential, shipment history, and fit before starting outreach.",
-    bullets: [
-      "Analyze buyer fit and sales potential",
-      "Review trade activity and sourcing patterns",
-      "Prioritize buyers with stronger signals",
-    ],
-    image: workflowAIAnalysis.url,
-    imageAlt: "TradeIt AI Buyer Analysis interface showing buyer insights",
-  },
-  {
-    tab: "CRM",
-    label: "STEP 4 — CRM",
-    headline: "Manage buyers in one sales workspace",
-    body: "Save buyers, organize lists, track stages, write notes, and manage follow-up activities inside Sales Note CRM.",
-    bullets: [
-      "Save qualified buyers into Sales Note CRM",
-      "Track sales stages and follow-up tasks",
-      "Keep buyer notes and communication history organized",
-    ],
-    image: workflowCRM.url,
-    imageAlt: "TradeIt CRM interface showing sales pipeline with buyers on a world map",
-  },
-  {
-    tab: "Outreach",
-    label: "STEP 5 — OUTREACH",
-    headline: "Reach the right buyers with better context",
-    body: "Create personalized outreach using buyer context and manage email communication from one connected workflow.",
-    bullets: [
-      "Create personalized outreach messages",
-      "Use buyer context from trade data and enrichment",
-      "Track email activity and follow-ups",
-    ],
-    image: workflowOutreach.url,
-    imageAlt: "TradeIt Compose Email interface showing buyer and contact selection",
-  },
+const STEP_IMAGES = [
+  workflowTradeData.url,
+  workflowEnrich.url,
+  workflowAIAnalysis.url,
+  workflowCRM.url,
+  workflowOutreach.url,
 ];
+
+const STEPS = t.workflow.steps.map((s, i) => ({
+  tab: s.tab,
+  label: s.label,
+  headline: s.headline,
+  body: s.body,
+  bullets: s.bullets,
+  image: STEP_IMAGES[i],
+  imageAlt: s.imageAlt,
+}));
 
 function WorkflowSection() {
   const [active, setActive] = useState(0);
@@ -1041,13 +941,12 @@ function WorkflowSection() {
     <section id="features" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>One connected workspace</Eyebrow>
+          <Eyebrow>{t.workflow.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            From trade data to buyer outreach in one workflow
+            {t.workflow.headline}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            TradeIt connects buyer discovery, company enrichment, AI analysis, CRM and email
-            outreach in one connected workspace.
+            {t.workflow.body}
           </p>
         </div>
 
@@ -1289,32 +1188,31 @@ function AIFeatures() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-end md:gap-16">
           <div>
-            <Eyebrow>TradeIt AI</Eyebrow>
+            <Eyebrow>{t.aiFeatures.eyebrow}</Eyebrow>
             <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-              Turn AI buyer analysis into actionable sales decisions
+              {t.aiFeatures.headline}
             </h2>
           </div>
           <p className="max-w-lg text-base leading-relaxed text-ink-soft">
-            From filling buyer information to market analysis and buyer fit evaluation, TradeIt AI
-            helps you understand which buyers are worth your time.
+            {t.aiFeatures.body}
           </p>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           <AICard
             image={aiFillImg.url}
-            title="AI Fill"
-            body="Fill missing buyer company information in real time, including website, address, products, phone number, official email, and headquarters."
+            title={t.aiFeatures.cards[0].title}
+            body={t.aiFeatures.cards[0].body}
           />
           <AICard
             image={aiCoreImg.url}
-            title="AI CORE"
-            body="Analyze your company, product, and target market to identify key product keywords, HS codes, competitors, and market opportunities."
+            title={t.aiFeatures.cards[1].title}
+            body={t.aiFeatures.cards[1].body}
           />
           <AICard
             image={aiBuyerFitImg.url}
-            title="AI Buyer Fit"
-            body="Evaluate buyer relevance, product overlap, proposal potential, and outreach angles before starting sales conversations."
+            title={t.aiFeatures.cards[2].title}
+            body={t.aiFeatures.cards[2].body}
           />
         </div>
       </div>
@@ -1356,62 +1254,21 @@ function AICard({
 /* ---------------------------------------------------------------- */
 
 
-const USE_CASES = [
-  {
-    title: "Export Teams",
-    subtext: "Find verified overseas buyers and build stronger prospect lists with real import data.",
-    image: usecaseExport.url,
-    bullets: [
-      "Build buyer lists from real import activity",
-      "Prioritize prospects with stronger sales potential",
-    ],
-  },
-  {
-    title: "Manufacturers",
-    subtext: "Discover overseas demand and identify importers already buying products like yours.",
-    image: usecaseManufacturer.url,
-    bullets: [
-      "Find new overseas markets for your products",
-      "Discover importers before investing in exhibitions",
-    ],
-  },
-  {
-    title: "Trading Companies",
-    subtext: "Track buyers, suppliers, and competitors to uncover new trade opportunities.",
-    image: usecaseTrading.url,
-    bullets: [
-      "See who buys, sells, and supplies",
-      "Monitor competitors and supplier relationships",
-    ],
-  },
-  {
-    title: "Agencies & Consultants",
-    subtext: "Support clients with data-backed market research, buyer discovery, and outreach planning.",
-    image: usecaseAgencies.url,
-    bullets: [
-      "Deliver better export research for clients",
-      "Support buyer discovery with real trade data",
-    ],
-  },
-  {
-    title: "Sourcing Teams",
-    subtext: "Discover verified suppliers and sourcing markets using real shipment data.",
-    image: usecaseSourcing.url,
-    bullets: [
-      "Find suppliers with proven export activity",
-      "Compare sourcing routes and supplier relationships",
-    ],
-  },
-  {
-    title: "Logistics",
-    subtext: "Uncover logistics opportunities by tracking shipment flows and recurring trade activity.",
-    image: usecaseLogistics.url,
-    bullets: [
-      "Identify companies with active shipment volume",
-      "Analyze trade routes, ports, and market movement",
-    ],
-  },
+const USE_CASE_IMAGES = [
+  usecaseExport.url,
+  usecaseManufacturer.url,
+  usecaseTrading.url,
+  usecaseAgencies.url,
+  usecaseSourcing.url,
+  usecaseLogistics.url,
 ];
+
+const USE_CASES = t.useCases.items.map((u, i) => ({
+  title: u.title,
+  subtext: u.subtext,
+  image: USE_CASE_IMAGES[i],
+  bullets: u.bullets,
+}));
 
 function UseCases() {
   const [active, setActive] = useState(0);
@@ -1421,11 +1278,11 @@ function UseCases() {
     <section id="use-cases" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <Eyebrow>Use Cases</Eyebrow>
+          <Eyebrow>{t.useCases.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built for teams
+            {t.useCases.headlineLine1}
             <br />
-            that sell across borders
+            {t.useCases.headlineLine2}
           </h2>
         </div>
 
@@ -1493,68 +1350,37 @@ function UseCases() {
 /*  Pricing                                                         */
 /* ---------------------------------------------------------------- */
 
-const PLANS = [
-  {
-    name: "Free Plan",
-    price: "$0",
-    priceCaption: "",
-    credits: "1,000 Credits (one-time)",
-    description: "Trade Intelligence, risk-free",
-    features: ["Buyer Search", "AI CORE (Market Analysis)", "Buyer Enrich", "Buyer Fit", "CRM"],
-    cta: "Start for free",
-    highlight: false,
-    icon: planFreeIcon.url,
-    iconScale: 0.92,
-  },
-  {
-    name: "Plus Plan",
-    price: "$20",
-    priceCaption: "per month (excl. tax)",
-    credits: "3,000 Credits / month",
-    description: "For individual export managers",
-    features: ["All Free features", "1 Email account sync", "Buyer email log", "Credit rollover"],
-    cta: "Continue with Plus",
-    highlight: false,
-    icon: planPlusIcon.url,
-    iconScale: 0.98,
-  },
-  {
-    name: "Pro Plan",
-    price: "$50",
-    priceCaption: "per month (excl. tax)",
-    credits: "9,000 Credits / month",
-    description: "For teams scaling exports",
-    features: ["All Plus features", "2 Emails account sync", "shared buyer email log"],
-    cta: "Continue with Pro",
-    highlight: true,
-    icon: planProIcon.url,
-    iconScale: 1.04,
-  },
-  {
-    name: "Premium Plan",
-    price: "$100",
-    priceCaption: "per month (excl. tax)",
-    credits: "30,000 Credits / month",
-    description: "For full scale export teams",
-    features: ["All Pro features", "3 Emails account sync", "priority support"],
-    cta: "Continue with Premium",
-    highlight: false,
-    icon: planPremiumIcon.url,
-    iconScale: 0.98,
-  },
+const PLAN_META = [
+  { highlight: false, icon: planFreeIcon.url, iconScale: 0.92 },
+  { highlight: false, icon: planPlusIcon.url, iconScale: 0.98 },
+  { highlight: true, icon: planProIcon.url, iconScale: 1.04 },
+  { highlight: false, icon: planPremiumIcon.url, iconScale: 0.98 },
 ];
+
+const PLANS = t.pricing.plans.map((p, i) => ({
+  name: p.name,
+  price: p.price,
+  priceCaption: p.priceCaption,
+  credits: p.credits,
+  description: p.description,
+  features: p.features,
+  cta: p.cta,
+  highlight: PLAN_META[i].highlight,
+  icon: PLAN_META[i].icon,
+  iconScale: PLAN_META[i].iconScale,
+}));
 
 function Pricing() {
   return (
     <section id="pricing" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Pricing</Eyebrow>
+          <Eyebrow>{t.pricing.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Stop searching. <span className="italic text-brand">Start selling.</span>
+            {t.pricing.headlinePart1} <span className="italic text-brand">{t.pricing.headlinePart2}</span>
           </h2>
           <p className="mt-4 text-base text-ink-soft">
-            No more Googling. Just subscribe and start reaching out.
+            {t.pricing.subcopy}
           </p>
         </div>
 
@@ -1572,7 +1398,7 @@ function Pricing() {
               <div className="flex h-40 items-start justify-start overflow-hidden pt-1">
                 <img
                   src={p.icon}
-                  alt={`${p.name} icon`}
+                  alt={`${p.name} ${t.pricing.iconAltSuffix}`}
                   className="h-full w-auto object-contain"
                   style={{ transform: `scale(${p.iconScale})`, transformOrigin: "top left" }}
                   loading="lazy"
@@ -1634,28 +1460,23 @@ function Pricing() {
 /*  Data Trust                                                      */
 /* ---------------------------------------------------------------- */
 
-const METRICS = [
-  { value: "8B+", label: "TRADE RECORDS", desc: "Understand real import and export activity through global shipment records." },
-  { value: "200+", label: "COUNTRIES & REGIONS", desc: "Explore trade data across countries and regions worldwide." },
-  { value: "230M+", label: "COMPANIES & CONTACTS", desc: "Access company and contact data to reach the right business decision-makers." },
-  { value: "1 Tool", label: "SALES WORKFLOW", desc: "Turn scattered buyer research, CRM, and outreach into one integrated sales workflow." },
-];
+const METRICS = t.dataTrust.metrics;
 
 function DataTrust() {
   return (
     <section id="data" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <Eyebrow>Data you can trust</Eyebrow>
+          <Eyebrow>{t.dataTrust.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            Built on global trade data
+            {t.dataTrust.headlineLine1}
             <br />
-            <span className="italic text-brand">you can trust.</span>
+            <span className="italic text-brand">{t.dataTrust.headlineLine2}</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
-            TradeIt helps sales teams discover real buyers using billions of shipment records,
+            {t.dataTrust.subcopyLine1}
             <br />
-            global market coverage, and verified business contact data.
+            {t.dataTrust.subcopyLine2}
           </p>
         </div>
 
@@ -1697,99 +1518,34 @@ function DataTrust() {
 /*  Testimonials                                                    */
 /* ---------------------------------------------------------------- */
 
-const TESTIMONIALS = [
-  {
-    name: "Nimesh Solanki",
-    country: "India",
-    countryFlag: "🇮🇳",
-    title: "Founder & Trade Agent",
-    company: "Anki's Global Trade",
-    quote:
-      "Having access to real shipment records instead of generic company databases helps exporters like me identifying active importers and make better data-driven decisions.",
-    tag: "Trade Data / Sourcing",
-    avatar: nimeshAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "8B+",
-      label: "Trade records",
-      description: "Real shipment data for better buyer discovery.",
-    },
-  },
-  {
-    name: "Philemon Oy",
-    country: "Uganda / Congo",
-    countryFlag: "🇺🇬",
-    title: "Founder & Managing Director",
-    company: "Phil Pro Motors",
-    quote:
-      "TradeIt helped me tracking active importers based on real shipment data and connect suppliers with qualified buyers more efficiently.",
-    tag: "Supply Chain / Automotive",
-    avatar: philemonAvatar.url,
-    avatarShape: "square" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Supply Chain",
-      label: "Automotive trade",
-      description: "Track active importers and connect suppliers with qualified buyers.",
-    },
-  },
-  {
-    name: "Marian Mourice",
-    country: "Egypt",
-    countryFlag: "🇪🇬",
-    title: "Export Sales Executive",
-    company: "Jesco Import and Export",
-    quote:
-      "TradeIt is based on real trade data, helping me discovering active buyers, understand sourcing patterns, and verify opportunities with more confidence.",
-    tag: "Export Sales / Food Supplies",
-    avatar: marianAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Food Export",
-      label: "Buyer verification",
-      description: "Understand sourcing patterns and verify real opportunities.",
-    },
-  },
-  {
-    name: "Abdulhafeez Yahya Mogauri",
-    country: "Nigeria",
-    countryFlag: "🇳🇬",
-    title: "Founder & CEO",
-    company: "AYM CARS ZARIA LTD",
-    quote:
-      "TradeIt is a valuable way to understand international trade and connect verified suppliers with genuine buyers.",
-    tag: "Automotive / Importers",
-    avatar: abdulAvatar.url,
-    avatarShape: "circle" as const,
-    avatarFit: "cover" as const,
-    proof: {
-      large: "Verified Buyers",
-      label: "Global trade network",
-      description: "Connect genuine buyers and suppliers across markets.",
-    },
-  },
+const TESTIMONIAL_META = [
+  { avatar: nimeshAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
+  { avatar: philemonAvatar.url, avatarShape: "square" as const, avatarFit: "cover" as const },
+  { avatar: marianAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
+  { avatar: abdulAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
 ];
+
+const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
+  ...it,
+  ...TESTIMONIAL_META[idx],
+}));
 
 function Testimonials() {
   const [i, setI] = useState(0);
-  const t = TESTIMONIALS[i];
+  const tst = TESTIMONIALS[i];
   return (
     <section id="customers" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-            Our customers
+            {t.testimonials.eyebrow}
           </div>
           <h2 className="mt-[13px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            What trade professionals<br />
-            say about TradeIt
+            {t.testimonials.headlineLine1}<br />
+            {t.testimonials.headlineLine2}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            From export sales teams to sourcing agents, users around the world use TradeIt to find
-            active importers and exporters, understand buying patterns, and connect with genuine
-            buyers.
+            {t.testimonials.body}
           </p>
         </div>
 
@@ -1811,29 +1567,29 @@ function Testimonials() {
                 className="mt-6 text-2xl leading-snug sm:text-3xl"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{tst.quote}&rdquo;
               </p>
             </div>
             <div className="relative mt-10 flex items-end justify-between gap-4">
               <div className="flex items-center gap-4">
                 <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className={`h-12 w-12 shrink-0 ${t.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
-                  style={{ objectFit: t.avatarFit }}
+                  src={tst.avatar}
+                  alt={tst.name}
+                  className={`h-12 w-12 shrink-0 ${tst.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
+                  style={{ objectFit: tst.avatarFit }}
                 />
                 <div>
-                  <div className="font-semibold">{t.name}</div>
+                  <div className="font-semibold">{tst.name}</div>
                   <div className="text-xs text-white/60">
-                    {t.title} · {t.company}
+                    {tst.title} · {tst.company}
                   </div>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-[10px] text-white/90">
-                      <span className="text-xs leading-none">{t.countryFlag}</span>
-                      <span>{t.country}</span>
+                      <span className="text-xs leading-none">{tst.countryFlag}</span>
+                      <span>{tst.country}</span>
                     </span>
                     <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70">
-                      {t.tag}
+                      {tst.tag}
                     </span>
                   </div>
                 </div>
@@ -1842,14 +1598,14 @@ function Testimonials() {
                 <button
                   onClick={() => setI((i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
                   className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-                  aria-label="Previous"
+                  aria-label={t.testimonials.prev}
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => setI((i + 1) % TESTIMONIALS.length)}
                   className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-                  aria-label="Next"
+                  aria-label={t.testimonials.next}
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
@@ -1870,22 +1626,22 @@ function Testimonials() {
           <div className="grid gap-5">
             <div className="rounded-3xl bg-gradient-card-blue p-8">
               <div
-                key={t.proof.large}
+                key={tst.proof.large}
                 className="animate-fade-in-up"
               >
                 <div
                   className={cn(
                     "font-semibold text-ink leading-[1.05] lg:whitespace-nowrap",
-                    t.proof.large === "Verified Buyers"
+                    tst.proof.large === "Verified Buyers"
                       ? "text-[clamp(32px,3.8vw,44px)]"
                       : "text-[clamp(32px,4vw,48px)]"
                   )}
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  {t.proof.large}
+                  {tst.proof.large}
                 </div>
-                <div className="mt-2 text-sm font-semibold text-ink">{t.proof.label}</div>
-                <p className="mt-2 text-sm text-ink-soft">{t.proof.description}</p>
+                <div className="mt-2 text-sm font-semibold text-ink">{tst.proof.label}</div>
+                <p className="mt-2 text-sm text-ink-soft">{tst.proof.description}</p>
               </div>
             </div>
             <div className="rounded-3xl border border-border bg-surface-alt p-8">
@@ -1901,10 +1657,10 @@ function Testimonials() {
                 ))}
               </div>
               <div className="mt-4 text-lg font-semibold text-ink">
-                Global trade professionals using TradeIt
+                {t.testimonials.globalCard.title}
               </div>
               <p className="mt-1 text-sm text-ink-soft">
-                Thousands of exporters, manufacturers, importers, agents & consultants in 60+ countries.
+                {t.testimonials.globalCard.body}
               </p>
             </div>
           </div>
@@ -1918,50 +1674,20 @@ function Testimonials() {
 /*  Tools Consolidation                                             */
 /* ---------------------------------------------------------------- */
 
-const CONSOLIDATION_PILLS = [
-  {
-    label: "Trade Data",
-    price: "$300+",
-    bg: "bg-[#E8F0FF]",
-    text: "text-[#1E3A8A]",
-    priceText: "text-[#1E3A8A]/70",
-  },
-  {
-    label: "CRM",
-    price: "$50",
-    bg: "bg-[#FFE9D6]",
-    text: "text-[#9A3D0B]",
-    priceText: "text-[#9A3D0B]/70",
-  },
-  {
-    label: "Enrichment",
-    price: "$49+",
-    bg: "bg-[#EDE7FF]",
-    text: "text-[#4C2A9E]",
-    priceText: "text-[#4C2A9E]/70",
-  },
-  {
-    label: "AI Research",
-    price: "$20+",
-    bg: "bg-[#DFF5E6]",
-    text: "text-[#1F6B3A]",
-    priceText: "text-[#1F6B3A]/70",
-  },
-  {
-    label: "Buyer Lists",
-    price: "$200+",
-    bg: "bg-[#FFF1C2]",
-    text: "text-[#8A5A00]",
-    priceText: "text-[#8A5A00]/70",
-  },
-  {
-    label: "Email Tools",
-    price: "$15+",
-    bg: "bg-[#FFE0E8]",
-    text: "text-[#9A1E4B]",
-    priceText: "text-[#9A1E4B]/70",
-  },
+const CONSOLIDATION_PILL_META = [
+  { bg: "bg-[#E8F0FF]", text: "text-[#1E3A8A]", priceText: "text-[#1E3A8A]/70" },
+  { bg: "bg-[#FFE9D6]", text: "text-[#9A3D0B]", priceText: "text-[#9A3D0B]/70" },
+  { bg: "bg-[#EDE7FF]", text: "text-[#4C2A9E]", priceText: "text-[#4C2A9E]/70" },
+  { bg: "bg-[#DFF5E6]", text: "text-[#1F6B3A]", priceText: "text-[#1F6B3A]/70" },
+  { bg: "bg-[#FFF1C2]", text: "text-[#8A5A00]", priceText: "text-[#8A5A00]/70" },
+  { bg: "bg-[#FFE0E8]", text: "text-[#9A1E4B]", priceText: "text-[#9A1E4B]/70" },
 ];
+
+const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
+  label: p.label,
+  price: p.price,
+  ...CONSOLIDATION_PILL_META[i],
+}));
 
 
 
@@ -2149,15 +1875,13 @@ function ToolsConsolidation() {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-            One workflow. Fewer tools.
+            {t.fewerTools.eyebrow}
           </div>
           <h2 className="mt-[13px] text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            Replace scattered export tools with one workflow.
+            {t.fewerTools.headline}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
-            Instead of paying for separate CRM, trade data, enrichment, and research
-            tools, TradeIt gives export teams one connected workflow for finding and
-            reaching real buyers.
+            {t.fewerTools.body}
           </p>
         </div>
 
@@ -2170,16 +1894,16 @@ function ToolsConsolidation() {
           {/* Before */}
           <div className="text-center">
             <div className="text-sm font-medium text-ink-soft">
-              Typical export stack
+              {t.fewerTools.before.title}
             </div>
             <div className="mt-1 text-xs text-ink-soft/70">
-              Multiple tools + manual research
+              {t.fewerTools.before.caption}
             </div>
             <div className="relative mt-4 inline-block">
               <span className="text-4xl font-semibold text-ink-soft/60 sm:text-5xl">
-                $634+
+                {t.fewerTools.before.price}
               </span>
-              <span className="ml-1 text-base text-ink-soft/60">/mo</span>
+              <span className="ml-1 text-base text-ink-soft/60">{t.fewerTools.before.per}</span>
               <span
                 aria-hidden
                 className="pointer-events-none absolute left-[-6%] right-[-6%] top-1/2 h-[3px] -translate-y-1/2 rotate-[-8deg] rounded-full bg-[#E85D3A]"
@@ -2194,15 +1918,15 @@ function ToolsConsolidation() {
 
           {/* After */}
           <div className="text-center">
-            <div className="text-sm font-semibold text-brand">TradeIt</div>
+            <div className="text-sm font-semibold text-brand">{t.fewerTools.after.title}</div>
             <div className="mt-1 text-xs text-ink-soft/70">
-              One connected workflow
+              {t.fewerTools.after.caption}
             </div>
             <div className="mt-4">
               <span className="text-4xl font-semibold text-ink sm:text-5xl">
-                $50
+                {t.fewerTools.after.price}
               </span>
-              <span className="ml-1 text-base text-ink-soft">/mo</span>
+              <span className="ml-1 text-base text-ink-soft">{t.fewerTools.after.per}</span>
             </div>
           </div>
         </div>
@@ -2239,13 +1963,13 @@ function FinalCTA() {
           <div className="relative flex min-h-[380px] lg:min-h-[400px] items-center px-6 py-14 sm:px-10 lg:px-16 lg:py-16">
             <div className="max-w-[520px]">
               <h2 className="text-4xl leading-tight tracking-tight text-ink sm:text-5xl lg:text-[52px]">
-                Find verified buyers right now.
+                {t.cta.headline}
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-ink-soft">
-                Turn trade data into real sales opportunities
+                {t.cta.subcopy}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
-                <PrimaryCTA>Get Started</PrimaryCTA>
+                <PrimaryCTA>{t.cta.button}</PrimaryCTA>
               </div>
             </div>
           </div>
@@ -2259,44 +1983,7 @@ function FinalCTA() {
 /*  FAQ                                                             */
 /* ---------------------------------------------------------------- */
 
-const FAQ = [
-  {
-    q: "What is TradeIt?",
-    a: "TradeIt is a global sales platform that helps companies discover potential buyers through global trade data, analyze buyer opportunities with AI, and manage overseas sales activities in one workflow. Instead of relying only on Google searches, exhibitions, or static company lists, TradeIt helps you start from real trade activity.",
-  },
-  {
-    q: "How does TradeIt help me find buyers?",
-    a: "TradeIt helps you find importers that are already buying products similar to yours. By searching product names, items, HS codes, or company names, you can discover companies with actual import records. These companies may have a higher possibility of becoming potential buyers because they have already shown demand for similar product categories.",
-  },
-  {
-    q: "What kind of trade data can I see?",
-    a: "TradeIt provides shipment data based on B/L, also known as Bill of Lading records. You can review trade information such as importer, exporter, product description, origin and destination countries, shipment date, quantity, weight, and other available transaction details. This helps you understand not only what products were imported or exported, but also how much was traded and how frequently the buyer is purchasing.",
-  },
-  {
-    q: "How can trade data help me understand buyer demand?",
-    a: "Trade data can show shipment volume, quantity, weight, and import frequency. If a company imports similar products repeatedly or in large quantities, it may indicate stronger purchasing power or consistent demand. These signals can help your team prioritize which buyers are worth researching or contacting first.",
-  },
-  {
-    q: "Can I find buyer contact information in TradeIt?",
-    a: "Yes. TradeIt provides buyer enrichment features that allow you to view available company details and contact information. If email addresses, personal contact details, or decision-maker information are available in our dataset, you can access them within the platform. Availability may vary depending on the company and data coverage.",
-  },
-  {
-    q: "What do TradeIt's AI features do?",
-    a: "TradeIt's AI features help you move faster from buyer discovery to decision-making. AI Fill helps complete basic buyer company information such as website, address, and official contact details. AI CORE analyzes your company, product, and target market context to assess market potential. AI Buyer Fit helps evaluate whether a specific buyer is relevant to your business and worth prioritizing.",
-  },
-  {
-    q: "What are credits, and when are they used?",
-    a: "Credits are the usage units used inside TradeIt. They are deducted when you use certain data or AI-powered features, such as viewing B/L trade data, enriching buyer information, running AI analysis, or using other credit-based actions. The amount of credits used may vary depending on the feature and the type of data requested.",
-  },
-  {
-    q: "Can TradeIt help me manage buyers after I find them?",
-    a: "Yes. TradeIt includes a CRM feature called Sales Note, where you can save buyers, organize buyer lists, manage sales stages, write notes, and track follow-up activities. Sales Note helps your team move from buyer research to actual sales management without relying only on spreadsheets or scattered tools.",
-  },
-  {
-    q: "Can I start using TradeIt for free?",
-    a: "Yes. TradeIt offers a free plan with credits so you can try buyer search and key features before upgrading. This allows you to explore whether TradeIt can help your company find relevant buyers and understand market opportunities.",
-  },
-];
+const FAQ = t.faq.items;
 
 function FaqSection() {
   return (
@@ -2304,7 +1991,7 @@ function FaqSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-surface-alt p-6 sm:p-10 lg:p-14">
           <h2 className="text-3xl leading-tight tracking-tight text-ink sm:text-4xl">
-            Frequently asked questions
+            {t.faq.heading}
           </h2>
           <Accordion type="single" collapsible className="mt-8 w-full">
             {FAQ.map((f, i) => (
@@ -2370,7 +2057,7 @@ function Footer() {
             />
           </a>
           <span className="text-[14px] text-ink-soft">
-            © 2026 TradeIt. All rights reserved.
+            {t.footer.copyright}
           </span>
         </div>
 
@@ -2380,32 +2067,32 @@ function Footer() {
             href="#"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
-            Terms of Service
+            {t.footer.terms}
           </a>
           <a
             href="#"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
-            Privacy Policy
+            {t.footer.privacy}
           </a>
           <div className="flex items-center gap-4">
             <a
               href="#"
-              aria-label="LinkedIn"
+              aria-label={t.footer.social.linkedin}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
             <a
               href="#"
-              aria-label="Facebook"
+              aria-label={t.footer.social.facebook}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <FacebookIcon className="h-4 w-4" />
             </a>
             <a
               href="#"
-              aria-label="YouTube"
+              aria-label={t.footer.social.youtube}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <YouTubeIcon className="h-4 w-4" />
