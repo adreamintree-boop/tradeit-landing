@@ -66,7 +66,8 @@ import aiFillImg from "@/assets/ai-fill.png.asset.json";
 import aiCoreImg from "@/assets/ai-core.png.asset.json";
 import aiBuyerFitImg from "@/assets/ai-buyer-fit.png.asset.json";
 import HeroOrbitalGlobe from "@/components/HeroOrbitalGlobe";
-import { mainEn as t } from "@/components/landing/main-i18n-en";
+import { useT, type MainDict } from "@/components/landing/i18n";
+import { LanguageSelector } from "@/components/landing/LanguageSelector";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -134,6 +135,7 @@ function SecondaryLink({ children }: { children: React.ReactNode }) {
 /* ---------------------------------------------------------------- */
 
 function Nav() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -232,6 +234,7 @@ function Nav() {
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
+        <LanguageSelector />
         <button className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand">
           {t.nav.loginSignup}
           <ArrowRight className="h-3.5 w-3.5" />
@@ -245,8 +248,6 @@ function Nav() {
 /*  Hero                                                            */
 /* ---------------------------------------------------------------- */
 
-const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
-const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
 
 function KeywordMarquee({
   items,
@@ -283,14 +284,17 @@ function KeywordMarquee({
   );
 }
 
-const SEARCH_CATEGORIES = [
-  { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
-  { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
-  { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
-  { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
-] as const;
 
 function Hero() {
+  const t = useT();
+  const SEARCH_CATEGORIES = [
+    { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
+    { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
+    { value: "importer", label: t.hero.searchTypes.importer, placeholder: t.hero.placeholders.importer },
+    { value: "exporter", label: t.hero.searchTypes.exporter, placeholder: t.hero.placeholders.exporter },
+  ] as const;
+  const KEYWORDS_ROW_1 = t.hero.keywordsRow1;
+  const KEYWORDS_ROW_2 = t.hero.keywordsRow2;
   const [query, setQuery] = useState("");
   const [paused, setPaused] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -462,6 +466,7 @@ type FloatingCard = {
 };
 
 function HeroFloatingCards() {
+  const t = useT();
   const cards: Array<Omit<FloatingCard, "floatClass" | "width" | "valueClass"> & { delay: string }> = [
     {
       label: t.hero.floatingCards.tradeValue.label,
@@ -701,14 +706,15 @@ const PROBLEM_META = [
   { icon: Brain, image: problemImg5.url },
 ];
 
-const PROBLEMS = t.problems.items.map((item, i) => ({
-  title: item.title,
-  body: item.body,
-  icon: PROBLEM_META[i].icon,
-  image: PROBLEM_META[i].image,
-}));
 
 function Problems() {
+  const t = useT();
+  const PROBLEMS = t.problems.items.map((item, i) => ({
+    title: item.title,
+    body: item.body,
+    icon: PROBLEM_META[i].icon,
+    image: PROBLEM_META[i].image,
+  }));
   const [active, setActive] = useState(0);
   const [manualIdx, setManualIdx] = useState<number | null>(null);
   const scrollWrapRef = useRef<HTMLDivElement | null>(null);
@@ -924,17 +930,18 @@ const STEP_IMAGES = [
   workflowOutreach.url,
 ];
 
-const STEPS = t.workflow.steps.map((s, i) => ({
-  tab: s.tab,
-  label: s.label,
-  headline: s.headline,
-  body: s.body,
-  bullets: s.bullets,
-  image: STEP_IMAGES[i],
-  imageAlt: s.imageAlt,
-}));
 
 function WorkflowSection() {
+  const t = useT();
+  const STEPS = t.workflow.steps.map((s, i) => ({
+    tab: s.tab,
+    label: s.label,
+    headline: s.headline,
+    body: s.body,
+    bullets: s.bullets,
+    image: STEP_IMAGES[i],
+    imageAlt: s.imageAlt,
+  }));
   const [active, setActive] = useState(0);
   const step = STEPS[active];
   return (
@@ -1183,6 +1190,7 @@ function PreviewOutreach() {
 /* ---------------------------------------------------------------- */
 
 function AIFeatures() {
+  const t = useT();
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1263,14 +1271,15 @@ const USE_CASE_IMAGES = [
   usecaseLogistics.url,
 ];
 
-const USE_CASES = t.useCases.items.map((u, i) => ({
-  title: u.title,
-  subtext: u.subtext,
-  image: USE_CASE_IMAGES[i],
-  bullets: u.bullets,
-}));
 
 function UseCases() {
+  const t = useT();
+  const USE_CASES = t.useCases.items.map((u, i) => ({
+    title: u.title,
+    subtext: u.subtext,
+    image: USE_CASE_IMAGES[i],
+    bullets: u.bullets,
+  }));
   const [active, setActive] = useState(0);
   const current = USE_CASES[active];
 
@@ -1357,20 +1366,21 @@ const PLAN_META = [
   { highlight: false, icon: planPremiumIcon.url, iconScale: 0.98 },
 ];
 
-const PLANS = t.pricing.plans.map((p, i) => ({
-  name: p.name,
-  price: p.price,
-  priceCaption: p.priceCaption,
-  credits: p.credits,
-  description: p.description,
-  features: p.features,
-  cta: p.cta,
-  highlight: PLAN_META[i].highlight,
-  icon: PLAN_META[i].icon,
-  iconScale: PLAN_META[i].iconScale,
-}));
 
 function Pricing() {
+  const t = useT();
+  const PLANS = t.pricing.plans.map((p, i) => ({
+    name: p.name,
+    price: p.price,
+    priceCaption: p.priceCaption,
+    credits: p.credits,
+    description: p.description,
+    features: p.features,
+    cta: p.cta,
+    highlight: PLAN_META[i].highlight,
+    icon: PLAN_META[i].icon,
+    iconScale: PLAN_META[i].iconScale,
+  }));
   return (
     <section id="pricing" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1460,9 +1470,10 @@ function Pricing() {
 /*  Data Trust                                                      */
 /* ---------------------------------------------------------------- */
 
-const METRICS = t.dataTrust.metrics;
 
 function DataTrust() {
+  const t = useT();
+  const METRICS = t.dataTrust.metrics;
   return (
     <section id="data" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1525,12 +1536,13 @@ const TESTIMONIAL_META = [
   { avatar: abdulAvatar.url, avatarShape: "circle" as const, avatarFit: "cover" as const },
 ];
 
-const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
-  ...it,
-  ...TESTIMONIAL_META[idx],
-}));
 
 function Testimonials() {
+  const t = useT();
+  const TESTIMONIALS = t.testimonials.items.map((it, idx) => ({
+    ...it,
+    ...TESTIMONIAL_META[idx],
+  }));
   const [i, setI] = useState(0);
   const tst = TESTIMONIALS[i];
   return (
@@ -1683,11 +1695,15 @@ const CONSOLIDATION_PILL_META = [
   { bg: "bg-[#FFE0E8]", text: "text-[#9A1E4B]", priceText: "text-[#9A1E4B]/70" },
 ];
 
-const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
-  label: p.label,
-  price: p.price,
-  ...CONSOLIDATION_PILL_META[i],
-}));
+function buildConsolidationPills(t: MainDict) {
+  return t.fewerTools.pills.map((p, i) => ({
+    label: p.label,
+    price: p.price,
+    ...CONSOLIDATION_PILL_META[i],
+  }));
+}
+
+type ConsolidationPill = ReturnType<typeof buildConsolidationPills>[number];
 
 
 
@@ -1695,7 +1711,7 @@ const CONSOLIDATION_PILLS = t.fewerTools.pills.map((p, i) => ({
 function PillPhysics({
   pills,
 }: {
-  pills: typeof CONSOLIDATION_PILLS;
+  pills: ConsolidationPill[];
 }) {
   const sceneRef = useRef<HTMLDivElement | null>(null);
   const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -1869,6 +1885,8 @@ function PillPhysics({
 }
 
 function ToolsConsolidation() {
+  const t = useT();
+  const CONSOLIDATION_PILLS = buildConsolidationPills(t);
   return (
     <section className="relative overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -1940,6 +1958,7 @@ function ToolsConsolidation() {
 /* ---------------------------------------------------------------- */
 
 function FinalCTA() {
+  const t = useT();
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1983,9 +2002,9 @@ function FinalCTA() {
 /*  FAQ                                                             */
 /* ---------------------------------------------------------------- */
 
-const FAQ = t.faq.items;
-
 function FaqSection() {
+  const t = useT();
+  const FAQ = t.faq.items;
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -2044,6 +2063,7 @@ function YouTubeIcon({ className }: { className?: string }) {
 }
 
 function Footer() {
+  const t = useT();
   return (
     <footer className="bg-white">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 sm:px-6 md:flex-row md:gap-4 lg:px-8">
