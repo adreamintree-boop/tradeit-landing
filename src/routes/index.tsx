@@ -287,6 +287,7 @@ function KeywordMarquee({
 
 function Hero() {
   const t = useT();
+  const lang = useLang();
   const SEARCH_CATEGORIES = [
     { value: "product", label: t.hero.searchTypes.productItem, placeholder: t.hero.placeholders.productItem },
     { value: "hs", label: t.hero.searchTypes.hsCode, placeholder: t.hero.placeholders.hsCode },
@@ -347,12 +348,19 @@ function Hero() {
         <HeroFloatingCards />
 
         <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
-        <div className="relative z-30 mx-auto max-w-3xl text-center">
+        <div className={cn("relative z-30 mx-auto text-center", lang === "en" ? "max-w-3xl" : "max-w-4xl")}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             {t.hero.badge}
           </span>
-          <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap">
+          <h1
+            className={cn(
+              "mx-auto mt-6 w-full tracking-tight text-ink text-balance",
+              lang === "en"
+                ? "text-5xl leading-[1.05] sm:text-6xl lg:text-[clamp(56px,5.5vw,72px)] lg:whitespace-nowrap"
+                : "text-4xl leading-[1.1] sm:text-5xl lg:text-[clamp(44px,4.6vw,64px)]"
+            )}
+          >
             {t.hero.headline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-soft">
@@ -503,10 +511,10 @@ function HeroFloatingCards() {
         <div key={c.label} className={cn("absolute", c.pos, c.hideOn)}>
           <div
             className="hero-card-loop rounded-[22px] border border-border/70 bg-white/95 px-5 py-5 shadow-[0_18px_50px_-14px_rgba(15,47,138,0.22)] backdrop-blur-sm"
-            style={{ width: "230px", minHeight: "120px", animationDelay: c.delay }}
+            style={{ width: "240px", minHeight: "120px", animationDelay: c.delay }}
           >
-            <div className="flex items-center justify-between gap-2">
-              <span className="truncate text-[13px] font-medium text-ink-soft">{c.label}</span>
+            <div className="flex items-start justify-between gap-2">
+              <span className="text-[13px] font-medium leading-[1.25] text-ink-soft break-words">{c.label}</span>
               <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-brand">
                 <span className="text-[10px]">▲</span> {c.trend}
               </span>
