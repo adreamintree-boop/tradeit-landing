@@ -1657,10 +1657,10 @@ function Testimonials() {
                 ))}
               </div>
               <div className="mt-4 text-lg font-semibold text-ink">
-                Global trade professionals using TradeIt
+                {t.testimonials.globalCard.title}
               </div>
               <p className="mt-1 text-sm text-ink-soft">
-                Thousands of exporters, manufacturers, importers, agents & consultants in 60+ countries.
+                {t.testimonials.globalCard.body}
               </p>
             </div>
           </div>
