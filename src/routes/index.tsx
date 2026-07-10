@@ -1598,7 +1598,7 @@ function Testimonials() {
                 <button
                   onClick={() => setI((i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
                   className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-                  aria-label="Previous"
+                  aria-label={t.testimonials.prev}
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
