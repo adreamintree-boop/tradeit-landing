@@ -511,10 +511,10 @@ function HeroFloatingCards() {
         <div key={c.label} className={cn("absolute", c.pos, c.hideOn)}>
           <div
             className="hero-card-loop rounded-[22px] border border-border/70 bg-white/95 px-5 py-5 shadow-[0_18px_50px_-14px_rgba(15,47,138,0.22)] backdrop-blur-sm"
-            style={{ width: "230px", minHeight: "120px", animationDelay: c.delay }}
+            style={{ width: "240px", minHeight: "120px", animationDelay: c.delay }}
           >
-            <div className="flex items-center justify-between gap-2">
-              <span className="truncate text-[13px] font-medium text-ink-soft">{c.label}</span>
+            <div className="flex items-start justify-between gap-2">
+              <span className="text-[13px] font-medium leading-[1.25] text-ink-soft break-words">{c.label}</span>
               <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-brand">
                 <span className="text-[10px]">▲</span> {c.trend}
               </span>
