@@ -415,9 +415,10 @@ function Hero() {
 
         {/* Search module */}
         <div className="relative z-30 mx-auto mt-10 max-w-4xl">
+          {/* Desktop search */}
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col items-stretch gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand sm:flex-row sm:items-center"
+            className="hidden md:flex flex-row items-center gap-2 rounded-full border border-border bg-white p-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand"
           >
             <div ref={dropdownRef} className="relative">
               <button
@@ -476,10 +477,66 @@ function Hero() {
             </button>
           </form>
 
+          {/* Mobile search — compact pill */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex md:hidden relative items-center gap-2 rounded-full border border-border bg-white pl-4 pr-2 py-2 shadow-card transition-all focus-within:border-brand focus-within:shadow-brand"
+          >
+            <button
+              type="submit"
+              aria-label={t.hero.searchButton}
+              className="shrink-0 text-ink-soft"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={category.placeholder}
+              className="min-w-0 flex-1 bg-transparent py-2 text-[15px] text-ink outline-none placeholder:text-ink-soft/60 truncate"
+            />
+            <div ref={dropdownRef} className="relative shrink-0">
+              <button
+                type="button"
+                onClick={() => setDropdownOpen((o) => !o)}
+                aria-haspopup="listbox"
+                aria-expanded={dropdownOpen}
+                aria-label={category.label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-brand/40 bg-white text-brand transition-colors hover:bg-brand/5"
+              >
+                <SlidersHorizontal className="h-4 w-4" />
+              </button>
+              {dropdownOpen && (
+                <ul
+                  role="listbox"
+                  className="absolute right-0 top-full z-40 mt-2 w-[min(18rem,calc(100vw-2.5rem))] overflow-hidden rounded-2xl border border-border bg-white p-1.5 shadow-[0_18px_50px_-14px_rgba(15,47,138,0.22)]"
+                >
+                  {SEARCH_CATEGORIES.map((opt, idx) => (
+                    <li key={opt.value}>
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={idx === categoryIdx}
+                        onClick={() => {
+                          setCategoryIdx(idx);
+                          setDropdownOpen(false);
+                        }}
+                        className={cn(
+                          "flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-colors hover:bg-muted",
+                          idx === categoryIdx ? "text-brand bg-brand/5" : "text-ink",
+                        )}
+                      >
+                        <span>{opt.label}</span>
+                        {idx === categoryIdx && <Check className="h-4 w-4" />}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </form>
 
-          {/* Keyword marquees */}
-          <div
-            className="mt-6 space-y-3"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
