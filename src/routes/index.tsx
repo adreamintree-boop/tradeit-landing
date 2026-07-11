@@ -987,7 +987,7 @@ function MobileProblems({
   displayIdx: number;
   setManualIdx: (i: number | null) => void;
 }) {
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
