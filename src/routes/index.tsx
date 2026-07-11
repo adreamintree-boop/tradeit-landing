@@ -537,9 +537,13 @@ function Hero() {
             </div>
           </form>
 
+          {/* Keyword marquees */}
+          <div
+            className="mt-6 space-y-3"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
+
             <KeywordMarquee
               items={KEYWORDS_ROW_1}
               direction="left"
