@@ -1101,9 +1101,6 @@ function MobileProblems({
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function _ProblemsEnd() {
-  return null;
 
 
 
