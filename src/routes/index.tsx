@@ -987,112 +987,107 @@ function MobileProblems({
   displayIdx: number;
   setManualIdx: (i: number | null) => void;
 }) {
-  const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(min-width: 1024px)").matches) return;
 
-    const visibility = new Map<number, number>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          const idx = Number((entry.target as HTMLElement).dataset.idx);
-          if (Number.isNaN(idx)) continue;
-          visibility.set(idx, entry.isIntersecting ? entry.intersectionRatio : 0);
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const vhCenter = window.innerHeight / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - vhCenter);
+        if (d < bestDist) {
+          bestDist = d;
+          bestIdx = i;
         }
-        let bestIdx = -1;
-        let bestRatio = 0;
-        visibility.forEach((ratio, idx) => {
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx >= 0) setManualIdx(bestIdx);
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0, 0.1, 0.5, 1],
-      },
-    );
-
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+      });
+      setManualIdx(bestIdx);
+    };
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [setManualIdx, problems.length]);
+
+  const activeImage = problems[displayIdx]?.image;
 
   return (
     <div className="mt-10 lg:hidden">
-      {/* Sticky shared image */}
-      <div className="sticky top-20 z-10 -mx-4 bg-white/95 backdrop-blur-sm px-4 pb-3 pt-2 sm:-mx-6 sm:px-6">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-surface">
-          {problems.map((p, i) => (
-            <img
-              key={p.title}
-              src={p.image}
-              alt={p.title}
-              loading="lazy"
-              className={cn(
-                "absolute inset-0 h-full w-full object-contain transition-all duration-500 ease-out",
-                i === displayIdx
-                  ? "translate-y-0 opacity-100"
-                  : "pointer-events-none translate-y-1 opacity-0",
-              )}
-              aria-hidden={i === displayIdx ? undefined : true}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Scrollable items list */}
-      <ul className="mt-6 flex flex-col divide-y divide-border/70">
+      <ul className="flex flex-col divide-y divide-border/70">
         {problems.map((p, i) => {
           const isActive = i === displayIdx;
           return (
-            <li
-              key={p.title}
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              data-idx={i}
-              className="min-h-[45vh] py-6"
-            >
-              <button
-                type="button"
-                onClick={() => setManualIdx(i)}
-                className="block w-full text-left"
-                aria-pressed={isActive}
+            <li key={p.title} className="py-6">
+              <div
+                ref={(el) => {
+                  itemRefs.current[i] = el;
+                }}
+                data-idx={i}
               >
-                <div className="flex items-start gap-3">
-                  <span
-                    className={cn(
-                      "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors duration-300",
-                      isActive ? "bg-brand" : "bg-transparent",
-                    )}
-                    aria-hidden="true"
-                  />
-                  <div className="min-w-0">
-                    <h3
+                <button
+                  type="button"
+                  onClick={() => setManualIdx(i)}
+                  className="block w-full text-left"
+                  aria-pressed={isActive}
+                >
+                  <div className="flex items-start gap-3">
+                    <span
                       className={cn(
-                        "text-base transition-colors duration-300",
-                        isActive
-                          ? "font-semibold text-ink"
-                          : "font-medium text-ink-soft/70",
+                        "mt-1 h-6 w-0.5 shrink-0 rounded-full transition-colors duration-300",
+                        isActive ? "bg-brand" : "bg-transparent",
                       )}
-                    >
-                      {p.title}
-                    </h3>
-                    <p
-                      className={cn(
-                        "mt-1.5 text-sm leading-relaxed transition-opacity duration-300",
-                        isActive ? "text-ink-soft opacity-100" : "text-ink-soft/60 opacity-80",
-                      )}
-                    >
-                      {p.body}
-                    </p>
+                      aria-hidden="true"
+                    />
+                    <div className="min-w-0">
+                      <h3
+                        className={cn(
+                          "text-base transition-colors duration-300",
+                          isActive
+                            ? "font-semibold text-ink"
+                            : "font-medium text-ink-soft/70",
+                        )}
+                      >
+                        {p.title}
+                      </h3>
+                      <p
+                        className={cn(
+                          "mt-1.5 text-sm leading-relaxed transition-opacity duration-300",
+                          isActive ? "text-ink-soft opacity-100" : "text-ink-soft/60 opacity-80",
+                        )}
+                      >
+                        {p.body}
+                      </p>
+                    </div>
                   </div>
+                </button>
+              </div>
+
+              {isActive && (
+                <div className="mt-4 relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-surface">
+                  <img
+                    key={activeImage}
+                    src={activeImage}
+                    alt={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-contain animate-in fade-in duration-500"
+                  />
                 </div>
-              </button>
+              )}
             </li>
           );
         })}
