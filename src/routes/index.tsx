@@ -2265,13 +2265,17 @@ function Footer() {
         {/* Right: links + socials */}
         <div className="flex flex-wrap items-center justify-center gap-6 md:justify-end">
           <a
-            href="#"
+            href="https://www.tradeit.global/en/terms-of-use"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
             {t.footer.terms}
           </a>
           <a
-            href="#"
+            href="https://www.tradeit.global/en/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[14px] text-ink transition-colors hover:text-brand"
           >
             {t.footer.privacy}
