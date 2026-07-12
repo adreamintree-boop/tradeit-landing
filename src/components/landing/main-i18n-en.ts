@@ -79,7 +79,7 @@ export const mainEn = {
 
   problems: {
     eyebrow: "PROBLEMS",
-    headline: "Finding real buyers shouldn't take weeks",
+    headline: "Finding real buyers shouldn't take months",
     body:
       "Most export teams still rely on Google searches, exhibitions, outdated directories, and guesswork to find overseas buyers. TradeIt helps you start from real shipment data instead.",
     items: [

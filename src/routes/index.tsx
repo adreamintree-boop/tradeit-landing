@@ -1568,7 +1568,7 @@ function Pricing() {
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>{t.pricing.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            {t.pricing.headlinePart1} <span className="italic text-brand">{t.pricing.headlinePart2}</span>
+            {t.pricing.headlinePart1} <span className="text-brand not-italic" style={{ fontStyle: "normal" }}>{t.pricing.headlinePart2}</span>
           </h2>
           <p className="mt-4 text-base text-ink-soft">
             {t.pricing.subcopy}
@@ -1663,7 +1663,7 @@ function DataTrust() {
           <h2 className="mt-[21px] text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
             {t.dataTrust.headlineLine1}
             <br />
-            <span className="italic text-brand">{t.dataTrust.headlineLine2}</span>
+            <span className="text-brand not-italic" style={{ fontStyle: "normal" }}>{t.dataTrust.headlineLine2}</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
             {t.dataTrust.subcopyLine1}
