@@ -1466,7 +1466,7 @@ function UseCases() {
 
   return (
     <section id="use-cases" className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <Eyebrow>{t.useCases.eyebrow}</Eyebrow>
           <h2 className="mt-[21px] max-w-3xl text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
@@ -1501,7 +1501,7 @@ function UseCases() {
         {/* Content */}
         <div
           key={active}
-          className="mt-12 grid gap-5 animate-in fade-in duration-500 lg:grid-cols-2 lg:gap-6"
+          className="mt-12 grid gap-5 animate-in fade-in duration-500 lg:grid-cols-2 lg:gap-[18px]"
         >
           <div className="overflow-hidden rounded-2xl">
             <img
