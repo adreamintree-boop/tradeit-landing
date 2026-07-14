@@ -338,6 +338,7 @@ function Hero() {
   const [categoryIdx, setCategoryIdx] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRefMobile = useRef<HTMLDivElement>(null);
   const category = SEARCH_CATEGORIES[categoryIdx];
 
   useEffect(() => {
