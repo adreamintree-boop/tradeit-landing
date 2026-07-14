@@ -43,6 +43,7 @@ import workflowAIAnalysis from "@/assets/ai-analysis.png.asset.json";
 import workflowCRM from "@/assets/crm.png.asset.json";
 import workflowOutreach from "@/assets/outreach.png.asset.json";
 import ctaBg from "@/assets/cta-bg.png.asset.json";
+import affiliateBannerBg from "@/assets/affiliate-banner-bg.png.asset.json";
 import tradeItLogo from "@/assets/tradeit-logo.png.asset.json";
 import {
   Accordion,
