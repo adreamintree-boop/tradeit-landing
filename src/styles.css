@@ -357,8 +357,8 @@
 /* ---------------------------------------------------------------- */
 .scroll-mouse {
   display: block;
-  width: 36px;
-  height: 60px;
+  width: 29px;
+  height: 48px;
   border: 2px solid oklch(0.62 0.1 250 / 0.55);
   border-radius: 999px;
   position: relative;
@@ -366,17 +366,17 @@
 }
 @media (max-width: 767px) {
   .scroll-mouse {
-    width: 24px;
-    height: 40px;
+    width: 19px;
+    height: 32px;
     border-width: 1.5px;
   }
 }
 .scroll-dot {
   position: absolute;
   left: 50%;
-  top: 10px;
-  width: 8px;
-  height: 8px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--brand);
   transform: translateX(-50%);
@@ -385,20 +385,20 @@
 }
 @media (max-width: 767px) {
   .scroll-dot {
-    width: 5px;
-    height: 5px;
-    top: 6px;
+    width: 4px;
+    height: 4px;
+    top: 5px;
     animation: scroll-indicator-dot-mobile 1.8s ease-in-out infinite;
   }
 }
 .scroll-dot-static {
   animation: none;
-  top: 10px;
+  top: 8px;
   opacity: 0.75;
 }
 @media (max-width: 767px) {
   .scroll-dot-static {
-    top: 6px;
+    top: 5px;
   }
 }
 @keyframes scroll-indicator-dot {
@@ -413,7 +413,7 @@
     opacity: 0.4;
   }
   100% {
-    transform: translateX(-50%) translateY(36px);
+    transform: translateX(-50%) translateY(29px);
     opacity: 0;
   }
 }
@@ -430,7 +430,7 @@
       opacity: 0.4;
     }
     100% {
-      transform: translateX(-50%) translateY(20px);
+      transform: translateX(-50%) translateY(16px);
       opacity: 0;
     }
   }
@@ -438,13 +438,13 @@
 @media (prefers-reduced-motion: reduce) {
   .scroll-dot {
     animation: none !important;
-    top: 10px;
+    top: 8px;
     opacity: 0.75;
   }
 }
 @media (prefers-reduced-motion: reduce) and (max-width: 767px) {
   .scroll-dot {
-    top: 6px;
+    top: 5px;
   }
 }
 
