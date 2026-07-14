@@ -375,7 +375,7 @@ export const mainJa = {
         features: [
           "Freeプランのすべての機能",
           "メールアカウント1件連携",
-          "バイヤーメールコンタクトログ",
+          "貿易データのエクスポート",
           "クレジット繰り越し",
         ],
         cta: "Continue with Plus",
@@ -388,8 +388,8 @@ export const mainJa = {
         description: "輸出営業を拡大するチーム向けプラン",
         features: [
           "Plusプランのすべての機能",
-          "メールアカウント2件連携",
-          "バイヤーメールコンタクトログ共有",
+          "メールアクティビティの追跡",
+          "優先カスタマーサポート",
         ],
         cta: "Continue with Pro",
       },
@@ -401,8 +401,8 @@ export const mainJa = {
         description: "本格的に海外営業を進めるチーム向けプラン",
         features: [
           "Proプランのすべての機能",
-          "メールアカウント3件連携",
-          "CS優先サポート",
+          "新機能への先行アクセス",
+          "優先オンボーディング",
         ],
         cta: "Continue with Premium",
       },

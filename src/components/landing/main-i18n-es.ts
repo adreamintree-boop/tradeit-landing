@@ -376,8 +376,8 @@ export const mainEs = {
         features: [
           "Todas las funciones del Free Plan",
           "Sincronización de 1 cuenta de email",
-          "Registro de contactos por email con compradores",
-          "Acumulación de créditos no usados",
+          "Exportación de datos comerciales",
+          "Acumulación de créditos no utilizados",
         ],
         cta: "Continue with Plus",
       },
@@ -389,8 +389,8 @@ export const mainEs = {
         description: "Para equipos que quieren escalar sus ventas de exportación",
         features: [
           "Todas las funciones del Plus Plan",
-          "Sincronización de 2 cuentas de email",
-          "Registro compartido de contactos por email con compradores",
+          "Seguimiento de la actividad de email",
+          "Atención al cliente prioritaria",
         ],
         cta: "Continue with Pro",
       },
@@ -402,8 +402,8 @@ export const mainEs = {
         description: "Para equipos que gestionan ventas internacionales a gran escala",
         features: [
           "Todas las funciones del Pro Plan",
-          "Sincronización de 3 cuentas de email",
-          "Soporte prioritario de atención al cliente",
+          "Acceso anticipado a nuevas funciones",
+          "Onboarding prioritario",
         ],
         cta: "Continue with Premium",
       },

@@ -375,7 +375,7 @@ export const mainZh = {
         features: [
           "Free Plan 的所有功能",
           "连接 1 个邮箱账户",
-          "买家邮件联系记录",
+          "导出贸易数据",
           "积分可结转",
         ],
         cta: "Continue with Plus",
@@ -388,8 +388,8 @@ export const mainZh = {
         description: "适合正在扩大出口销售的团队",
         features: [
           "Plus Plan 的所有功能",
-          "连接 2 个邮箱账户",
-          "共享买家邮件联系记录",
+          "邮件活动跟踪",
+          "优先客户支持",
         ],
         cta: "Continue with Pro",
       },
@@ -401,8 +401,8 @@ export const mainZh = {
         description: "适合全面开展海外销售的团队",
         features: [
           "Pro Plan 的所有功能",
-          "连接 3 个邮箱账户",
-          "客服优先支持",
+          "优先体验新功能",
+          "优先入门支持",
         ],
         cta: "Continue with Premium",
       },
