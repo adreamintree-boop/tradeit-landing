@@ -641,7 +641,7 @@ function HeroFloatingCards() {
       value: t.hero.floatingCards.weight.value,
       trend: t.hero.floatingCards.weight.trend,
       Icon: Weight,
-      pos: "xl:right-[3%] 2xl:right-[20%] top-[50%] xl:top-[50%] 2xl:top-[50%] translate-y-[0px]",
+      pos: "xl:right-[3%] 2xl:right-[20%] top-[50%] xl:top-[50%] 2xl:top-[50%] translate-y-[40px]",
       hideOn: "hidden xl:block",
       delay: "1.6s",
     },
