@@ -596,7 +596,8 @@ function ScrollIndicator({ targetId }: { targetId: string }) {
       type="button"
       onClick={handleClick}
       aria-label="Scroll to next section"
-      className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 cursor-pointer md:bottom-8"
+      className="absolute left-1/2 z-30 -translate-x-1/2 cursor-pointer"
+      style={{ top: "calc(100svh - 90px)" }}
     >
       <span className="scroll-mouse" aria-hidden="true">
         <span className={cn("scroll-dot", reducedMotion && "scroll-dot-static")} />
