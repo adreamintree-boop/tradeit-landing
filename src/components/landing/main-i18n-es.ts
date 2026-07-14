@@ -369,9 +369,9 @@ export const mainEs = {
       },
       {
         name: "Plus Plan",
-        price: "$20",
+        price: "$50",
         priceCaption: "/mes (IVA no incluido)",
-        credits: "3.000 créditos/mes",
+        credits: "7.500 créditos/mes",
         description: "Para responsables individuales de ventas internacionales",
         features: [
           "Todas las funciones del Free Plan",
@@ -383,9 +383,9 @@ export const mainEs = {
       },
       {
         name: "Pro Plan",
-        price: "$50",
+        price: "$100",
         priceCaption: "/mes (IVA no incluido)",
-        credits: "9.000 créditos/mes",
+        credits: "16.500 créditos/mes",
         description: "Para equipos que quieren escalar sus ventas de exportación",
         features: [
           "Todas las funciones del Plus Plan",
@@ -396,9 +396,9 @@ export const mainEs = {
       },
       {
         name: "Premium Plan",
-        price: "$100",
+        price: "$200",
         priceCaption: "/mes (IVA no incluido)",
-        credits: "30.000 créditos/mes",
+        credits: "35.000 créditos/mes",
         description: "Para equipos que gestionan ventas internacionales a gran escala",
         features: [
           "Todas las funciones del Pro Plan",

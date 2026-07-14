@@ -295,9 +295,9 @@ export const mainEn = {
       },
       {
         name: "Plus Plan",
-        price: "$20",
+        price: "$50",
         priceCaption: "per month (excl. tax)",
-        credits: "3,000 Credits / month",
+        credits: "7,500 Credits / month",
         description: "For individual export managers",
         features: [
           "All Free features",
@@ -309,9 +309,9 @@ export const mainEn = {
       },
       {
         name: "Pro Plan",
-        price: "$50",
+        price: "$100",
         priceCaption: "per month (excl. tax)",
-        credits: "9,000 Credits / month",
+        credits: "16,500 Credits / month",
         description: "For teams scaling exports",
         features: [
           "All Plus features",
@@ -322,9 +322,9 @@ export const mainEn = {
       },
       {
         name: "Premium Plan",
-        price: "$100",
+        price: "$200",
         priceCaption: "per month (excl. tax)",
-        credits: "30,000 Credits / month",
+        credits: "35,000 Credits / month",
         description: "For full scale export teams",
         features: [
           "All Pro features",

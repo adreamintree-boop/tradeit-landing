@@ -368,9 +368,9 @@ export const mainJa = {
       },
       {
         name: "Plus Plan",
-        price: "$20",
+        price: "$50",
         priceCaption: "/月（VAT別）",
-        credits: "3,000クレジット/月",
+        credits: "7,500クレジット/月",
         description: "個人の海外営業担当者向けプラン",
         features: [
           "Freeプランのすべての機能",
@@ -382,9 +382,9 @@ export const mainJa = {
       },
       {
         name: "Pro Plan",
-        price: "$50",
+        price: "$100",
         priceCaption: "/月（VAT別）",
-        credits: "9,000クレジット/月",
+        credits: "16,500クレジット/月",
         description: "輸出営業を拡大するチーム向けプラン",
         features: [
           "Plusプランのすべての機能",
@@ -395,9 +395,9 @@ export const mainJa = {
       },
       {
         name: "Premium Plan",
-        price: "$100",
+        price: "$200",
         priceCaption: "/月（VAT別）",
-        credits: "30,000クレジット/月",
+        credits: "35,000クレジット/月",
         description: "本格的に海外営業を進めるチーム向けプラン",
         features: [
           "Proプランのすべての機能",

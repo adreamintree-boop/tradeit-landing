@@ -369,9 +369,9 @@ export const mainVi = {
       },
       {
         name: "Plus Plan",
-        price: "$20",
+        price: "$50",
         priceCaption: "/tháng (chưa gồm VAT)",
-        credits: "3.000 credits/tháng",
+        credits: "7.500 credits/tháng",
         description: "Dành cho nhân sự sales xuất khẩu cá nhân",
         features: [
           "Tất cả tính năng của Free Plan",
@@ -383,9 +383,9 @@ export const mainVi = {
       },
       {
         name: "Pro Plan",
-        price: "$50",
+        price: "$100",
         priceCaption: "/tháng (chưa gồm VAT)",
-        credits: "9.000 credits/tháng",
+        credits: "16.500 credits/tháng",
         description: "Dành cho đội ngũ đang mở rộng sales xuất khẩu",
         features: [
           "Tất cả tính năng của Plus Plan",
@@ -396,9 +396,9 @@ export const mainVi = {
       },
       {
         name: "Premium Plan",
-        price: "$100",
+        price: "$200",
         priceCaption: "/tháng (chưa gồm VAT)",
-        credits: "30.000 credits/tháng",
+        credits: "35.000 credits/tháng",
         description: "Dành cho đội ngũ triển khai sales quốc tế toàn diện",
         features: [
           "Tất cả tính năng của Pro Plan",

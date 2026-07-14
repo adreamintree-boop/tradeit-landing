@@ -368,9 +368,9 @@ export const mainZh = {
       },
       {
         name: "Plus Plan",
-        price: "$20",
+        price: "$50",
         priceCaption: "/月（VAT 另计）",
-        credits: "3,000 积分/月",
+        credits: "7,500 积分/月",
         description: "适合个人海外销售人员",
         features: [
           "Free Plan 的所有功能",
@@ -382,9 +382,9 @@ export const mainZh = {
       },
       {
         name: "Pro Plan",
-        price: "$50",
+        price: "$100",
         priceCaption: "/月（VAT 另计）",
-        credits: "9,000 积分/月",
+        credits: "16,500 积分/月",
         description: "适合正在扩大出口销售的团队",
         features: [
           "Plus Plan 的所有功能",
@@ -395,9 +395,9 @@ export const mainZh = {
       },
       {
         name: "Premium Plan",
-        price: "$100",
+        price: "$200",
         priceCaption: "/月（VAT 另计）",
-        credits: "30,000 积分/月",
+        credits: "35,000 积分/月",
         description: "适合全面开展海外销售的团队",
         features: [
           "Pro Plan 的所有功能",
