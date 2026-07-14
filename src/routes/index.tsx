@@ -1833,7 +1833,7 @@ function Testimonials() {
                   style={{ objectFit: tst.avatarFit }}
                 />
                 <div className="min-w-0">
-                  <div className="whitespace-nowrap text-sm font-semibold md:text-base">{tst.name}</div>
+                  <div className="text-sm font-semibold md:text-base">{tst.name}</div>
                   <div className="text-xs text-white/60">
                     {tst.title} · {tst.company}
                   </div>
