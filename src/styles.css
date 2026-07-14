@@ -352,6 +352,86 @@
   .hero-grain-drift { animation: none !important; }
 }
 
+/* ---------------------------------------------------------------- */
+/*  Scroll indicator (Hero)                                         */
+/* ---------------------------------------------------------------- */
+.scroll-mouse {
+  display: block;
+  width: 22px;
+  height: 34px;
+  border: 1.5px solid oklch(0.62 0.1 250 / 0.55);
+  border-radius: 999px;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+@media (max-width: 767px) {
+  .scroll-mouse {
+    width: 20px;
+    height: 30px;
+  }
+}
+.scroll-dot {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background-color: var(--brand);
+  transform: translateX(-50%);
+  opacity: 0.9;
+  animation: scroll-dot-bounce 1.8s ease-in-out infinite;
+}
+@media (max-width: 767px) {
+  .scroll-dot {
+    width: 4px;
+    height: 4px;
+    top: 5px;
+  }
+}
+.scroll-dot-static {
+  animation: none;
+  top: 6px;
+  opacity: 0.75;
+}
+@keyframes scroll-dot-bounce {
+  0% {
+    top: 6px;
+    opacity: 0.9;
+  }
+  70% {
+    top: 18px;
+    opacity: 0.45;
+  }
+  100% {
+    top: 6px;
+    opacity: 0.9;
+  }
+}
+@media (max-width: 767px) {
+  @keyframes scroll-dot-bounce {
+    0% {
+      top: 5px;
+      opacity: 0.9;
+    }
+    70% {
+      top: 15px;
+      opacity: 0.45;
+    }
+    100% {
+      top: 5px;
+      opacity: 0.9;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-dot {
+    animation: none !important;
+    top: 6px;
+    opacity: 0.75;
+  }
+}
+
 /* Language-based font mapping for the main landing page */
 [data-lang="ko"] { font-family: "Noto Sans KR", "Noto Sans", sans-serif; }
 [data-lang="ja"] { font-family: "Noto Sans JP", "M PLUS 1p", "Noto Sans", sans-serif; }
