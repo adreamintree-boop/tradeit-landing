@@ -389,8 +389,12 @@ function Hero() {
       <div className="translate-y-[25px]">
         {/* Floating trade metric cards — positioned relative to the hero section */}
         <HeroFloatingCards />
+      </div>
 
-        <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
+      {/* First-viewport wrapper: scroll indicator sits at the bottom of the initial viewport */}
+      <div className="relative min-h-[100svh]">
+        <div className="translate-y-[25px]">
+          <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
         <div className={cn("relative z-30 mx-auto text-center", lang === "en" ? "max-w-3xl" : "max-w-4xl")}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
