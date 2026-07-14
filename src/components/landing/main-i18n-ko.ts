@@ -522,6 +522,12 @@ export const mainKo = {
       },
     ],
   },
+  affiliate: {
+    headline: "트레이드잇을 주변에 소개하고 매월 수익을 받아보세요.",
+    subcopy: "주변 기업이나 고객에게 트레이드잇을 소개하고 매월 반복되는 파트너 수익을 받아보세요.",
+    cta: "파트너 시작하기",
+  },
+
   footer: {
     copyright: "© 2026 트레이드잇. All rights reserved.",
     terms: "이용약관",

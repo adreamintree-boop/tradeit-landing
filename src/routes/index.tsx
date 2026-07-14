@@ -2383,6 +2383,7 @@ function LandingPage() {
 }
 
 function AffiliateBanner() {
+  const t = useT();
   const url = "https://www.tradeit.global/en/affiliate";
   return (
     <section className="bg-white px-4 pb-8 pt-12 sm:px-6 lg:px-8">
@@ -2411,16 +2412,16 @@ function AffiliateBanner() {
         <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/190] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0">
           <div className="max-w-xl text-left lg:max-w-3xl">
             <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink sm:text-[26px] md:text-[28px]">
-              Love TradeIt? Get paid for sharing it.
+              {t.affiliate.headline}
             </h3>
             <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px] lg:whitespace-nowrap">
-              Recommend TradeIt to your network, and earn recurring commissions every month.
+              {t.affiliate.subcopy}
             </p>
           </div>
           <span
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-[14px] font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 md:w-auto md:shrink-0"
           >
-            Become a Partner
+            {t.affiliate.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </span>
         </div>

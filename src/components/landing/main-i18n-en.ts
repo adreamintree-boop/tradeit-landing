@@ -523,6 +523,12 @@ export const mainEn = {
     ],
   },
 
+  affiliate: {
+    headline: "Love TradeIt? Get paid for sharing it.",
+    subcopy: "Recommend TradeIt to your network and earn recurring commissions every month.",
+    cta: "Become a Partner",
+  },
+
   footer: {
     copyright: "© 2026 TradeIt. All rights reserved.",
     terms: "Terms of Service",
