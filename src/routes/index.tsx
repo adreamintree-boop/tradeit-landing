@@ -2286,7 +2286,7 @@ function Footer() {
   const t = useT();
   return (
     <footer className="bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 sm:px-6 md:flex-row md:gap-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:gap-4 lg:px-8">
         {/* Left: logo + copyright */}
         <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
           <a href="#" className="flex shrink-0 items-center">
