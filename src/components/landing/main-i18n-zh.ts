@@ -599,6 +599,12 @@ export const mainZh = {
       },
     ],
   },
+  affiliate: {
+    headline: "推荐 TradeIt，轻松赚取每月持续佣金",
+    subcopy: "将 TradeIt 推荐给您的客户或合作伙伴，每月持续获得推荐佣金。",
+    cta: "成为合作伙伴",
+  },
+
   footer: {
     copyright: "© 2026 TradeIt. All rights reserved.",
     terms: "服务条款",

@@ -599,6 +599,12 @@ export const mainJa = {
       },
     ],
   },
+  affiliate: {
+    headline: "TradeItを紹介して、毎月報酬を受け取りませんか？",
+    subcopy: "TradeItをお客様やネットワークに紹介するだけで、毎月継続的な紹介報酬を獲得できます。",
+    cta: "パートナーになる",
+  },
+
   footer: {
     copyright: "© 2026 TradeIt. All rights reserved.",
     terms: "利用規約",

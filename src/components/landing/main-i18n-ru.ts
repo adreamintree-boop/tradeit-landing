@@ -1158,6 +1158,16 @@ export const mainRu = {
 
   },
 
+  affiliate: {
+
+    headline: "Рекомендуйте TradeIt и получайте доход каждый месяц",
+
+    subcopy: "Делитесь TradeIt со своими клиентами и партнёрами и получайте регулярное комиссионное вознаграждение.",
+
+    cta: "Стать партнёром",
+
+  },
+
   footer: {
 
     copyright: "© 2026 TradeIt. All rights reserved.",

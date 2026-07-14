@@ -600,6 +600,12 @@ export const mainEs = {
       },
     ],
   },
+  affiliate: {
+    headline: "Recomienda TradeIt y gana comisiones todos los meses",
+    subcopy: "Comparte TradeIt con tu red de contactos y recibe comisiones recurrentes cada mes.",
+    cta: "Hazte Partner",
+  },
+
   footer: {
     copyright: "© 2026 TradeIt. All rights reserved.",
     terms: "Términos del servicio",

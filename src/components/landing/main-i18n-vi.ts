@@ -600,6 +600,12 @@ export const mainVi = {
       },
     ],
   },
+  affiliate: {
+    headline: "Giới thiệu TradeIt và nhận hoa hồng mỗi tháng",
+    subcopy: "Chia sẻ TradeIt với khách hàng hoặc đối tác của bạn và nhận hoa hồng định kỳ hàng tháng.",
+    cta: "Trở thành Đối tác",
+  },
+
   footer: {
     copyright: "© 2026 TradeIt. All rights reserved.",
     terms: "Điều khoản dịch vụ",
