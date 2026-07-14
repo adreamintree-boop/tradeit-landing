@@ -561,7 +561,43 @@ function Hero() {
 
         </div>
       </div>
+
+      {/* Scroll indicator — bottom center of hero */}
+      <ScrollIndicator targetId="features" />
     </section>
+  );
+}
+
+function ScrollIndicator({ targetId }: { targetId: string }) {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(media.matches);
+    const onChange = () => setReducedMotion(media.matches);
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
+  const handleClick = () => {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    const headerOffset = 72;
+    const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: reducedMotion ? "auto" : "smooth" });
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-label="Scroll to next section"
+      className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 cursor-pointer md:bottom-8"
+    >
+      <span className="scroll-mouse" aria-hidden="true">
+        <span className={cn("scroll-dot", reducedMotion && "scroll-dot-static")} />
+      </span>
+    </button>
   );
 }
 
