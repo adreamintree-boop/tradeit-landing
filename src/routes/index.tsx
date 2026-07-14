@@ -2387,11 +2387,8 @@ function AffiliateBanner() {
   const url = "https://www.tradeit.global/en/affiliate";
   return (
     <section className="bg-white px-4 pb-8 pt-12 sm:px-6 lg:px-8">
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative mx-auto block max-w-7xl overflow-hidden rounded-2xl border border-border shadow-soft transition-shadow hover:shadow-card"
+      <div
+        className="relative mx-auto block max-w-7xl overflow-hidden rounded-2xl border border-border shadow-soft"
         style={{
           backgroundImage: `url(${affiliateBannerBg.url})`,
           backgroundSize: "cover",
@@ -2418,14 +2415,17 @@ function AffiliateBanner() {
               {t.affiliate.subcopy}
             </p>
           </div>
-          <span
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-[14px] font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 md:w-auto md:shrink-0"
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-[14px] font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 md:w-auto md:shrink-0"
           >
             {t.affiliate.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </span>
+          </a>
         </div>
-      </a>
+      </div>
     </section>
   );
 }
