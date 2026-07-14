@@ -385,11 +385,8 @@ function Hero() {
         <HeroOrbitalGlobe className="h-full w-full max-w-[1800px]" />
       </div>
 
-      {/* Foreground hero content — shifted down 25px while the globe stays fixed */}
-      <div className="translate-y-[25px]">
-        {/* Floating trade metric cards — positioned relative to the hero section */}
-        <HeroFloatingCards />
-      </div>
+      {/* Floating trade metric cards — positioned relative to the full hero section, not the viewport wrapper */}
+      <HeroFloatingCards />
 
       {/* First-viewport wrapper: scroll indicator sits at the bottom of the initial viewport */}
       <div className="relative min-h-[100svh]">
