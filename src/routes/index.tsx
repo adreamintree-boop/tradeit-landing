@@ -2286,7 +2286,7 @@ function Footer() {
   const t = useT();
   return (
     <footer className="bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 sm:px-6 md:flex-row md:gap-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:gap-4 lg:px-8">
         {/* Left: logo + copyright */}
         <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
           <a href="#" className="flex shrink-0 items-center">
@@ -2402,12 +2402,12 @@ function AffiliateBanner() {
           }}
           aria-hidden="true"
         />
-        <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/200] md:flex-row md:items-center md:justify-between md:gap-6 md:py-0">
-          <div className="max-w-xl text-left">
+        <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/190] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0">
+          <div className="max-w-xl text-left lg:max-w-3xl">
             <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink sm:text-[26px] md:text-[28px]">
               Love TradeIt? Get paid for sharing it.
             </h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px]">
+            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px] lg:whitespace-nowrap">
               Recommend TradeIt to your network, and earn recurring commissions every month.
             </p>
           </div>
