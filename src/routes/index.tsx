@@ -2402,12 +2402,12 @@ function AffiliateBanner() {
           }}
           aria-hidden="true"
         />
-        <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/200] md:flex-row md:items-center md:justify-between md:gap-6 md:py-0">
-          <div className="max-w-xl text-left">
+        <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/190] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0">
+          <div className="max-w-xl text-left lg:max-w-3xl">
             <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink sm:text-[26px] md:text-[28px]">
               Love TradeIt? Get paid for sharing it.
             </h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px]">
+            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px] lg:whitespace-nowrap">
               Recommend TradeIt to your network, and earn recurring commissions every month.
             </p>
           </div>
