@@ -338,6 +338,7 @@ function Hero() {
   const [categoryIdx, setCategoryIdx] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRefMobile = useRef<HTMLDivElement>(null);
   const category = SEARCH_CATEGORIES[categoryIdx];
 
   useEffect(() => {
@@ -347,7 +348,10 @@ function Hero() {
   useEffect(() => {
     if (!dropdownOpen) return;
     const onClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const inDesktop = dropdownRef.current?.contains(target);
+      const inMobile = dropdownRefMobile.current?.contains(target);
+      if (!inDesktop && !inMobile) {
         setDropdownOpen(false);
       }
     };
@@ -498,7 +502,7 @@ function Hero() {
               placeholder={category.placeholder}
               className="min-w-0 flex-1 bg-transparent py-2 text-[15px] text-ink outline-none placeholder:text-ink-soft/60 truncate"
             />
-            <div ref={dropdownRef} className="relative shrink-0">
+            <div ref={dropdownRefMobile} className="relative shrink-0">
               <button
                 type="button"
                 onClick={() => setDropdownOpen((o) => !o)}
