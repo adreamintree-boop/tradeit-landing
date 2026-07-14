@@ -2286,9 +2286,9 @@ function Footer() {
   const t = useT();
   return (
     <footer className="bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:gap-4 lg:px-8">
-        {/* Left: logo + copyright */}
-        <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:items-center md:gap-4 lg:px-8">
+        {/* Mobile order 2 / Desktop order 1: logo + copyright */}
+        <div className="order-2 flex items-center gap-3 md:order-1 md:gap-4">
           <a href="#" className="flex shrink-0 items-center">
             <img
               src={tradeItLogo.url}
@@ -2301,8 +2301,8 @@ function Footer() {
           </span>
         </div>
 
-        {/* Right: links + socials */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:justify-end">
+        {/* Mobile order 1 / Desktop order 2: legal links + socials */}
+        <div className="order-1 flex flex-wrap items-center gap-3 sm:gap-4 md:order-2 md:justify-end md:gap-6">
           <a
             href="https://www.tradeit.global/en/terms-of-use"
             target="_blank"
@@ -2319,7 +2319,7 @@ function Footer() {
           >
             {t.footer.privacy}
           </a>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             <a
               href="#"
               aria-label={t.footer.social.linkedin}
