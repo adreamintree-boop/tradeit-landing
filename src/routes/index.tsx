@@ -1618,7 +1618,7 @@ function Pricing() {
           {PLANS.map((p) => (
             <div
               key={p.name}
-              className={`flex flex-col rounded-[20px] border bg-white p-7 pt-6 transition-all hover:-translate-y-1 hover:shadow-card ${
+              className={`flex flex-col min-h-[630px] rounded-[20px] border bg-white p-7 pt-6 transition-all hover:-translate-y-1 hover:shadow-card ${
                 p.highlight
                   ? "border-brand bg-brand-tint"
                   : "border-border"
@@ -1646,7 +1646,7 @@ function Pricing() {
                     {p.price}
                   </span>
                   {p.priceCaption && (
-                    <span className="text-sm text-ink-soft">{p.priceCaption}</span>
+                    <span className={`whitespace-nowrap text-ink-soft ${p.name === "Premium Plan" ? "text-xs" : "text-sm"}`}>{p.priceCaption}</span>
                   )}
                 </div>
                 <div className="mt-2 text-sm font-medium text-ink-soft">{p.credits}</div>
