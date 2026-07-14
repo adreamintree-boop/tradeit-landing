@@ -2286,23 +2286,9 @@ function Footer() {
   const t = useT();
   return (
     <footer className="bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:items-center md:gap-4 lg:px-8">
-        {/* Mobile order 2 / Desktop order 1: logo + copyright */}
-        <div className="order-2 flex items-center gap-3 md:order-1 md:gap-4">
-          <a href="#" className="flex shrink-0 items-center">
-            <img
-              src={tradeItLogo.url}
-              alt="TradeIt"
-              className="h-[20px] w-auto object-contain"
-            />
-          </a>
-          <span className="text-[14px] text-ink-soft">
-            {t.footer.copyright}
-          </span>
-        </div>
-
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 pt-8 pb-[42px] sm:px-6 md:flex-row md:items-center md:gap-4 lg:px-8">
         {/* Mobile order 1 / Desktop order 2: legal links + socials */}
-        <div className="order-1 flex flex-wrap items-center gap-3 sm:gap-4 md:order-2 md:justify-end md:gap-6">
+        <div className="order-1 flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:order-2 md:justify-end md:gap-6">
           <a
             href="https://www.tradeit.global/en/terms-of-use"
             target="_blank"
@@ -2348,6 +2334,20 @@ function Footer() {
               <YouTubeIcon className="h-4 w-4" />
             </a>
           </div>
+        </div>
+
+        {/* Mobile order 2 / Desktop order 1: logo + copyright */}
+        <div className="order-2 flex items-center justify-center gap-2 md:order-1 md:justify-start md:gap-4">
+          <a href="#" className="flex shrink-0 items-center">
+            <img
+              src={tradeItLogo.url}
+              alt="TradeIt"
+              className="h-[17px] w-auto object-contain md:h-[20px]"
+            />
+          </a>
+          <span className="text-[13px] text-ink-soft md:text-[14px]">
+            {t.footer.copyright}
+          </span>
         </div>
       </div>
     </footer>
