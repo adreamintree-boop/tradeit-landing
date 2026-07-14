@@ -1794,10 +1794,28 @@ function Testimonials() {
               aria-hidden
             />
             <div className="relative">
-              <div className="flex gap-1 text-brand-soft">
-                {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} className="h-4 w-4 fill-current" />
-                ))}
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex gap-1 text-brand-soft">
+                  {Array.from({ length: 5 }).map((_, k) => (
+                    <Star key={k} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 md:hidden">
+                  <button
+                    onClick={() => setI((i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                    className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+                    aria-label={t.testimonials.prev}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() => setI((i + 1) % TESTIMONIALS.length)}
+                    className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+                    aria-label={t.testimonials.next}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
               </div>
               <p
                 className="mt-6 text-2xl leading-snug sm:text-3xl"
@@ -1806,20 +1824,20 @@ function Testimonials() {
                 &ldquo;{tst.quote}&rdquo;
               </p>
             </div>
-            <div className="relative mt-10 flex items-end justify-between gap-4">
-              <div className="flex items-center gap-4">
+            <div className="relative mt-10 flex items-center justify-between gap-4 md:items-end">
+              <div className="flex min-w-0 items-center gap-4">
                 <img
                   src={tst.avatar}
                   alt={tst.name}
                   className={`h-12 w-12 shrink-0 ${tst.avatarShape === "square" ? "rounded-xl" : "rounded-full"} object-center ring-1 ring-white/20`}
                   style={{ objectFit: tst.avatarFit }}
                 />
-                <div>
-                  <div className="font-semibold">{tst.name}</div>
+                <div className="min-w-0">
+                  <div className="whitespace-nowrap text-sm font-semibold md:text-base">{tst.name}</div>
                   <div className="text-xs text-white/60">
                     {tst.title} · {tst.company}
                   </div>
-                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <div className="mt-2 hidden flex-wrap items-center gap-2 md:flex">
                     <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-[10px] text-white/90">
                       <span className="text-xs leading-none">{tst.countryFlag}</span>
                       <span>{tst.country}</span>
@@ -1830,7 +1848,16 @@ function Testimonials() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-end gap-2 md:hidden">
+                <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-[10px] text-white/90">
+                  <span className="text-xs leading-none">{tst.countryFlag}</span>
+                  <span>{tst.country}</span>
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70">
+                  {tst.tag}
+                </span>
+              </div>
+              <div className="hidden items-center gap-2 md:flex">
                 <button
                   onClick={() => setI((i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
                   className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
