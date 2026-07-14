@@ -562,12 +562,12 @@ function Hero() {
             />
           </div>
         </div>
-
-        </div>
       </div>
+    </div>
 
-      {/* Scroll indicator — bottom center of hero */}
-      <ScrollIndicator targetId="features" />
+        {/* Scroll indicator — bottom center of first viewport */}
+        <ScrollIndicator targetId="features" />
+      </div>
     </section>
   );
 }
