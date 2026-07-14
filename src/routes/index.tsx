@@ -502,7 +502,7 @@ function Hero() {
               placeholder={category.placeholder}
               className="min-w-0 flex-1 bg-transparent py-2 text-[15px] text-ink outline-none placeholder:text-ink-soft/60 truncate"
             />
-            <div ref={dropdownRef} className="relative shrink-0">
+            <div ref={dropdownRefMobile} className="relative shrink-0">
               <button
                 type="button"
                 onClick={() => setDropdownOpen((o) => !o)}
