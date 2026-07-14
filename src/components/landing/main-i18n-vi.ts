@@ -376,7 +376,7 @@ export const mainVi = {
         features: [
           "Tất cả tính năng của Free Plan",
           "Kết nối 1 tài khoản email",
-          "Log liên hệ buyer qua email",
+          "Xuất dữ liệu thương mại",
           "Chuyển tiếp credits chưa sử dụng",
         ],
         cta: "Continue with Plus",
@@ -389,8 +389,8 @@ export const mainVi = {
         description: "Dành cho đội ngũ đang mở rộng sales xuất khẩu",
         features: [
           "Tất cả tính năng của Plus Plan",
-          "Kết nối 2 tài khoản email",
-          "Chia sẻ log liên hệ buyer qua email",
+          "Theo dõi hoạt động email",
+          "Ưu tiên hỗ trợ khách hàng",
         ],
         cta: "Continue with Pro",
       },
@@ -402,8 +402,8 @@ export const mainVi = {
         description: "Dành cho đội ngũ triển khai sales quốc tế toàn diện",
         features: [
           "Tất cả tính năng của Pro Plan",
-          "Kết nối 3 tài khoản email",
-          "Ưu tiên hỗ trợ CS",
+          "Truy cập sớm các tính năng mới",
+          "Ưu tiên onboarding",
         ],
         cta: "Continue with Premium",
       },

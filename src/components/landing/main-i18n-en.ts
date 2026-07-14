@@ -302,7 +302,7 @@ export const mainEn = {
         features: [
           "All Free features",
           "1 Email account sync",
-          "Buyer email log",
+          "Trade data export",
           "Credit rollover",
         ],
         cta: "Continue with Plus",
@@ -315,8 +315,8 @@ export const mainEn = {
         description: "For teams scaling exports",
         features: [
           "All Plus features",
-          "2 Emails account sync",
-          "shared buyer email log",
+          "Email activity tracking",
+          "Priority customer support",
         ],
         cta: "Continue with Pro",
       },
@@ -328,8 +328,8 @@ export const mainEn = {
         description: "For full scale export teams",
         features: [
           "All Pro features",
-          "3 Emails account sync",
-          "priority support",
+          "Early access to new features",
+          "Priority onboarding",
         ],
         cta: "Continue with Premium",
       },

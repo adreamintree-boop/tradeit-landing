@@ -326,7 +326,7 @@ export const mainKo = {
         priceCaption: "/월 (VAT 별도)",
         credits: "7,500 크레딧/월",
         description: "개인 해외영업 담당자를 위한 플랜",
-        features: ["Free 플랜의 모든 기능", "이메일 계정 1개 연동", "바이어 이메일 컨택 로그", "크레딧 이월"],
+        features: ["Free 플랜의 모든 기능", "이메일 계정 1개 연동", "무역 데이터보내기", "크레딧 이월"],
         cta: "Continue with Plus",
       },
       {
@@ -335,7 +335,7 @@ export const mainKo = {
         priceCaption: "/월 (VAT 별도)",
         credits: "16,500 크레딧/월",
         description: "수출 영업을 확장하는 팀을 위한 플랜",
-        features: ["Plus 플랜의 모든 기능", "이메일 계정 2개 연동", "바이어 이메일 컨택 로그 공유"],
+        features: ["Plus 플랜의 모든 기능", "이메일 활동 추적", "우선 고객 지원"],
         cta: "Continue with Pro",
       },
       {
@@ -344,7 +344,7 @@ export const mainKo = {
         priceCaption: "/월 (VAT 별도)",
         credits: "35,000 크레딧/월",
         description: "본격적인 수출 영업팀을 위한 플랜",
-        features: ["Pro 플랜의 모든 기능", "이메일 계정 3개 연동", "CS 우선 지원"],
+        features: ["Pro 플랜의 모든 기능", "신규 기능 우선 이용", "우선 온보딩 지원"],
         cta: "Continue with Premium",
       },
     ],
