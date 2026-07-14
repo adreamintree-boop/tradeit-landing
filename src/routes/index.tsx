@@ -2370,7 +2370,55 @@ function LandingPage() {
         <FinalCTA />
         <FaqSection />
       </main>
+      <AffiliateBanner />
       <Footer />
     </div>
+  );
+}
+
+function AffiliateBanner() {
+  const url = "https://www.tradeit.global/en/affiliate";
+  return (
+    <section className="bg-white px-4 pb-8 pt-12 sm:px-6 lg:px-8">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative mx-auto block max-w-7xl overflow-hidden rounded-2xl border border-border shadow-soft transition-shadow hover:shadow-card"
+        style={{
+          backgroundImage: `url(${affiliateBannerBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "#eaf4fc",
+        }}
+      >
+        {/* left-to-right white gradient for text readability */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 35%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative flex flex-col items-start gap-5 px-6 py-8 sm:px-10 md:aspect-[1280/200] md:flex-row md:items-center md:justify-between md:gap-6 md:py-0">
+          <div className="max-w-xl text-left">
+            <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink sm:text-[26px] md:text-[28px]">
+              Love TradeIt? Get paid for sharing it.
+            </h3>
+            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:text-[15px]">
+              Recommend TradeIt to your network, and earn recurring commissions every month.
+            </p>
+          </div>
+          <span
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-[14px] font-semibold text-primary-foreground shadow-brand transition-all hover:brightness-110 md:w-auto md:shrink-0"
+          >
+            Become a Partner
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </a>
+    </section>
   );
 }
