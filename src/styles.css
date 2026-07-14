@@ -357,78 +357,94 @@
 /* ---------------------------------------------------------------- */
 .scroll-mouse {
   display: block;
-  width: 22px;
-  height: 34px;
-  border: 1.5px solid oklch(0.62 0.1 250 / 0.55);
+  width: 36px;
+  height: 60px;
+  border: 2px solid oklch(0.62 0.1 250 / 0.55);
   border-radius: 999px;
   position: relative;
   transition: border-color 0.2s ease;
 }
 @media (max-width: 767px) {
   .scroll-mouse {
-    width: 20px;
-    height: 30px;
+    width: 24px;
+    height: 40px;
+    border-width: 1.5px;
   }
 }
 .scroll-dot {
   position: absolute;
   left: 50%;
-  top: 6px;
-  width: 4.5px;
-  height: 4.5px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: var(--brand);
   transform: translateX(-50%);
   opacity: 0.9;
-  animation: scroll-dot-bounce 1.8s ease-in-out infinite;
+  animation: scroll-indicator-dot 1.8s ease-in-out infinite;
 }
 @media (max-width: 767px) {
   .scroll-dot {
-    width: 4px;
-    height: 4px;
-    top: 5px;
+    width: 5px;
+    height: 5px;
+    top: 6px;
+    animation: scroll-indicator-dot-mobile 1.8s ease-in-out infinite;
   }
 }
 .scroll-dot-static {
   animation: none;
-  top: 6px;
+  top: 10px;
   opacity: 0.75;
 }
-@keyframes scroll-dot-bounce {
-  0% {
+@media (max-width: 767px) {
+  .scroll-dot-static {
     top: 6px;
-    opacity: 0.9;
+  }
+}
+@keyframes scroll-indicator-dot {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.85;
   }
   70% {
-    top: 18px;
-    opacity: 0.45;
+    opacity: 0.4;
   }
   100% {
-    top: 6px;
-    opacity: 0.9;
+    transform: translateX(-50%) translateY(36px);
+    opacity: 0;
   }
 }
 @media (max-width: 767px) {
-  @keyframes scroll-dot-bounce {
+  @keyframes scroll-indicator-dot-mobile {
     0% {
-      top: 5px;
-      opacity: 0.9;
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    35% {
+      opacity: 0.85;
     }
     70% {
-      top: 15px;
-      opacity: 0.45;
+      opacity: 0.4;
     }
     100% {
-      top: 5px;
-      opacity: 0.9;
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
     }
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .scroll-dot {
     animation: none !important;
-    top: 6px;
+    top: 10px;
     opacity: 0.75;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
+  .scroll-dot {
+    top: 6px;
   }
 }
 

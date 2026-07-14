@@ -389,8 +389,12 @@ function Hero() {
       <div className="translate-y-[25px]">
         {/* Floating trade metric cards — positioned relative to the hero section */}
         <HeroFloatingCards />
+      </div>
 
-        <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
+      {/* First-viewport wrapper: scroll indicator sits at the bottom of the initial viewport */}
+      <div className="relative min-h-[100svh]">
+        <div className="translate-y-[25px]">
+          <div className="relative z-20 mx-auto max-w-7xl px-4 pb-56 pt-[84px] sm:px-6 sm:pt-[116px] lg:px-8 lg:pb-72">
         <div className={cn("relative z-30 mx-auto text-center", lang === "en" ? "max-w-3xl" : "max-w-4xl")}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-ink-soft shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
@@ -558,12 +562,12 @@ function Hero() {
             />
           </div>
         </div>
-
-        </div>
       </div>
+    </div>
 
-      {/* Scroll indicator — bottom center of hero */}
-      <ScrollIndicator targetId="features" />
+        {/* Scroll indicator — bottom center of first viewport */}
+        <ScrollIndicator targetId="features" />
+      </div>
     </section>
   );
 }
@@ -592,7 +596,8 @@ function ScrollIndicator({ targetId }: { targetId: string }) {
       type="button"
       onClick={handleClick}
       aria-label="Scroll to next section"
-      className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 cursor-pointer md:bottom-8"
+      className="absolute left-1/2 z-30 -translate-x-1/2 cursor-pointer"
+      style={{ top: "calc(100svh - 90px)" }}
     >
       <span className="scroll-mouse" aria-hidden="true">
         <span className={cn("scroll-dot", reducedMotion && "scroll-dot-static")} />
