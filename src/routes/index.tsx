@@ -348,7 +348,10 @@ function Hero() {
   useEffect(() => {
     if (!dropdownOpen) return;
     const onClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const inDesktop = dropdownRef.current?.contains(target);
+      const inMobile = dropdownRefMobile.current?.contains(target);
+      if (!inDesktop && !inMobile) {
         setDropdownOpen(false);
       }
     };
