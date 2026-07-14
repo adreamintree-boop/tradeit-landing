@@ -2321,21 +2321,27 @@ function Footer() {
           </a>
           <div className="flex items-center gap-3 md:gap-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/tradeitnow/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={t.footer.social.linkedin}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/people/Trade-it/100072312823472/#"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={t.footer.social.facebook}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
               <FacebookIcon className="h-4 w-4" />
             </a>
             <a
-              href="#"
+              href="https://www.youtube.com/@Trade.It.2026"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={t.footer.social.youtube}
               className="text-[#8a8f98] transition-colors hover:text-brand"
             >
