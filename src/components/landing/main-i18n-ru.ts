@@ -717,11 +717,11 @@ export const mainRu = {
 
         name: "Plus Plan",
 
-        price: "$20",
+        price: "$50",
 
         priceCaption: "/мес. (без VAT)",
 
-        credits: "3,000 кредитов/мес.",
+        credits: "7,500 кредитов/мес.",
 
         description: "Для индивидуальных менеджеров по внешним продажам",
 
@@ -745,11 +745,11 @@ export const mainRu = {
 
         name: "Pro Plan",
 
-        price: "$50",
+        price: "$100",
 
         priceCaption: "/мес. (без VAT)",
 
-        credits: "9,000 кредитов/мес.",
+        credits: "16,500 кредитов/мес.",
 
         description: "Для команд, которые масштабируют экспортные продажи",
 
@@ -771,11 +771,11 @@ export const mainRu = {
 
         name: "Premium Plan",
 
-        price: "$100",
+        price: "$200",
 
         priceCaption: "/мес. (без VAT)",
 
-        credits: "30,000 кредитов/мес.",
+        credits: "35,000 кредитов/мес.",
 
         description: "Для команд, которые системно ведут внешние продажи",
 
